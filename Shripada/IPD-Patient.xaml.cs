@@ -40,5 +40,64 @@ namespace Shripada
             this.Close();
         }
 
+        public String getSex()
+        {
+            String sex = "";
+            if (radioMale.IsChecked.Equals(true))
+            {
+                sex = radioMale.Content.ToString();
+            }
+
+            else if (radioFemale.IsChecked.Equals(true))
+            {
+                sex = radioFemale.Content.ToString();
+            }
+
+            else
+            {
+                sex = radioOther.Content.ToString();
+            }
+
+            return sex;
+        }
+
+        public String getMediclaim()
+        {
+            String mediclaim = "";
+            if (radioCashless.IsChecked.Equals(true))
+            {
+                mediclaim = radioCashless.Content.ToString();
+            }
+
+            else if (radioNone.IsChecked.Equals(true)
+            {
+                mediclaim = radioNone.Content.ToString();
+            }
+
+            else
+            {
+                mediclaim = radioReinburse.Content.ToString();
+            }
+
+            return mediclaim;
+        }
+
+        private void bttnSumbit_Click(object sender, RoutedEventArgs e)
+        {
+            string patientID = txtPatientID.Text;
+            string patientName = txtPatientName.Text;
+            string registerDate = dtRegisterDate.SelectedDate.ToString();
+            string address = txtAddress.Text;
+            string celNo = txtCelNo.Text;
+            int age = Convert.ToInt32(txtAge.Text);
+            string sex = getSex();
+            string mediclaim = getMediclaim();
+            int noOfVisit = 0;
+
+            Shripada.Code.Patient.addPatient();
+            
+
+        }
+
     }
 }

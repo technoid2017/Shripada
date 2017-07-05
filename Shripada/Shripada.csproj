@@ -66,6 +66,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Code\LoginCode.cs" />
+    <Compile Include="Code\Patient.cs" />
     <Compile Include="Code\utils.cs" />
     <Compile Include="ResetPassword.xaml.cs">
       <DependentUpon>ResetPassword.xaml</DependentUpon>

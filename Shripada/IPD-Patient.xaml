@@ -30,44 +30,70 @@
                 </TabItem>
                 <TabItem Header="Add Patient" HorizontalAlignment="Left" Name="tabItem1" VerticalAlignment="Top">
                     <Grid>
-                        <TextBox Height="40" HorizontalAlignment="Right" Name="textBox1" VerticalAlignment="Top" Width="200" Margin="0,135,673,0" Background="#FFCBD9D9" BorderBrush="#FF7F969D" />
+                        <TextBox Height="40" HorizontalAlignment="Right" Name="txtPatientID" VerticalAlignment="Top" Width="200" Margin="0,135,673,0" Background="#FFCBD9D9" BorderBrush="#FF7F969D" />
                         <Label Content="Patient ID" Height="40" HorizontalAlignment="Left" Margin="36,135,0,0" Name="label2" VerticalAlignment="Top" FontSize="20" />
                         <Label Content="Add Patient" FontFamily="Sitka Heading" FontSize="56" FontWeight="Bold" Foreground="#FF1D637C" Height="70" HorizontalAlignment="Center" Margin="357,15,370,782" Name="label3" Width="317" />
                         <Rectangle HorizontalAlignment="Center" Margin="284,15,313,775" Name="rectangle1" Stroke="#FF23A0A0" Width="447" />
-                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,703,673,0" Name="textBox2" VerticalAlignment="Top" Width="200" />
                         <Label Content="Sex" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="36,476,0,0" Name="label4" VerticalAlignment="Top" />
-                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,412,673,0" Name="textBox3" VerticalAlignment="Top" Width="200" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,412,673,0" Name="txtAge" VerticalAlignment="Top" Width="200" />
                         <Label Content="Age" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="36,412,0,0" Name="label5" VerticalAlignment="Top" />
-                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,351,673,0" Name="textBox4" VerticalAlignment="Top" Width="200" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,351,673,0" Name="txtCelNo" VerticalAlignment="Top" Width="200" />
                         <Label Content="Cell No" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="36,351,0,0" Name="label6" VerticalAlignment="Top" />
-                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="80" HorizontalAlignment="Right" Margin="0,255,523,0" Name="textBox5" VerticalAlignment="Top" Width="350" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="80" HorizontalAlignment="Right" Margin="0,255,523,0" Name="txtAddress" VerticalAlignment="Top" Width="350" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" />
                         <Label Content="Address" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="36,255,0,0" Name="label7" VerticalAlignment="Top" />
-                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,195,523,0" Name="textBox6" VerticalAlignment="Top" Width="350" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,195,523,0" Name="txtPatientName" VerticalAlignment="Top" Width="350" />
                         <Label Content="Patient Name" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="36,195,0,0" Name="label8" VerticalAlignment="Top" />
                         <Label Content="No of Visits" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="36,703,0,0" Name="label9" VerticalAlignment="Top" />
                         <Label Content="Date" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="680,127,0,0" Name="label10" VerticalAlignment="Top" />
-                        <RadioButton Content="Cashless" Height="40" HorizontalAlignment="Left" Margin="171,580,0,0" Name="radioButton1" VerticalAlignment="Top" FontSize="20" GroupName="Mediclaim" VerticalContentAlignment="Center" />
-                        <RadioButton Content="Reinburse" FontSize="20" GroupName="Mediclaim" Height="40" HorizontalAlignment="Left" Margin="171,626,0,0" Name="radioButton2" VerticalAlignment="Top" Checked="radioButton2_Checked" VerticalContentAlignment="Center" />
-                        <RadioButton Content="None" FontSize="20" GroupName="Mediclaim" Height="40" HorizontalAlignment="Left" Margin="171,541,0,0" Name="radioButton3" VerticalAlignment="Top" IsChecked="True" VerticalContentAlignment="Center" />
-                        <Label Content="Mediclaim" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="36,541,0,0" Name="label11" VerticalAlignment="Top" />
-                        <Border BorderBrush="#FF455F80" BorderThickness="2" Height="140" HorizontalAlignment="Left" Margin="36,541,0,0" Name="border1" VerticalAlignment="Top" Width="335" CornerRadius="1" />
-                        <RadioButton Content="Male" Height="40" HorizontalAlignment="Left" Margin="157,475,0,0" Name="radioButton4" VerticalAlignment="Top" GroupName="Sex" FontSize="20" VerticalContentAlignment="Center" />
-                        <RadioButton Content="Other" FontSize="20" GroupName="Sex" Height="40" HorizontalAlignment="Left" Margin="329,475,0,0" Name="radioButton5" VerticalAlignment="Top" VerticalContentAlignment="Center" />
-                        <RadioButton Content="Female" FontSize="20" GroupName="Sex" Height="40" HorizontalAlignment="Left" Margin="235,475,0,0" Name="radioButton6" VerticalAlignment="Top" IsChecked="True" VerticalContentAlignment="Center" />
-                        <DatePicker Height="40" HorizontalAlignment="Left" Margin="753,132,0,0" Name="datePicker1" VerticalAlignment="Top" Width="132" VerticalContentAlignment="Center" FontSize="20" />
-                        <Border BorderBrush="#FF455F80" BorderThickness="1" Height="77" HorizontalAlignment="Left" Margin="36,458,0,0" Name="border2" VerticalAlignment="Top" Width="378" />
-                        <Button Content="Submit" Height="40" HorizontalAlignment="Left" Margin="299,764,0,0" Name="button1" VerticalAlignment="Top" Width="100" FontSize="20" Background="#FFD19638" />
-                        <Button Content="Add Visit" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="662,764,0,0" Name="button2" VerticalAlignment="Top" Width="100" Background="#FFD19638" Click="button2_Click" />
-                        <Button Content="Delete" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="538,764,0,0" Name="button3" VerticalAlignment="Top" Width="100" Background="#FFD19638" />
-                        <Button Content="Cancel" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="421,764,0,0" Name="button4" VerticalAlignment="Top" Width="100" Background="#FFD19638" />
+                        <RadioButton Content="Cashless" Height="40" HorizontalAlignment="Left" Margin="171,597,0,0" Name="radioCashless" VerticalAlignment="Top" FontSize="20" GroupName="Mediclaim" VerticalContentAlignment="Center" />
+                        <RadioButton Content="Reinburse" FontSize="20" GroupName="Mediclaim" Height="40" HorizontalAlignment="Left" Margin="171,643,0,0" Name="radioReinburse" VerticalAlignment="Top" Checked="radioButton2_Checked" VerticalContentAlignment="Center" />
+                        <RadioButton Content="None" FontSize="20" GroupName="Mediclaim" Height="40" HorizontalAlignment="Left" Margin="171,558,0,0" Name="radioNone" VerticalAlignment="Top" IsChecked="True" VerticalContentAlignment="Center" />
+                        <Label Content="Mediclaim" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="36,558,0,0" Name="label11" VerticalAlignment="Top" />
+                        <Border BorderBrush="#FF455F80" BorderThickness="2" Height="140" HorizontalAlignment="Left" Margin="36,497,0,0" Name="border1" VerticalAlignment="Top" Width="335" CornerRadius="1" />
+                        <RadioButton Content="Male" Height="40" HorizontalAlignment="Left" Margin="157,475,0,0" Name="radioMale" VerticalAlignment="Top" GroupName="Sex" FontSize="20" VerticalContentAlignment="Center" />
+                        <RadioButton Content="Other" FontSize="20" GroupName="Sex" Height="40" HorizontalAlignment="Left" Margin="329,475,0,0" Name="radioOther" VerticalAlignment="Top" VerticalContentAlignment="Center" />
+                        <RadioButton Content="Female" FontSize="20" GroupName="Sex" Height="40" HorizontalAlignment="Left" Margin="235,475,0,0" Name="radioFemale" VerticalAlignment="Top" IsChecked="True" VerticalContentAlignment="Center" />
+                        <DatePicker Height="40" HorizontalAlignment="Left" Margin="753,132,0,0" Name="dtRegisterDate" VerticalAlignment="Top" Width="132" VerticalContentAlignment="Center" FontSize="20" />
+                        <Border BorderBrush="#FF455F80" BorderThickness="1" Height="77" HorizontalAlignment="Left" Margin="284,458,0,0" Name="border2" VerticalAlignment="Top" Width="378" />
+                        <Button Content="Submit" Height="40" HorizontalAlignment="Left" Margin="299,764,0,0" Name="bttnSumbit" VerticalAlignment="Top" Width="100" FontSize="20" Background="#FFD19638" Click="bttnSumbit_Click" />
+                        <Button Content="Add Visit" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="539,764,0,0" Name="bttnAddVisit" VerticalAlignment="Top" Width="100" Background="#FFD19638" Click="button2_Click" />
+                        <Button Content="Cancel" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="421,764,0,0" Name="bttnCancel" VerticalAlignment="Top" Width="100" Background="#FFD19638" />
+                        <Label Content="0" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="171,703,0,0" Name="labelNoOfVisit" VerticalAlignment="Top" Width="33" />
                     </Grid>
                 </TabItem>
                 <TabItem Header="View Patient" HorizontalAlignment="Left" Name="tabItem2" VerticalAlignment="Top">
                     <Grid>
-                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,187,391,0" Name="textBox7" VerticalAlignment="Top" Width="200" />
                         <Rectangle HorizontalAlignment="Center" Margin="292,6,305,783" Name="rectangle3" Stroke="#FF23A0A0" Width="447" />
                         <Label Content="View Patient" FontFamily="Sitka Heading" FontSize="56" FontWeight="Bold" Foreground="#FF1D637C" Height="70" HorizontalAlignment="Center" Margin="353,7,374,790" Name="label12" Width="317" />
-                        <Label Content="Select Report" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="195,187,0,0" Name="label13" VerticalAlignment="Top" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,141,604,0" Name="textBox7" VerticalAlignment="Top" Width="200" />
+                        <Label Content="Patient ID" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="105,141,0,0" Name="label13" VerticalAlignment="Top" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,709,604,0" Name="textBox8" VerticalAlignment="Top" Width="200" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,418,604,0" Name="textBox9" VerticalAlignment="Top" Width="200" />
+                        <Label Content="Age" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="105,418,0,0" Name="label14" VerticalAlignment="Top" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,357,604,0" Name="textBox10" VerticalAlignment="Top" Width="200" />
+                        <Label Content="Cell No" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="105,357,0,0" Name="label15" VerticalAlignment="Top" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="80" HorizontalAlignment="Right" Margin="0,261,454,0" Name="textBox11" TextWrapping="Wrap" VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" Width="350" />
+                        <Label Content="Address" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="105,261,0,0" Name="label16" VerticalAlignment="Top" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,201,454,0" Name="textBox12" VerticalAlignment="Top" Width="350" />
+                        <Label Content="Patient Name" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="105,201,0,0" Name="label17" VerticalAlignment="Top" />
+                        <Label Content="No of Visits" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="105,709,0,0" Name="label18" VerticalAlignment="Top" />
+                        <Label Content="Date" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="749,133,0,0" Name="label19" VerticalAlignment="Top" />
+                        <Border BorderBrush="#FF455F80" BorderThickness="2" CornerRadius="1" Height="140" HorizontalAlignment="Left" Margin="105,548,0,0" Name="border3" VerticalAlignment="Top" Width="335" />
+                        <DatePicker FontSize="20" Height="40" HorizontalAlignment="Left" Margin="822,138,0,0" Name="datePicker2" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="132" />
+                        <Border BorderBrush="#FF455F80" BorderThickness="1" Height="77" HorizontalAlignment="Left" Margin="105,464,0,0" Name="border4" VerticalAlignment="Top" Width="391" />
+                        <Button Background="#FFD19638" Content="Save" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="267,772,0,0" Name="button5" VerticalAlignment="Top" Width="100" />
+                        <Button Background="#FFD19638" Content="View All Visits" FontSize="20" Height="40" Margin="660,772,0,0" Name="button6" VerticalAlignment="Top" HorizontalAlignment="Left" Width="140" />
+                        <Button Background="#FFD19638" Content="Edit Current Visit" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="479,772,0,0" Name="button7" VerticalAlignment="Top" Width="175" />
+                        <Button Background="#FFD19638" Content="Delete" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="373,772,0,0" Name="button8" VerticalAlignment="Top" Width="100" />
+                        <Label Content="Sex" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="119,479,0,0" Name="label20" VerticalAlignment="Top" />
+                        <RadioButton Content="Male" FontSize="20" GroupName="Sex" Height="40" HorizontalAlignment="Left" Margin="240,478,0,0" Name="radioButton7" VerticalAlignment="Top" VerticalContentAlignment="Center" />
+                        <RadioButton Content="Other" FontSize="20" GroupName="Sex" Height="40" HorizontalAlignment="Left" Margin="412,478,0,0" Name="radioButton8" VerticalAlignment="Top" VerticalContentAlignment="Center" />
+                        <RadioButton Content="Female" FontSize="20" GroupName="Sex" Height="40" HorizontalAlignment="Left" IsChecked="True" Margin="318,478,0,0" Name="radioButton9" VerticalAlignment="Top" VerticalContentAlignment="Center" />
+                        <RadioButton Content="Cashless" FontSize="20" GroupName="Mediclaim" Height="40" HorizontalAlignment="Left" Margin="240,602,0,0" Name="radioButton10" VerticalAlignment="Top" VerticalContentAlignment="Center" />
+                        <RadioButton Content="Reinburse" FontSize="20" GroupName="Mediclaim" Height="40" HorizontalAlignment="Left" Margin="240,648,0,0" Name="radioButton11" VerticalAlignment="Top" VerticalContentAlignment="Center" />
+                        <RadioButton Content="None" FontSize="20" GroupName="Mediclaim" Height="40" HorizontalAlignment="Left" IsChecked="True" Margin="240,563,0,0" Name="radioButton12" VerticalAlignment="Top" VerticalContentAlignment="Center" />
+                        <Label Content="Mediclaim" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="105,563,0,0" Name="label21" VerticalAlignment="Top" />
+                        <Button Background="#FFD19638" Content="Edit Details" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="823,191,0,0" Name="button9" VerticalAlignment="Top" Width="131" />
                     </Grid>
                 </TabItem>
             </TabControl>
