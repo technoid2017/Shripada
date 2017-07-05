@@ -1,0 +1,3 @@
+Background color for tab: FFCBD9D9
+Background colour for button : FFD19638
+Border colour: FF455F80

@@ -1,0 +1,45 @@
+﻿<Window x:Class="Shripada.Dashboard"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Dashboard" Height="800" Width="1050" WindowStartupLocation="Manual" WindowState="Normal" ResizeMode="CanMinimize">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid VerticalAlignment="Stretch" Height="800">
+            <Grid.Background>
+                <ImageBrush ImageSource="/Images/images.jpg" Stretch="Fill"/>
+            </Grid.Background>
+            <Button Height="300" HorizontalAlignment="Left" Margin="32,98,0,0" Name="bttnIPD" VerticalAlignment="Top" Width="300" Click="bttnIPD_Click">
+                <StackPanel Height="278">
+                    <Image Source="/Images/IPD1.jpg" Height="244"  />
+                    <TextBlock TextAlignment="Center" Foreground="#FF651717" FontWeight="Bold" FontSize="24">IPD Section</TextBlock>
+                </StackPanel>
+            </Button>
+            <Button Height="300" HorizontalAlignment="Left" Margin="356,409,0,0" Name="bttnSetting" VerticalAlignment="Top" Width="300" Click="bttnSetting_Click">
+                <StackPanel Height="270">
+                    <Image Height="224" Source="/Images/Settings1.jpg" />
+                    <TextBlock FontSize="24" FontWeight="Bold" Foreground="#FF651717" TextAlignment="Center">Settings</TextBlock>
+                </StackPanel>
+            </Button>
+            <Button Height="300" HorizontalAlignment="Left" Margin="356,98,0,0" Name="bttnStock" VerticalAlignment="Top" Width="300">
+                <StackPanel Height="264">
+                    <Image Height="224" Source="/Images/stock1.jpg" />
+                    <TextBlock FontSize="24" FontWeight="Bold" Foreground="#FF651717" TextAlignment="Center">Stock Management</TextBlock>
+                </StackPanel>
+            </Button>
+            <Button Height="300" HorizontalAlignment="Left" Margin="30,408,0,0" Name="button3" VerticalAlignment="Top" Width="300" Click="button3_Click">
+                <StackPanel Height="278">
+                    <Image Height="228" Source="/Images/med4.jpg" />
+                    <TextBlock FontSize="24" FontWeight="Bold" Foreground="#FF651717" TextAlignment="Center">Remainder</TextBlock>
+                </StackPanel>
+            </Button>
+            <Label Content="Shripada Maternity &amp; Nursing Home" Height="68" HorizontalAlignment="Center" Margin="259,10,135,0" Name="label1" VerticalAlignment="Top" Width="617" FontSize="32" Foreground="#FF6C1515" FontWeight="Bold" FontStyle="Italic" />
+            <Label Content="Welcome Shree " Height="39" HorizontalAlignment="Left" Margin="32,53,0,0" Name="label2" VerticalAlignment="Top" Width="135" Foreground="#FF6C1515" FontSize="18" />
+            <Label Height="30" HorizontalAlignment="Right" Margin="0,62,18,0" Name="labelCurrentDate" VerticalAlignment="Top" Width="151" FontSize="18" Foreground="#FF6C1515" />
+            <Label Content="copyrights@Technoid IT Solutions" FontSize="24" FontStyle="Italic" FontWeight="Normal" Foreground="#FF194E0F" Name="label4" Margin="25,709,522,335" />
+            <Image Height="658" HorizontalAlignment="Right" Margin="0,98,0,0" Name="image1" Stretch="Fill" VerticalAlignment="Top" Width="347" Source="/Shripada;component/Images/sai.jpg" />
+            <Label FontSize="18" Foreground="#FF6C1515" Height="39" HorizontalAlignment="Left" Margin="173,53,0,0" Name="labelUserName" VerticalAlignment="Top" Width="135" />
+            <Border BorderBrush="#FF455F80" BorderThickness="2" Height="82" HorizontalAlignment="Left" Margin="32,10,0,0" Name="border1" VerticalAlignment="Top" Width="979"></Border>
+            <Label Content="copyrights@Technoid IT Services" FontSize="28" FontStyle="Italic" FontWeight="Bold" Foreground="#FF165F19" Height="68" HorizontalAlignment="Center" Margin="30,709,364,0" Name="label3" VerticalAlignment="Top" Width="617" />
+            <Border BorderBrush="#FF455F80" BorderThickness="2" Name="border2" Margin="30,709,357,44" />
+        </Grid>
+    </ScrollViewer>
+</Window>

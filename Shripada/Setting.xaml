@@ -1,0 +1,100 @@
+﻿<Window x:Class="Shripada.Setting"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Setting" Height="900" Width="1050" WindowState="Maximized" WindowStyle="ThreeDBorderWindow" WindowStartupLocation="Manual">
+    <ScrollViewer VerticalScrollBarVisibility="Visible">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="137*" />
+                <RowDefinition Height="763*" />
+                <RowDefinition Height="0*" />
+                <RowDefinition Height="0*" />
+            </Grid.RowDefinitions>
+            <Grid.Background>
+                <ImageBrush ImageSource="/Images/blue.jpg" Stretch="UniformToFill"/>
+            </Grid.Background>
+            <TabControl Height="900" Width="1034" HorizontalAlignment="Center" Name="tabSettings" VerticalAlignment="Stretch" FontSize="16" Background="#FFCDD5D5" VerticalContentAlignment="Stretch" Margin="-3,0,-20,0">
+                <TabItem Header="Doctors" HorizontalAlignment="Left" Name="tabItem2" VerticalAlignment="Top">
+                    <Grid>
+                        <Label Content="Doctors" FontFamily="Sitka Heading" FontSize="56" FontWeight="Bold" Foreground="#FF1D637C" Height="70" HorizontalAlignment="Center" Margin="403,15,425,782" Name="label1" Width="216" />
+                        <Rectangle HorizontalAlignment="Center" Margin="364,15,385,770" Name="rectangle5" Stroke="#FF23A0A0" Width="279" />
+                        <TextBox Background="#FFCBD9D9" FontSize="18" Height="40" Margin="332,146,369,681" Name="txtSearchByName" Text="Enter Doctor Name Here" Width="343"  />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="422,257,272,570" Name="textBox25" Width="350" />
+                        <Label Content="Doctor Name" FontSize="20" Height="40" Margin="287,257,628,570" Name="label35" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="423,320,271,507" Name="textBox1" Width="350" />
+                        <Label Content="Specialization" FontSize="20" Height="40" Margin="288,320,627,507" Name="label2" />
+                        <Button Background="#FFD19638" Content="Submit" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="315,435,0,0" Name="button1" VerticalAlignment="Top" Width="100" />
+                        <Button Background="#FFD19638" Content="Update" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="527,435,0,0" Name="button3" VerticalAlignment="Top" Width="100" />
+                        <Button Background="#FFD19638" Content="Cancel" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="421,435,0,0" Name="button4" VerticalAlignment="Top" Width="100" />
+                        <Button Background="#FFD19638" Content="Delete" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="633,435,0,0" Name="button2" VerticalAlignment="Top" Width="100" />
+                        <Button Height="40" Margin="667,146,311,681" Name="button17" />
+                        <Image Height="30" Margin="681,146,317,691" Source="/Images/search1.jpg" Width="30" />
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Ward Details" HorizontalAlignment="Left" Name="tabItem3" VerticalAlignment="Top">
+                    <Grid>
+                        <Label Content="Ward Details" FontFamily="Sitka Heading" FontSize="56" FontWeight="Bold" Foreground="#FF1D637C" Height="70" HorizontalAlignment="Center" Margin="378,17,338,780" Name="label6" Width="328" />
+                        <Rectangle HorizontalAlignment="Center" Margin="332,17,295,765" Name="rectangle2" Stroke="#FF23A0A0" Width="401" />
+                        <Button Height="40" Margin="683,146,295,681" Name="button10"></Button>
+                        <TextBox Background="#FFCBD9D9" FontSize="18" Height="40" Margin="332,146,369,681" Name="textBox5" Text="Enter Ward Name Here" Width="343" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="422,257,272,570" Name="textBox6" Width="350" />
+                        <Label Content="Ward Name" FontSize="20" Height="40" Margin="287,257,628,570" Name="label7" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="423,320,417,507" Name="textBox7" />
+                        <Label Content="Amount" FontSize="20" Height="40" Margin="288,320,627,507" Name="label8" />
+                        <Button Background="#FFD19638" Content="Submit" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="315,435,0,0" Name="button11" VerticalAlignment="Top" Width="100" />
+                        <Button Background="#FFD19638" Content="Update" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="527,435,0,0" Name="button12" VerticalAlignment="Top" Width="100" />
+                        <Button Background="#FFD19638" Content="Cancel" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="421,435,0,0" Name="button13" VerticalAlignment="Top" Width="100" />
+                        <Button Background="#FFD19638" Content="Delete" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="633,435,0,0" Name="button14" VerticalAlignment="Top" Width="100" />
+                        <StackPanel Height="30" Width="42" Margin="691,146,295,691">
+                            <Image Height="30" Source="/Images/search1.jpg" Width="30" />
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Services" HorizontalAlignment="Left" Name="tabItem4" VerticalAlignment="Top">
+                    <Grid>
+                        <Label Content="Services" FontFamily="Sitka Heading" FontSize="56" FontWeight="Bold" Foreground="#FF1D637C" Height="70" HorizontalAlignment="Center" Margin="403,15,425,782" Name="label3" Width="216" />
+                        <Rectangle HorizontalAlignment="Center" Margin="360,15,384,769" Name="rectangle1" Stroke="#FF23A0A0" Width="284" />
+                        <TextBox Background="#FFCBD9D9" FontSize="18" Height="40" Margin="332,146,369,681" Name="textBox2" Text="Enter Service Name Here" Width="343" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="422,257,272,570" Name="textBox3" Width="350" />
+                        <Label Content="Service Name" FontSize="20" Height="40" Margin="287,257,628,570" Name="label4" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="423,320,417,507" Name="textBox4" />
+                        <Label Content="Amount" FontSize="20" Height="40" Margin="288,320,627,507" Name="label5" />
+                        <Button Background="#FFD19638" Content="Submit" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="315,435,0,0" Name="button6" VerticalAlignment="Top" Width="100" />
+                        <Button Background="#FFD19638" Content="Update" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="527,435,0,0" Name="button7" VerticalAlignment="Top" Width="100" />
+                        <Button Background="#FFD19638" Content="Cancel" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="421,435,0,0" Name="button8" VerticalAlignment="Top" Width="100" />
+                        <Button Background="#FFD19638" Content="Delete" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="633,435,0,0" Name="button9" VerticalAlignment="Top" Width="100" />
+                        <Button Height="40" Margin="689,146,289,681" Name="button19" />
+                        <Image Height="30" Margin="703,146,295,691" Source="/Images/search1.jpg" Width="30" />
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Add User" HorizontalAlignment="Left" Name="tabItem1" VerticalAlignment="Top">
+                    <Grid>
+                        <Label Content="Add User" FontFamily="Sitka Heading" FontSize="56" FontWeight="Bold" Foreground="#FF1D637C" Height="70" HorizontalAlignment="Center" Margin="423,13,367,784" Name="label9" Width="238" />
+                        <Rectangle HorizontalAlignment="Center" Margin="403,13,353,770" Name="rectangle3" Stroke="#FF23A0A0" Width="272" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="0,159,308,668" Name="textBox9" Width="239" HorizontalAlignment="Right" />
+                        <Label Content="User Name" FontSize="20" Height="40" Margin="345,159,0,668" Name="label10" HorizontalAlignment="Left" Width="113" />
+                        <Label Content="Password" FontSize="20" Height="40" Margin="346,222,569,605" Name="label11" />
+                        <Button Background="#FFD19638" Content="Submit" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="456,378,0,0" Name="button16" VerticalAlignment="Top" Width="100" />
+                        <Button Background="#FFD19638" Content="Cancel" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="562,378,0,0" Name="button18" VerticalAlignment="Top" Width="100" />
+                        <Label Content="Confirm Password" FontSize="20" Height="40" Margin="285,290,570,537" Name="label12" />
+                        <PasswordBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Left" Margin="481,290,0,0" Name="passwordBox2" SelectionBrush="#FF3399FF" VerticalAlignment="Top" Width="238" />
+                        <PasswordBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Left" Margin="482,222,0,0" Name="passwordBox3" SelectionBrush="#FF3399FF" VerticalAlignment="Top" Width="238" />
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Reset Password">
+                    <Grid>
+                        <Label Content="Reset Password" FontFamily="Sitka Heading" FontSize="56" FontWeight="Bold" Foreground="#FF1D637C" Height="70" HorizontalAlignment="Center" Margin="346,13,276,784" Name="label13" Width="406" />
+                        <Rectangle HorizontalAlignment="Center" Margin="327,13,276,770" Name="rectangle4" Stroke="#FF23A0A0" Width="425" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,159,308,668" Name="textBox11" Width="239" />
+                        <Label Content="User Name" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="345,159,0,668" Name="label14" Width="113" />
+                        <Label Content="Old Password" FontSize="20" Height="40" Margin="327,222,569,605" Name="label15" />
+                        <Button Background="#FFD19638" Content="Reset" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="481,304,0,0" Name="button15" VerticalAlignment="Top" Width="100" Click="button15_Click" />
+                        <PasswordBox Height="40" HorizontalAlignment="Left" Margin="481,222,0,0" Name="passwordBox1" VerticalAlignment="Top" Width="238" SelectionBrush="#FF3399FF" Background="#FFCBD9D9" BorderBrush="#FF7F969D" />
+                    </Grid>
+                </TabItem>
+            </TabControl>
+
+
+        </Grid>
+    </ScrollViewer>
+</Window>
