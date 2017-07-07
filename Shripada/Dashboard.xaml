@@ -1,9 +1,9 @@
 ﻿<Window x:Class="Shripada.Dashboard"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Dashboard" Height="800" Width="1050" WindowStartupLocation="Manual" WindowState="Normal" ResizeMode="CanMinimize">
+        Title="Dashboard" Height="800" Width="1050" WindowStartupLocation="CenterOwner" WindowState="Normal" ResizeMode="CanMinimize" VerticalAlignment="Top" HorizontalAlignment="Center">
     <ScrollViewer VerticalScrollBarVisibility="Auto">
-        <Grid VerticalAlignment="Stretch" Height="800">
+        <Grid VerticalAlignment="Top" Height="800">
             <Grid.Background>
                 <ImageBrush ImageSource="/Images/images.jpg" Stretch="Fill"/>
             </Grid.Background>

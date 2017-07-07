@@ -33,3 +33,4 @@ F:\Technoid\Shripada\Shripada\obj\x86\Debug\Setting.baml
 F:\Technoid\Shripada\Shripada\obj\x86\Debug\ResetPassword.g.cs
 F:\Technoid\Shripada\Shripada\obj\x86\Debug\Setting.g.cs
 F:\Technoid\Shripada\Shripada\bin\Debug\Shripada.exe.config
+F:\Technoid\Shripada\Shripada\obj\x86\Debug\Shripada.csprojResolveAssemblyReference.cache

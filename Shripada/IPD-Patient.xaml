@@ -49,16 +49,17 @@
                         <RadioButton Content="Reinburse" FontSize="20" GroupName="Mediclaim" Height="40" HorizontalAlignment="Left" Margin="171,643,0,0" Name="radioReinburse" VerticalAlignment="Top" Checked="radioButton2_Checked" VerticalContentAlignment="Center" />
                         <RadioButton Content="None" FontSize="20" GroupName="Mediclaim" Height="40" HorizontalAlignment="Left" Margin="171,558,0,0" Name="radioNone" VerticalAlignment="Top" IsChecked="True" VerticalContentAlignment="Center" />
                         <Label Content="Mediclaim" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="36,558,0,0" Name="label11" VerticalAlignment="Top" />
-                        <Border BorderBrush="#FF455F80" BorderThickness="2" Height="140" HorizontalAlignment="Left" Margin="36,497,0,0" Name="border1" VerticalAlignment="Top" Width="335" CornerRadius="1" />
+                        <Border BorderBrush="#FF455F80" BorderThickness="2" Height="140" HorizontalAlignment="Left" Margin="36,543,0,0" Name="border1" VerticalAlignment="Top" Width="335" CornerRadius="1" />
                         <RadioButton Content="Male" Height="40" HorizontalAlignment="Left" Margin="157,475,0,0" Name="radioMale" VerticalAlignment="Top" GroupName="Sex" FontSize="20" VerticalContentAlignment="Center" />
                         <RadioButton Content="Other" FontSize="20" GroupName="Sex" Height="40" HorizontalAlignment="Left" Margin="329,475,0,0" Name="radioOther" VerticalAlignment="Top" VerticalContentAlignment="Center" />
                         <RadioButton Content="Female" FontSize="20" GroupName="Sex" Height="40" HorizontalAlignment="Left" Margin="235,475,0,0" Name="radioFemale" VerticalAlignment="Top" IsChecked="True" VerticalContentAlignment="Center" />
                         <DatePicker Height="40" HorizontalAlignment="Left" Margin="753,132,0,0" Name="dtRegisterDate" VerticalAlignment="Top" Width="132" VerticalContentAlignment="Center" FontSize="20" />
-                        <Border BorderBrush="#FF455F80" BorderThickness="1" Height="77" HorizontalAlignment="Left" Margin="284,458,0,0" Name="border2" VerticalAlignment="Top" Width="378" />
+                        <Border BorderBrush="#FF455F80" BorderThickness="1" Height="77" HorizontalAlignment="Left" Margin="36,458,0,0" Name="border2" VerticalAlignment="Top" Width="378" />
                         <Button Content="Submit" Height="40" HorizontalAlignment="Left" Margin="299,764,0,0" Name="bttnSumbit" VerticalAlignment="Top" Width="100" FontSize="20" Background="#FFD19638" Click="bttnSumbit_Click" />
                         <Button Content="Add Visit" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="539,764,0,0" Name="bttnAddVisit" VerticalAlignment="Top" Width="100" Background="#FFD19638" Click="button2_Click" />
                         <Button Content="Cancel" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="421,764,0,0" Name="bttnCancel" VerticalAlignment="Top" Width="100" Background="#FFD19638" />
                         <Label Content="0" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="171,703,0,0" Name="labelNoOfVisit" VerticalAlignment="Top" Width="33" />
+                        <Button Background="#FFD19638" Content="Add New" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="753,185,0,0" Name="bttnAddNew" VerticalAlignment="Top" Width="100" Visibility="Hidden" Click="bttnAddNew_Click" />
                     </Grid>
                 </TabItem>
                 <TabItem Header="View Patient" HorizontalAlignment="Left" Name="tabItem2" VerticalAlignment="Top">

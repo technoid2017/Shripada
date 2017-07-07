@@ -21,6 +21,7 @@ namespace Shripada
         public IPD_Patient()
         {
             InitializeComponent();
+            txtPatientID.Text = Shripada.Code.Patient.generatePatientID();
         }
 
         private void bbtnSearchByID_Click(object sender, RoutedEventArgs e)
@@ -69,7 +70,7 @@ namespace Shripada
                 mediclaim = radioCashless.Content.ToString();
             }
 
-            else if (radioNone.IsChecked.Equals(true)
+            else if (radioNone.IsChecked.Equals(true))
             {
                 mediclaim = radioNone.Content.ToString();
             }
@@ -82,6 +83,27 @@ namespace Shripada
             return mediclaim;
         }
 
+
+        public void pageRefresh()
+        {
+            txtAddress.Text = "";
+            txtAge.Text = "";
+            txtCelNo.Text = "";
+            txtPatientID.Text = "";
+            txtPatientName.Text = "";
+            dtRegisterDate.SelectedDate = DateTime.Now;
+            radioFemale.IsChecked = false;
+            radioMale.IsChecked = false;
+            radioOther.IsChecked = false;
+            radioReinburse.IsChecked = false;
+            radioNone.IsChecked = false;
+            radioCashless.IsChecked = false;
+
+
+                    
+        }
+
+        
         private void bttnSumbit_Click(object sender, RoutedEventArgs e)
         {
             string patientID = txtPatientID.Text;
@@ -94,9 +116,16 @@ namespace Shripada
             string mediclaim = getMediclaim();
             int noOfVisit = 0;
 
-            Shripada.Code.Patient.addPatient();
-            
+            Shripada.Code.Patient.addPatient(patientID, patientName, registerDate, address, celNo, age, sex, mediclaim, noOfVisit);
+            bttnAddNew.Visibility = Visibility.Visible;
 
+        }
+
+        private void bttnAddNew_Click(object sender, RoutedEventArgs e)
+        {
+            pageRefresh();
+            txtPatientID.Text = Shripada.Code.Patient.generatePatientID();
+            bttnAddNew.Visibility = Visibility.Hidden;
         }
 
     }

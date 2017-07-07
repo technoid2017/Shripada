@@ -12,7 +12,8 @@ namespace Shripada.Code
 
         public static int generateSrNo(String tableName)
         {
-
+            int srNo = 0;
+            return srNo;
         }
     }
 }
