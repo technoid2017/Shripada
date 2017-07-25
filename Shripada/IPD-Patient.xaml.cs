@@ -22,6 +22,14 @@ namespace Shripada
         {
             InitializeComponent();
             txtPatientID.Text = Shripada.Code.Patient.generatePatientID();
+            dtRegisterDate.SelectedDate = DateTime.Now;
+
+
+        }
+
+       private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
         }
 
         private void bbtnSearchByID_Click(object sender, RoutedEventArgs e)
@@ -36,6 +44,7 @@ namespace Shripada
 
         private void button2_Click(object sender, RoutedEventArgs e)
         {
+            Shripada.Code.Patient.addVisitNumber(txtPatientID.Text);
             Window w = new IPD_View();
             w.Show();
             this.Close();
@@ -84,7 +93,7 @@ namespace Shripada
         }
 
 
-        public void pageRefresh()
+        public void pageAddPatientRefresh()
         {
             txtAddress.Text = "";
             txtAge.Text = "";
@@ -118,15 +127,24 @@ namespace Shripada
 
             Shripada.Code.Patient.addPatient(patientID, patientName, registerDate, address, celNo, age, sex, mediclaim, noOfVisit);
             bttnAddNew.Visibility = Visibility.Visible;
+            bttnAddVisit.IsEnabled = true;
+            bttnSumbit.IsEnabled = false;
+            bttnCancel.IsEnabled = false;
 
         }
 
         private void bttnAddNew_Click(object sender, RoutedEventArgs e)
         {
-            pageRefresh();
+            pageAddPatientRefresh();
             txtPatientID.Text = Shripada.Code.Patient.generatePatientID();
             bttnAddNew.Visibility = Visibility.Hidden;
         }
+
+        private void bttnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            pageAddPatientRefresh();
+        }
+
 
     }
 }

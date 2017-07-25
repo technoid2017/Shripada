@@ -13,24 +13,24 @@ F:\Technoid\Shripada\Shripada\obj\x86\Debug\Dashboard.baml
 F:\Technoid\Shripada\Shripada\obj\x86\Debug\IPD-Patient.baml
 F:\Technoid\Shripada\Shripada\obj\x86\Debug\IPD_Visit.baml
 F:\Technoid\Shripada\Shripada\obj\x86\Debug\MainWindow.baml
+F:\Technoid\Shripada\Shripada\obj\x86\Debug\ResetPassword.baml
+F:\Technoid\Shripada\Shripada\obj\x86\Debug\Setting.baml
 F:\Technoid\Shripada\Shripada\obj\x86\Debug\Dashboard.g.cs
 F:\Technoid\Shripada\Shripada\obj\x86\Debug\IPD-Patient.g.cs
 F:\Technoid\Shripada\Shripada\obj\x86\Debug\IPD_Visit.g.cs
 F:\Technoid\Shripada\Shripada\obj\x86\Debug\MainWindow.g.cs
+F:\Technoid\Shripada\Shripada\obj\x86\Debug\ResetPassword.g.cs
+F:\Technoid\Shripada\Shripada\obj\x86\Debug\Setting.g.cs
 F:\Technoid\Shripada\Shripada\obj\x86\Debug\App.g.cs
 F:\Technoid\Shripada\Shripada\obj\x86\Debug\Shripada_MarkupCompile.cache
 F:\Technoid\Shripada\Shripada\obj\x86\Debug\Shripada.g.resources
 F:\Technoid\Shripada\Shripada\obj\x86\Debug\Shripada.Properties.Resources.resources
 F:\Technoid\Shripada\Shripada\obj\x86\Debug\Shripada.csproj.GenerateResource.Cache
+F:\Technoid\Shripada\Shripada\bin\Debug\Shripada.exe.config
 F:\Technoid\Shripada\Shripada\bin\Debug\Shripada.exe
 F:\Technoid\Shripada\Shripada\bin\Debug\Shripada.pdb
 F:\Technoid\Shripada\Shripada\bin\Debug\Gallaxy Hospital.exe
 F:\Technoid\Shripada\Shripada\bin\Debug\Gallaxy Hospital.pdb
 F:\Technoid\Shripada\Shripada\obj\x86\Debug\Shripada.exe
 F:\Technoid\Shripada\Shripada\obj\x86\Debug\Shripada.pdb
-F:\Technoid\Shripada\Shripada\obj\x86\Debug\ResetPassword.baml
-F:\Technoid\Shripada\Shripada\obj\x86\Debug\Setting.baml
-F:\Technoid\Shripada\Shripada\obj\x86\Debug\ResetPassword.g.cs
-F:\Technoid\Shripada\Shripada\obj\x86\Debug\Setting.g.cs
-F:\Technoid\Shripada\Shripada\bin\Debug\Shripada.exe.config
 F:\Technoid\Shripada\Shripada\obj\x86\Debug\Shripada.csprojResolveAssemblyReference.cache

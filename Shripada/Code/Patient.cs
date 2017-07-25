@@ -25,17 +25,11 @@ namespace Shripada.Code
 
                     String id = cmd.ExecuteScalar().ToString();
 
-                    //String id1 = cmd.ExecuteScalar().ToString();
-
-
                     newSrNo = Convert.ToInt32(id) + 1;
-                   // System.Windows.Forms.MessageBox.Show(srNo.ToString());
                     DateTime current = DateTime.Now;
                     String year = current.Year.ToString();
-                   // System.Windows.Forms.MessageBox.Show(year);
                     patientID = newSrNo.ToString() + '/' + year;
-                   // System.Windows.Forms.MessageBox.Show(patientID);
-
+                   
                 }
             }
             catch (Exception e)
@@ -52,7 +46,7 @@ namespace Shripada.Code
             {
                 using (SqlConnection con = new SqlConnection(utils.cons))
                 {
-                    SqlCommand cmd = new SqlCommand("insert into dbo.Patients (patientID,patientName, address, celnumber, age, sex, mediclaim, dateOfRegister, noOfVisits, isDischarged, srNo) values (@patientID, @patientName, @address, @celNo, @age, @sex, @mediclaim, @registerDate, @noOfVisit, 0, @srNo)", con);
+                    SqlCommand cmd = new SqlCommand("insert into dbo.Patients (patientID,patientName, address, celnumber, age, sex, mediclaim, dateOfRegister, noOfVisits, currentStatus, srNo) values (@patientID, @patientName, @address, @celNo, @age, @sex, @mediclaim, @registerDate, @noOfVisit, @currentStatus, @srNo)", con);
                    
                     cmd.Parameters.AddWithValue("@patientID", patientID);
                     cmd.Parameters.AddWithValue("@patientName", patientName);
@@ -63,6 +57,7 @@ namespace Shripada.Code
                     cmd.Parameters.AddWithValue("@mediclaim", mediclaim);
                     cmd.Parameters.AddWithValue("@registerDate", registerDate);
                     cmd.Parameters.AddWithValue("@noOfVisit", noOfVisit);
+                    cmd.Parameters.AddWithValue("@currentStatus", "Registered");
                     cmd.Parameters.AddWithValue("@srNo", newSrNo);
                     con.Open();
                     int i = cmd.ExecuteNonQuery();
@@ -79,6 +74,56 @@ namespace Shripada.Code
             {
                 System.Windows.Forms.MessageBox.Show(e.ToString());
             }
+            
+        }
+
+        public static void addVisitNumber(String patientID)
+        {
+            int visitNumber = 0;
+            System.Windows.MessageBox.Show(patientID);
+            try
+            {
+                using (SqlConnection con = new SqlConnection(utils.cons))
+                {
+                    SqlCommand cmd = new SqlCommand("select noOfVisits from Patients where patientID = @patientID", con);
+                    cmd.Parameters.AddWithValue("@patientID", patientID);
+
+                    con.Open();
+
+                    String oldValue = cmd.ExecuteScalar().ToString();
+
+                    visitNumber = Convert.ToInt32(oldValue) + 1;
+                    System.Windows.MessageBox.Show(visitNumber.ToString());
+                    con.Close();
+
+                    SqlCommand cmd2 = new SqlCommand("update Patients set noOfVisits = @visitNumber, currentStatus = @currentStatus where patientID = @patientID", con);
+                    
+                    cmd2.Parameters.AddWithValue("@visitNumber", visitNumber);
+                    cmd2.Parameters.AddWithValue("@patientID", patientID.Trim());
+                    cmd2.Parameters.AddWithValue("@currentStatus", "Admitted");
+
+                    con.Open();
+
+                    int i = cmd2.ExecuteNonQuery();
+                    if (i >= 1)
+                    {
+                        System.Windows.MessageBox.Show("New Visit Added");
+
+                    }
+
+
+                }
+
+               
+            }
+
+            catch (Exception e)
+            {
+                System.Windows.Forms.MessageBox.Show(e.ToString());
+            }
+
+
+
             
         }
     }

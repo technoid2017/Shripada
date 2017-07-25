@@ -85,9 +85,6 @@
                         <Button Background="#FFD19638" Content="Previous" FontSize="20" Height="40" Margin="353,707,591,120" Name="button11" Width="100" />
                     </Grid>
                 </TabItem>
-                <TabItem Header="Medicines">
-                    <Label Content="Examination of Patient" FontFamily="Sitka Heading" FontSize="56" FontWeight="Bold" Foreground="#FF1D637C" Height="70" Name="label26" Width="580" />
-                </TabItem>
                 <TabItem Header="Medicines" HorizontalAlignment="Left" Name="tabItem3" VerticalAlignment="Top">
                     <Grid>
                         <Label Content="Medicines" FontFamily="Sitka Heading" FontSize="56" FontWeight="Bold" Foreground="#FF1D637C" Height="70" HorizontalAlignment="Center" Margin="350,16,419,781" Name="label27" Width="275" />

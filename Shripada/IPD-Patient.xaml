@@ -1,7 +1,7 @@
 ﻿<Window x:Class="Shripada.IPD_Patient"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="IPD_Patient" Height="900" Width="1050" WindowState="Maximized" WindowStyle="ThreeDBorderWindow" WindowStartupLocation="Manual">
+        Title="IPD_Patient" Height="900" Width="1050" WindowState="Maximized" WindowStyle="ThreeDBorderWindow" WindowStartupLocation="Manual" Loaded="Window_Loaded">
     <ScrollViewer VerticalScrollBarVisibility="Visible">
         <Grid>
             <Grid.Background>
@@ -56,7 +56,7 @@
                         <DatePicker Height="40" HorizontalAlignment="Left" Margin="753,132,0,0" Name="dtRegisterDate" VerticalAlignment="Top" Width="132" VerticalContentAlignment="Center" FontSize="20" />
                         <Border BorderBrush="#FF455F80" BorderThickness="1" Height="77" HorizontalAlignment="Left" Margin="36,458,0,0" Name="border2" VerticalAlignment="Top" Width="378" />
                         <Button Content="Submit" Height="40" HorizontalAlignment="Left" Margin="299,764,0,0" Name="bttnSumbit" VerticalAlignment="Top" Width="100" FontSize="20" Background="#FFD19638" Click="bttnSumbit_Click" />
-                        <Button Content="Add Visit" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="539,764,0,0" Name="bttnAddVisit" VerticalAlignment="Top" Width="100" Background="#FFD19638" Click="button2_Click" />
+                        <Button Content="Add Visit" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="539,764,0,0" Name="bttnAddVisit" VerticalAlignment="Top" Width="100" Background="#FFD19638" Click="button2_Click" Visibility="Visible" IsEnabled="False" />
                         <Button Content="Cancel" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="421,764,0,0" Name="bttnCancel" VerticalAlignment="Top" Width="100" Background="#FFD19638" />
                         <Label Content="0" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="171,703,0,0" Name="labelNoOfVisit" VerticalAlignment="Top" Width="33" />
                         <Button Background="#FFD19638" Content="Add New" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="753,185,0,0" Name="bttnAddNew" VerticalAlignment="Top" Width="100" Visibility="Hidden" Click="bttnAddNew_Click" />
