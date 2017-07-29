@@ -138,6 +138,9 @@ namespace Shripada
             pageAddPatientRefresh();
             txtPatientID.Text = Shripada.Code.Patient.generatePatientID();
             bttnAddNew.Visibility = Visibility.Hidden;
+            bttnSumbit.IsEnabled = true;
+            bttnCancel.IsEnabled = true;
+            bttnAddVisit.IsEnabled = false;
         }
 
         private void bttnCancel_Click(object sender, RoutedEventArgs e)
