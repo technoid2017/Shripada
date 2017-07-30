@@ -10,6 +10,13 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data;
+using System.Configuration;
+using System.Data.SqlClient;
+using System.Windows.Forms;
+using System.Windows.Navigation;
+using System.Text.RegularExpressions;
+using Shripada.Code;
 
 namespace Shripada
 {
@@ -32,10 +39,7 @@ namespace Shripada
 
         }
 
-        private void bbtnSearchByID_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+       
 
         private void radioButton2_Checked(object sender, RoutedEventArgs e)
         {
@@ -148,6 +152,25 @@ namespace Shripada
             pageAddPatientRefresh();
         }
 
+        //---------------------------------------------Search Patient------------------------------
+
+        private void bbtnSearchByID_Click(object sender, RoutedEventArgs e)
+        {
+            String patientID = txtSearchById.Text;
+            DataTable dt1 = Shripada.Code.Patient.searchByPatientID(patientID);
+            //searchByPatientID(patientID);
+            dataGrid1.ItemsSource = dt1.DefaultView;
+            dataGrid1.Visibility = Visibility.Visible;
+
+
+        }
+
+        public void viewDetails(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Forms.MessageBox.Show("I am coming soon!");
+        }
+
+        
 
     }
 }

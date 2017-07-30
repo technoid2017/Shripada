@@ -14,18 +14,36 @@
                         <Rectangle Canvas.Left="260" Canvas.Top="19" Height="86" Name="rectangle4" Stroke="#FF23A0A0" Width="447" HorizontalAlignment="Center" />
                         <Label Canvas.Left="298" Canvas.Top="19" Content="Search Patient" FontFamily="Sitka Heading" FontSize="56" FontWeight="Bold" Foreground="#FF1D637C" Height="70" Name="label32" Width="385" HorizontalAlignment="Center" />
                         <TextBox Canvas.Left="298" Canvas.Top="138" Height="40" Name="txtSearchById" Width="250" Background="#FFCBD9D9" Text="Enter Patient ID Here" FontSize="18" />
-                        <Button Canvas.Left="553" Canvas.Top="133" Height="40" Name="bbtnSearchByID" Width="40" Click="bbtnSearchByID_Click">
-                            <StackPanel Height="30" Width="42">
-                                <Image Source="/Images/search1.jpg" Height="30" Width="30" />
-                            </StackPanel>
-                        </Button>
+                        <Button Canvas.Left="554" Canvas.Top="138" Height="40" Name="bbtnSearchByID" Width="49" Click="bbtnSearchByID_Click"></Button>
                         <TextBox Background="#FFCBD9D9" Canvas.Left="260" Canvas.Top="245" Height="40" Name="txtSearchByName" Width="343" Text="Enter Patient Name Here" FontSize="18" />
-                        <Button Canvas.Left="608" Canvas.Top="240" Height="40" Name="bttnSearchByName" Width="40">
+                        <Button Canvas.Left="608" Canvas.Top="242" Height="40" Name="bttnSearchByName" Width="40">
                             <StackPanel Height="30" Width="42">
                                 <Image Height="30" Source="/Images/search1.jpg" Width="30" />
                             </StackPanel>
                         </Button>
                         <Label Canvas.Left="393" Canvas.Top="183" Content="OR" FontFamily="Sitka Heading" FontSize="52" FontWeight="Bold" Foreground="#FF1D637C" Height="57" Name="label1" Width="93" />
+                        <Label Canvas.Left="318" Canvas.Top="296" Content="Search Result" FontFamily="Sitka Heading" FontSize="40" FontWeight="Bold" Foreground="#FF1D637C" Height="57" Name="label22" Width="285" />
+                        <StackPanel Height="30" Width="30" Canvas.Left="564" Canvas.Top="138">
+                            <Image Source="/Images/search1.jpg" Height="30" Width="30" />
+                        </StackPanel>
+                        <DataGrid AutoGenerateColumns="False" Canvas.Left="195" Canvas.Top="363" Height="397" Name="dataGrid1" Width="529" Visibility="Hidden">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="PatientID" Binding="{Binding patientID}" Width="75"/>
+                                <DataGridTextColumn Header="Patient Name" Binding="{Binding patientName}" Width="*"/>
+                                <DataGridTextColumn Header="Registered On" Binding="{Binding dateOfRegister}" Width="110"/>
+                                <DataGridTextColumn Header="Current Status" Binding="{Binding currentStatus}" Width="120"/>
+                                
+                                <DataGridTemplateColumn>
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button Click="viewDetails">More Details</Button>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                
+                            </DataGrid.Columns>
+
+                        </DataGrid>
                     </Canvas>
                 </TabItem>
                 <TabItem Header="Add Patient" HorizontalAlignment="Left" Name="tabItem1" VerticalAlignment="Top">

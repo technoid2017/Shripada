@@ -93,7 +93,7 @@ namespace Shripada.Code
                     String oldValue = cmd.ExecuteScalar().ToString();
 
                     visitNumber = Convert.ToInt32(oldValue) + 1;
-                    System.Windows.MessageBox.Show(visitNumber.ToString());
+                    //System.Windows.MessageBox.Show(visitNumber.ToString());
                     con.Close();
 
                     SqlCommand cmd2 = new SqlCommand("update Patients set noOfVisits = @visitNumber, currentStatus = @currentStatus where patientID = @patientID", con);
@@ -122,9 +122,37 @@ namespace Shripada.Code
                 System.Windows.Forms.MessageBox.Show(e.ToString());
             }
 
+        }
 
+        public static DataTable searchByPatientID(String patientID)
+        {
+            DataTable dt = new DataTable("Patients");
 
+            try
+            {
+                using (SqlConnection con = new SqlConnection(utils.cons))
+                {
+                    SqlCommand cmd = new SqlCommand("selectAllProcedure", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add(new SqlParameter("@tableName", "Patients"));
+                    cmd.Parameters.Add(new SqlParameter("@columnName", "patientID"));
+                    cmd.Parameters.Add(new SqlParameter("@columnValue", patientID));
+
+                    con.Open();
             
+                    SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                    //dt = new DataTable("Patients");
+                    sda.Fill(dt);
+                    //dataGridSearchPatient.ItemsSource = dt.DefaultView;
+
+                }
+
+            }
+            catch (Exception e)
+            {
+                System.Windows.Forms.MessageBox.Show(e.ToString());
+            }
+            return dt;
         }
     }
 }
