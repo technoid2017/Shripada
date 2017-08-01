@@ -124,7 +124,7 @@ namespace Shripada.Code
 
         }
 
-        public static DataTable searchByPatientID(String patientID)
+        public static DataTable searchPatient(String searchType, String searchValue)
         {
             DataTable dt = new DataTable("Patients");
 
@@ -135,8 +135,18 @@ namespace Shripada.Code
                     SqlCommand cmd = new SqlCommand("selectAllProcedure", con);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add(new SqlParameter("@tableName", "Patients"));
+                    if(searchType.Equals("byID"))
+                    {
                     cmd.Parameters.Add(new SqlParameter("@columnName", "patientID"));
-                    cmd.Parameters.Add(new SqlParameter("@columnValue", patientID));
+                    cmd.Parameters.Add(new SqlParameter("@columnValue", searchValue));
+                    }
+
+                    else if(searchType.Equals("byName"))
+                    {                        
+                    cmd.Parameters.Add(new SqlParameter("@columnName", "patientName"));
+                    cmd.Parameters.Add(new SqlParameter("@columnValue", searchValue));
+
+                    }
 
                     con.Open();
             
@@ -154,5 +164,56 @@ namespace Shripada.Code
             }
             return dt;
         }
+
+        public static List<String> getPatientDetails(String searchValue)
+        {
+            List<String> patientDetails = new List<string>();
+
+            try
+            {
+
+                using (SqlConnection con = new SqlConnection(utils.cons))
+                {
+                    SqlCommand cmd = new SqlCommand("selectAllProcedure", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add(new SqlParameter("@tableName", "Patients"));
+                    
+                        cmd.Parameters.Add(new SqlParameter("@columnName", "patientID"));
+                        cmd.Parameters.Add(new SqlParameter("@columnValue", searchValue));
+                   
+
+                    
+                    con.Open();
+
+                    SqlDataReader rdr = cmd.ExecuteReader();
+
+                    while (rdr.Read())
+                    {
+                        patientDetails.Add((String)rdr["patientID"]);
+                        patientDetails.Add((String)rdr["patientName"]);
+                        patientDetails.Add((String)rdr["address"]);
+                        patientDetails.Add((String)rdr["celnumber"]);
+                        int age = (int)rdr["age"];
+                        patientDetails.Add(age.ToString());
+                        patientDetails.Add((String)rdr["sex"]);
+                        patientDetails.Add((String)rdr["mediclaim"]);
+                        DateTime DOR = (DateTime)rdr["dateOfRegister"];
+                        patientDetails.Add(DOR.ToString("dd-MM-yyyy"));
+                        int visits = (int)rdr["noOfVisits"];
+                        patientDetails.Add(visits.ToString());
+                        patientDetails.Add((String)rdr["currentStatus"]);
+
+                    }
+
+                }
+            }
+            catch (Exception e)
+            {
+                System.Windows.Forms.MessageBox.Show(e.ToString());
+            }
+            return patientDetails;
+        }
+
+       
     }
 }

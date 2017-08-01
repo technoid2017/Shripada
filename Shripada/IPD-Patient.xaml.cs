@@ -157,18 +157,137 @@ namespace Shripada
         private void bbtnSearchByID_Click(object sender, RoutedEventArgs e)
         {
             String patientID = txtSearchById.Text;
-            DataTable dt1 = Shripada.Code.Patient.searchByPatientID(patientID);
-            //searchByPatientID(patientID);
+            DataTable dt1 = Shripada.Code.Patient.searchPatient("byID",patientID);
             dataGrid1.ItemsSource = dt1.DefaultView;
             dataGrid1.Visibility = Visibility.Visible;
+            bttnClearSearch.Visibility = Visibility.Visible;
 
+        }
+
+        private void bttnSearchByName_Click(object sender, RoutedEventArgs e)
+        {
+            String patientName = txtSearchByName.Text;
+            DataTable dt1 = Shripada.Code.Patient.searchPatient("byName", patientName);
+            dataGrid1.ItemsSource = dt1.DefaultView;
+            dataGrid1.Visibility = Visibility.Visible;
+            bttnClearSearch.Visibility = Visibility.Visible;
 
         }
 
         public void viewDetails(object sender, RoutedEventArgs e)
         {
-            System.Windows.Forms.MessageBox.Show("I am coming soon!");
+           // System.Windows.Forms.MessageBox.Show("I am coming soon!");
+            String patientID = txtSearchById.Text;
+            List<String> patientDetails = new List<string>();
+               patientDetails =  Shripada.Code.Patient.getPatientDetails(patientID);
+
+            dPatientID.Text = patientDetails.ElementAt(0).ToString();
+            dtxtPatientName.Text = patientDetails.ElementAt(1);
+            dtxtAddress.Text = patientDetails.ElementAt(2);
+            dtxtCelNo.Text = patientDetails.ElementAt(3);
+            dtxtAge.Text = patientDetails.ElementAt(4);
+            String sex = patientDetails.ElementAt(5);
+            if(sex.Equals("Male"))
+            {
+                dradioMale.IsChecked = true;
+            }
+
+            else if (sex.Equals("Female"))
+            {
+                dradioFemale.IsChecked = true;
+            }
+
+            else
+            {
+                dradioOther.IsChecked = true;
+            }
+
+            String mediclaim = patientDetails.ElementAt(6);
+            if (mediclaim.Equals("none"))
+            {
+                dradioNone.IsChecked = true;
+            }
+
+            else if (mediclaim.Equals("Reinburse"))
+            {
+                dradioReinburse.IsChecked = true;
+            }
+
+            else
+            {
+                drdCheckBox.IsChecked = true;
+            }
+
+            dtxtRegDate.Text = patientDetails.ElementAt(7);
+            
+            dtxtNoOfVisits.Text = patientDetails.ElementAt(8);
+
+            String currentStatus = patientDetails.ElementAt(9);
+
+            tabViewPatient.IsSelected = true;
+            patientEditVisitsLogic(currentStatus);
+            patientViewMode();
         }
+
+        private void bttnClearSearch_Click(object sender, RoutedEventArgs e)
+        {
+            dataGrid1.Visibility = Visibility.Hidden;
+            bttnClearSearch.Visibility = Visibility.Hidden;
+            txtSearchByName.Text = "";
+            txtSearchById.Text = "";
+        }
+
+        public void patientViewMode()
+        {
+            dPatientID.IsEnabled = false;
+            dtxtAddress.IsEnabled = false;
+            dtxtAge.IsEnabled = false;
+            dtxtCelNo.IsEnabled = false;
+            dtxtNoOfVisits.IsEnabled = false;
+            dtxtPatientName.IsEnabled = false;
+            dtxtRegDate.IsEnabled = false;
+            dbttnUpdate.Visibility = Visibility.Hidden;
+            dbttnCancel.Visibility = Visibility.Hidden;
+
+
+        }
+
+        public void patientEditMode()
+        {
+            dPatientID.IsEnabled = true;
+            dtxtAddress.IsEnabled = true;
+            dtxtAge.IsEnabled = true;
+            dtxtCelNo.IsEnabled = true;
+            //dtxtNoOfVisits.IsEnabled = true;
+            dtxtPatientName.IsEnabled = true;
+            dtxtRegDate.IsEnabled = true;
+
+            dbttnUpdate.Visibility = Visibility.Visible;
+            dbttnCancel.Visibility = Visibility.Visible;
+            dbttnEditDetails.Visibility = Visibility.Hidden;
+
+        }
+
+        public void patientEditVisitsLogic(String currentStatus)
+        {
+            if (currentStatus.Equals("Admitted"))
+            {
+                dbttnAddVisit.IsEnabled = false;
+                dbttnCompleteVisit.IsEnabled = true;
+            }
+            else
+            {
+                dbttnAddVisit.IsEnabled = true;
+                dbttnCompleteVisit.IsEnabled = false;
+            }
+        }
+
+        private void dbttnEditDetails_Click(object sender, RoutedEventArgs e)
+        {
+            patientEditMode();
+        }
+
+       
 
         
 

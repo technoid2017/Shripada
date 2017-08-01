@@ -16,23 +16,18 @@
                         <TextBox Canvas.Left="298" Canvas.Top="138" Height="40" Name="txtSearchById" Width="250" Background="#FFCBD9D9" Text="Enter Patient ID Here" FontSize="18" />
                         <Button Canvas.Left="554" Canvas.Top="138" Height="40" Name="bbtnSearchByID" Width="49" Click="bbtnSearchByID_Click"></Button>
                         <TextBox Background="#FFCBD9D9" Canvas.Left="260" Canvas.Top="245" Height="40" Name="txtSearchByName" Width="343" Text="Enter Patient Name Here" FontSize="18" />
-                        <Button Canvas.Left="608" Canvas.Top="242" Height="40" Name="bttnSearchByName" Width="40">
-                            <StackPanel Height="30" Width="42">
-                                <Image Height="30" Source="/Images/search1.jpg" Width="30" />
-                            </StackPanel>
-                        </Button>
+                        <Button Canvas.Left="609" Canvas.Top="245" Height="40" Name="bttnSearchByName" Width="49" Click="bttnSearchByName_Click"></Button>
                         <Label Canvas.Left="393" Canvas.Top="183" Content="OR" FontFamily="Sitka Heading" FontSize="52" FontWeight="Bold" Foreground="#FF1D637C" Height="57" Name="label1" Width="93" />
                         <Label Canvas.Left="318" Canvas.Top="296" Content="Search Result" FontFamily="Sitka Heading" FontSize="40" FontWeight="Bold" Foreground="#FF1D637C" Height="57" Name="label22" Width="285" />
                         <StackPanel Height="30" Width="30" Canvas.Left="564" Canvas.Top="138">
                             <Image Source="/Images/search1.jpg" Height="30" Width="30" />
                         </StackPanel>
-                        <DataGrid AutoGenerateColumns="False" Canvas.Left="195" Canvas.Top="363" Height="397" Name="dataGrid1" Width="529" Visibility="Hidden">
+                        <DataGrid AutoGenerateColumns="False" Height="397" Name="dataGrid1" Width="529" Visibility="Visible" SelectionMode="Single" SelectionUnit="Cell" Margin="-78,791,560,-288" Canvas.Left="256" Canvas.Top="-422">
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="PatientID" Binding="{Binding patientID}" Width="75"/>
-                                <DataGridTextColumn Header="Patient Name" Binding="{Binding patientName}" Width="*"/>
-                                <DataGridTextColumn Header="Registered On" Binding="{Binding dateOfRegister}" Width="110"/>
-                                <DataGridTextColumn Header="Current Status" Binding="{Binding currentStatus}" Width="120"/>
-                                
+                                <DataGridTextColumn Header="PatientID" Binding="{Binding patientID}" Width="75" />
+                                <DataGridTextColumn Header="Patient Name" Binding="{Binding patientName}" Width="*" />
+                                <DataGridTextColumn Header="Registered On" Binding="{Binding dateOfRegister}" Width="110" />
+                                <DataGridTextColumn Header="Current Status" Binding="{Binding currentStatus}" Width="120" />
                                 <DataGridTemplateColumn>
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
@@ -40,10 +35,13 @@
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
-                                
                             </DataGrid.Columns>
-
                         </DataGrid>
+
+                        <Button Background="#FFD19638" Canvas.Left="730" Canvas.Top="363" Content="Clear" FontSize="20" Height="40" Name="bttnClearSearch" Visibility="Hidden" Width="100" Click="bttnClearSearch_Click" />
+                        <StackPanel Height="30" Width="31" Canvas.Left="616" Canvas.Top="245">
+                            <Image Height="30" Source="/Images/search1.jpg" Width="30" />
+                        </StackPanel>
                     </Canvas>
                 </TabItem>
                 <TabItem Header="Add Patient" HorizontalAlignment="Left" Name="tabItem1" VerticalAlignment="Top">
@@ -80,42 +78,44 @@
                         <Button Background="#FFD19638" Content="Add New" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="753,185,0,0" Name="bttnAddNew" VerticalAlignment="Top" Width="100" Visibility="Hidden" Click="bttnAddNew_Click" />
                     </Grid>
                 </TabItem>
-                <TabItem Header="View Patient" HorizontalAlignment="Left" Name="tabItem2" VerticalAlignment="Top">
+                <TabItem Header="View Patient" HorizontalAlignment="Left" Name="tabViewPatient" VerticalAlignment="Top">
                     <Grid>
                         <Rectangle HorizontalAlignment="Center" Margin="292,6,305,783" Name="rectangle3" Stroke="#FF23A0A0" Width="447" />
                         <Label Content="View Patient" FontFamily="Sitka Heading" FontSize="56" FontWeight="Bold" Foreground="#FF1D637C" Height="70" HorizontalAlignment="Center" Margin="353,7,374,790" Name="label12" Width="317" />
-                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,141,604,0" Name="textBox7" VerticalAlignment="Top" Width="200" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,141,604,0" Name="dPatientID" VerticalAlignment="Top" Width="200" />
                         <Label Content="Patient ID" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="105,141,0,0" Name="label13" VerticalAlignment="Top" />
-                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,709,604,0" Name="textBox8" VerticalAlignment="Top" Width="200" />
-                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,418,604,0" Name="textBox9" VerticalAlignment="Top" Width="200" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,709,693,0" Name="dtxtNoOfVisits" VerticalAlignment="Top" Width="111" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,418,604,0" Name="dtxtAge" VerticalAlignment="Top" Width="200" />
                         <Label Content="Age" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="105,418,0,0" Name="label14" VerticalAlignment="Top" />
-                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,357,604,0" Name="textBox10" VerticalAlignment="Top" Width="200" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,357,604,0" Name="dtxtCelNo" VerticalAlignment="Top" Width="200" />
                         <Label Content="Cell No" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="105,357,0,0" Name="label15" VerticalAlignment="Top" />
-                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="80" HorizontalAlignment="Right" Margin="0,261,454,0" Name="textBox11" TextWrapping="Wrap" VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" Width="350" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="80" HorizontalAlignment="Right" Margin="0,261,454,0" Name="dtxtAddress" TextWrapping="Wrap" VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" Width="350" />
                         <Label Content="Address" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="105,261,0,0" Name="label16" VerticalAlignment="Top" />
-                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,201,454,0" Name="textBox12" VerticalAlignment="Top" Width="350" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,201,454,0" Name="dtxtPatientName" VerticalAlignment="Top" Width="350" />
                         <Label Content="Patient Name" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="105,201,0,0" Name="label17" VerticalAlignment="Top" />
                         <Label Content="No of Visits" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="105,709,0,0" Name="label18" VerticalAlignment="Top" />
                         <Label Content="Date" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="749,133,0,0" Name="label19" VerticalAlignment="Top" />
                         <Border BorderBrush="#FF455F80" BorderThickness="2" CornerRadius="1" Height="140" HorizontalAlignment="Left" Margin="105,548,0,0" Name="border3" VerticalAlignment="Top" Width="335" />
-                        <DatePicker FontSize="20" Height="40" HorizontalAlignment="Left" Margin="822,138,0,0" Name="datePicker2" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="132" />
                         <Border BorderBrush="#FF455F80" BorderThickness="1" Height="77" HorizontalAlignment="Left" Margin="105,464,0,0" Name="border4" VerticalAlignment="Top" Width="391" />
-                        <Button Background="#FFD19638" Content="Save" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="267,772,0,0" Name="button5" VerticalAlignment="Top" Width="100" />
-                        <Button Background="#FFD19638" Content="View All Visits" FontSize="20" Height="40" Margin="660,772,0,0" Name="button6" VerticalAlignment="Top" HorizontalAlignment="Left" Width="140" />
-                        <Button Background="#FFD19638" Content="Edit Current Visit" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="479,772,0,0" Name="button7" VerticalAlignment="Top" Width="175" />
-                        <Button Background="#FFD19638" Content="Delete" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="373,772,0,0" Name="button8" VerticalAlignment="Top" Width="100" />
+                        <Button Background="#FFD19638" Content="Update" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="145,772,0,0" Name="dbttnUpdate" VerticalAlignment="Top" Width="100" />
+                        <Button Background="#FFD19638" Content="Add Visit" FontSize="20" Height="40" Margin="644,772,0,0" Name="dbttnAddVisit" VerticalAlignment="Top" HorizontalAlignment="Left" Width="140" />
+                        <Button Background="#FFD19638" Content="Complete Visit" FontSize="20" Height="40" HorizontalAlignment="Right" Margin="0,772,406,0" Name="dbttnCompleteVisit" VerticalAlignment="Top" Width="175" />
+                        <Button Background="#FFD19638" Content="Cancel" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="251,772,0,0" Name="dbttnCancel" VerticalAlignment="Top" Width="100" />
                         <Label Content="Sex" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="119,479,0,0" Name="label20" VerticalAlignment="Top" />
-                        <RadioButton Content="Male" FontSize="20" GroupName="Sex" Height="40" HorizontalAlignment="Left" Margin="240,478,0,0" Name="radioButton7" VerticalAlignment="Top" VerticalContentAlignment="Center" />
-                        <RadioButton Content="Other" FontSize="20" GroupName="Sex" Height="40" HorizontalAlignment="Left" Margin="412,478,0,0" Name="radioButton8" VerticalAlignment="Top" VerticalContentAlignment="Center" />
-                        <RadioButton Content="Female" FontSize="20" GroupName="Sex" Height="40" HorizontalAlignment="Left" IsChecked="True" Margin="318,478,0,0" Name="radioButton9" VerticalAlignment="Top" VerticalContentAlignment="Center" />
-                        <RadioButton Content="Cashless" FontSize="20" GroupName="Mediclaim" Height="40" HorizontalAlignment="Left" Margin="240,602,0,0" Name="radioButton10" VerticalAlignment="Top" VerticalContentAlignment="Center" />
-                        <RadioButton Content="Reinburse" FontSize="20" GroupName="Mediclaim" Height="40" HorizontalAlignment="Left" Margin="240,648,0,0" Name="radioButton11" VerticalAlignment="Top" VerticalContentAlignment="Center" />
-                        <RadioButton Content="None" FontSize="20" GroupName="Mediclaim" Height="40" HorizontalAlignment="Left" IsChecked="True" Margin="240,563,0,0" Name="radioButton12" VerticalAlignment="Top" VerticalContentAlignment="Center" />
+                        <RadioButton Content="Male" FontSize="20" GroupName="Sex" Height="40" HorizontalAlignment="Left" Margin="240,478,0,0" Name="dradioMale" VerticalAlignment="Top" VerticalContentAlignment="Center" />
+                        <RadioButton Content="Other" FontSize="20" GroupName="Sex" Height="40" HorizontalAlignment="Left" Margin="412,478,0,0" Name="dradioOther" VerticalAlignment="Top" VerticalContentAlignment="Center" />
+                        <RadioButton Content="Female" FontSize="20" GroupName="Sex" Height="40" HorizontalAlignment="Left" IsChecked="True" Margin="318,478,0,0" Name="dradioFemale" VerticalAlignment="Top" VerticalContentAlignment="Center" />
+                        <RadioButton Content="Cashless" FontSize="20" GroupName="Mediclaim" Height="40" HorizontalAlignment="Left" Margin="240,602,0,0" Name="drdCheckBox" VerticalAlignment="Top" VerticalContentAlignment="Center" />
+                        <RadioButton Content="Reinburse" FontSize="20" GroupName="Mediclaim" Height="40" HorizontalAlignment="Left" Margin="240,648,0,0" Name="dradioReinburse" VerticalAlignment="Top" VerticalContentAlignment="Center" />
+                        <RadioButton Content="None" FontSize="20" GroupName="Mediclaim" Height="40" HorizontalAlignment="Left" IsChecked="True" Margin="240,563,0,0" Name="dradioNone" VerticalAlignment="Top" VerticalContentAlignment="Center" />
                         <Label Content="Mediclaim" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="105,563,0,0" Name="label21" VerticalAlignment="Top" />
-                        <Button Background="#FFD19638" Content="Edit Details" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="823,191,0,0" Name="button9" VerticalAlignment="Top" Width="131" />
+                        <Button Background="#FFD19638" Content="Edit Details" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="823,191,0,0" Name="dbttnEditDetails" VerticalAlignment="Top" Width="131" Click="dbttnEditDetails_Click" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,136,90,0" Name="dtxtRegDate" VerticalAlignment="Top" Width="134" />
+                        <Button Background="#FFD19638" Content="Delete" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="357,772,0,0" Name="dbttnDelete" VerticalAlignment="Top" Width="100" />
+                        <Button Background="#FFD19638" Content="View All" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="357,709,0,0" Name="dbttnViewAllVisits" VerticalAlignment="Top" Width="100" />
                     </Grid>
                 </TabItem>
             </TabControl>
-        </Grid>
+                    </Grid>
     </ScrollViewer>
 </Window>
