@@ -187,28 +187,35 @@ namespace Shripada
             dtxtCelNo.Text = patientDetails.ElementAt(3);
             dtxtAge.Text = patientDetails.ElementAt(4);
             String sex = patientDetails.ElementAt(5);
-            if(sex.Equals("Male"))
+            //System.Windows.Forms.MessageBox.Show(sex);
+            if(sex.Trim().Equals("Male"))
             {
                 dradioMale.IsChecked = true;
+                dradioFemale.IsChecked = false;
+                dradioOther.IsChecked = false;
             }
 
-            else if (sex.Equals("Female"))
+            else if (sex.Trim().Equals("Female"))
             {
                 dradioFemale.IsChecked = true;
+                dradioMale.IsChecked = false;
+                dradioOther.IsChecked = false;
             }
 
             else
             {
                 dradioOther.IsChecked = true;
+                dradioFemale.IsChecked = false;
+                dradioMale.IsChecked = false;
             }
 
             String mediclaim = patientDetails.ElementAt(6);
-            if (mediclaim.Equals("none"))
+            if (mediclaim.Trim().Equals("None"))
             {
                 dradioNone.IsChecked = true;
             }
 
-            else if (mediclaim.Equals("Reinburse"))
+            else if (mediclaim.Trim().Equals("Reinburse"))
             {
                 dradioReinburse.IsChecked = true;
             }
