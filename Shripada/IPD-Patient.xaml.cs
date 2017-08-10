@@ -51,18 +51,18 @@ namespace Shripada
             Shripada.Code.Patient.addVisitNumber(txtPatientID.Text);
             Window w = new IPD_View();
             w.Show();
-            this.Close();
+            //this.Close();
         }
 
         public String getSex()
         {
             String sex = "";
-            if (radioMale.IsChecked.Equals(true))
+            if (radioMale.IsChecked.Equals(true) || dradioMale.IsChecked.Equals(true))
             {
                 sex = radioMale.Content.ToString();
             }
 
-            else if (radioFemale.IsChecked.Equals(true))
+            else if (radioFemale.IsChecked.Equals(true) || dradioFemale.IsChecked.Equals(true))
             {
                 sex = radioFemale.Content.ToString();
             }
@@ -78,12 +78,12 @@ namespace Shripada
         public String getMediclaim()
         {
             String mediclaim = "";
-            if (radioCashless.IsChecked.Equals(true))
+            if (radioCashless.IsChecked.Equals(true) || drdCheckBox.IsChecked.Equals(true))
             {
                 mediclaim = radioCashless.Content.ToString();
             }
 
-            else if (radioNone.IsChecked.Equals(true))
+            else if (radioNone.IsChecked.Equals(true) || dradioNone.IsChecked.Equals(true))
             {
                 mediclaim = radioNone.Content.ToString();
             }
@@ -237,6 +237,7 @@ namespace Shripada
             txtSearchById.Text = "";
         }
 
+        //---------------------------------------------View Patient------------------------------
         public void patientViewMode()
         {
             dPatientID.IsEnabled = false;
@@ -246,6 +247,13 @@ namespace Shripada
             dtxtNoOfVisits.IsEnabled = false;
             dtxtPatientName.IsEnabled = false;
             dtxtRegDate.IsEnabled = false;
+            dradioFemale.IsEnabled = false;
+            dradioMale.IsEnabled = false;
+            dradioOther.IsEnabled = false;
+            dradioReinburse.IsEnabled = false;
+            dradioNone.IsEnabled = false;
+            drdCheckBox.IsEnabled = false;
+
             dbttnUpdate.Visibility = Visibility.Hidden;
             dbttnCancel.Visibility = Visibility.Hidden;
 
@@ -254,15 +262,22 @@ namespace Shripada
 
         public void patientEditMode()
         {
-            dPatientID.IsEnabled = true;
+            //dPatientID.IsEnabled = true;
             dtxtAddress.IsEnabled = true;
             dtxtAge.IsEnabled = true;
             dtxtCelNo.IsEnabled = true;
             //dtxtNoOfVisits.IsEnabled = true;
             dtxtPatientName.IsEnabled = true;
             dtxtRegDate.IsEnabled = true;
+            dradioFemale.IsEnabled = true;
+            dradioMale.IsEnabled = true;
+            dradioOther.IsEnabled = true;
+            dradioReinburse.IsEnabled = true;
+            dradioNone.IsEnabled = true;
+            drdCheckBox.IsEnabled = true;
 
             dbttnUpdate.Visibility = Visibility.Visible;
+            dbttnDelete.IsEnabled = false;
             dbttnCancel.Visibility = Visibility.Visible;
             dbttnEditDetails.Visibility = Visibility.Hidden;
 
@@ -285,6 +300,34 @@ namespace Shripada
         private void dbttnEditDetails_Click(object sender, RoutedEventArgs e)
         {
             patientEditMode();
+        }
+
+        private void dbttnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            patientViewMode();
+        }
+
+        private void dbttnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            String patientID = dPatientID.Text;
+            String patientName = dtxtPatientName.Text;
+            DateTime registerDate = Convert.ToDateTime(dtxtRegDate.Text);
+            String address = dtxtAddress.Text;
+            String celNo = dtxtCelNo.Text;
+            int age = Convert.ToInt32(dtxtAge.Text);
+            String sex = getSex();
+            String mediclaim = getMediclaim();
+            
+            Shripada.Code.Patient.updatePatient(patientID, patientName, registerDate, address, celNo, age, sex, mediclaim);
+            patientViewMode();
+        }
+
+        private void dbttnAddVisit_Click(object sender, RoutedEventArgs e)
+        {
+            Shripada.Code.Patient.addVisitNumber(dPatientID.Text);
+            Window w = new IPD_View();
+            w.Show();
+            
         }
 
        

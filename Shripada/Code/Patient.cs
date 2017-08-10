@@ -80,7 +80,7 @@ namespace Shripada.Code
         public static void addVisitNumber(String patientID)
         {
             int visitNumber = 0;
-            System.Windows.MessageBox.Show(patientID);
+            
             try
             {
                 using (SqlConnection con = new SqlConnection(utils.cons))
@@ -198,7 +198,7 @@ namespace Shripada.Code
                         patientDetails.Add((String)rdr["sex"]);
                         patientDetails.Add((String)rdr["mediclaim"]);
                         DateTime DOR = (DateTime)rdr["dateOfRegister"];
-                        patientDetails.Add(DOR.ToString("dd-MM-yyyy"));
+                        patientDetails.Add(DOR.ToString("yyyy-MM-dd"));
                         int visits = (int)rdr["noOfVisits"];
                         patientDetails.Add(visits.ToString());
                         patientDetails.Add((String)rdr["currentStatus"]);
@@ -214,6 +214,37 @@ namespace Shripada.Code
             return patientDetails;
         }
 
-       
+        public static void updatePatient(String patientID, String patientName, DateTime registerDate, String address, String celNo, int age, String sex, String mediclaim)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(utils.cons))
+                {
+                    SqlCommand cmd = new SqlCommand("update Patients set patientName = @patientName, address = @address, celNumber = @celNumber, age= @age, sex= @sex, mediclaim = @mediclaim, dateOfRegister = @dateOfRegister where patientId = @patientID", con);
+
+                    cmd.Parameters.AddWithValue("@patientName", patientName);
+                    cmd.Parameters.AddWithValue("@address", address);
+                    cmd.Parameters.AddWithValue("@celNumber", celNo);
+                    cmd.Parameters.AddWithValue("@age", age);
+                    cmd.Parameters.AddWithValue("@sex", sex);
+                    cmd.Parameters.AddWithValue("@mediclaim", mediclaim);
+                    cmd.Parameters.AddWithValue("@dateOfRegister", registerDate.ToString());
+                    cmd.Parameters.AddWithValue("@patientID", patientID);
+
+                    con.Open();
+
+                    int i = cmd.ExecuteNonQuery();
+                    if (i >= 1)
+                    {
+                        System.Windows.MessageBox.Show("Details updated Successfully");
+
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                System.Windows.Forms.MessageBox.Show(e.ToString());
+            }
+        }
     }
 }

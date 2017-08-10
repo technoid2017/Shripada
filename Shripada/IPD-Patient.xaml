@@ -22,7 +22,7 @@
                         <StackPanel Height="30" Width="30" Canvas.Left="564" Canvas.Top="138">
                             <Image Source="/Images/search1.jpg" Height="30" Width="30" />
                         </StackPanel>
-                        <DataGrid AutoGenerateColumns="False" Height="397" Name="dataGrid1" Width="529" Visibility="Visible" SelectionMode="Single" SelectionUnit="Cell" Margin="-78,791,560,-288" Canvas.Left="256" Canvas.Top="-422">
+                        <DataGrid AutoGenerateColumns="False" Height="397" Name="dataGrid1" Width="529" Visibility="Hidden" SelectionMode="Single" SelectionUnit="Cell" Margin="-78,791,560,-288" Canvas.Left="256" Canvas.Top="-422">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="PatientID" Binding="{Binding patientID}" Width="75" />
                                 <DataGridTextColumn Header="Patient Name" Binding="{Binding patientName}" Width="*" />
@@ -97,10 +97,10 @@
                         <Label Content="Date" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="749,133,0,0" Name="label19" VerticalAlignment="Top" />
                         <Border BorderBrush="#FF455F80" BorderThickness="2" CornerRadius="1" Height="140" HorizontalAlignment="Left" Margin="105,548,0,0" Name="border3" VerticalAlignment="Top" Width="335" />
                         <Border BorderBrush="#FF455F80" BorderThickness="1" Height="77" HorizontalAlignment="Left" Margin="105,464,0,0" Name="border4" VerticalAlignment="Top" Width="391" />
-                        <Button Background="#FFD19638" Content="Update" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="145,772,0,0" Name="dbttnUpdate" VerticalAlignment="Top" Width="100" />
-                        <Button Background="#FFD19638" Content="Add Visit" FontSize="20" Height="40" Margin="644,772,0,0" Name="dbttnAddVisit" VerticalAlignment="Top" HorizontalAlignment="Left" Width="140" />
+                        <Button Background="#FFD19638" Content="Update" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="145,772,0,0" Name="dbttnUpdate" VerticalAlignment="Top" Width="100" Click="dbttnUpdate_Click" />
+                        <Button Background="#FFD19638" Content="Add Visit" FontSize="20" Height="40" Margin="644,772,0,0" Name="dbttnAddVisit" VerticalAlignment="Top" HorizontalAlignment="Left" Width="140" Click="dbttnAddVisit_Click" />
                         <Button Background="#FFD19638" Content="Complete Visit" FontSize="20" Height="40" HorizontalAlignment="Right" Margin="0,772,406,0" Name="dbttnCompleteVisit" VerticalAlignment="Top" Width="175" />
-                        <Button Background="#FFD19638" Content="Cancel" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="251,772,0,0" Name="dbttnCancel" VerticalAlignment="Top" Width="100" />
+                        <Button Background="#FFD19638" Content="Cancel" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="251,772,0,0" Name="dbttnCancel" VerticalAlignment="Top" Width="100" Click="dbttnCancel_Click" />
                         <Label Content="Sex" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="119,479,0,0" Name="label20" VerticalAlignment="Top" />
                         <RadioButton Content="Male" FontSize="20" GroupName="Sex" Height="40" HorizontalAlignment="Left" Margin="240,478,0,0" Name="dradioMale" VerticalAlignment="Top" VerticalContentAlignment="Center" />
                         <RadioButton Content="Other" FontSize="20" GroupName="Sex" Height="40" HorizontalAlignment="Left" Margin="412,478,0,0" Name="dradioOther" VerticalAlignment="Top" VerticalContentAlignment="Center" />
