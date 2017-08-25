@@ -10,29 +10,29 @@
             <TabControl Height="900" Width="1050" HorizontalAlignment="Center" Name="tabVisit" VerticalAlignment="Stretch" FontSize="16" Background="#FFCDD5D5" VerticalContentAlignment="Stretch">
                 <TabItem Header="Visit Details" HorizontalAlignment="Left" Name="tabItem1" VerticalAlignment="Top">
                     <Grid>
-                        <TextBox Height="40" HorizontalAlignment="Right" Name="textBox1" VerticalAlignment="Top" Width="200" Margin="0,135,673,0" Background="#FFCBD9D9" BorderBrush="#FF7F969D" />
+                        <TextBox Height="40" HorizontalAlignment="Right" Name="txtVisitPatientID" VerticalAlignment="Top" Width="200" Margin="0,135,673,0" Background="#FFCBD9D9" BorderBrush="#FF7F969D" IsReadOnly="True" />
                         <Label Content="Patient ID" Height="40" HorizontalAlignment="Left" Margin="36,135,0,0" Name="label2" VerticalAlignment="Top" FontSize="20" />
                         <Label Content="Visit Details" FontFamily="Sitka Heading" FontSize="56" FontWeight="Bold" Foreground="#FF1D637C" Height="70" HorizontalAlignment="Center" Margin="357,15,370,782" Name="label3" Width="317" />
                         <Rectangle HorizontalAlignment="Center" Margin="284,15,313,775" Name="rectangle1" Stroke="#FF23A0A0" Width="447" />
-                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,514,673,0" Name="textBox2" VerticalAlignment="Top" Width="200" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,514,673,0" Name="txtVisitDeposit" VerticalAlignment="Top" Width="200" />
                         <Label Content="Med History" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="36,450,0,0" Name="label4" VerticalAlignment="Top" />
-                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,450,671,0" Name="textBox3" VerticalAlignment="Top" Width="200" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,450,671,0" Name="txtVisitMedicalHistory" VerticalAlignment="Top" Width="200" />
                         <Label Content="Dr Incharge" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="41,375,0,0" Name="label5" VerticalAlignment="Top" />
-                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,318,673,0" Name="textBox4" VerticalAlignment="Top" Width="200" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,318,673,0" Name="txtVisitRelationship" VerticalAlignment="Top" Width="200" />
                         <Label Content="Relationship" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="36,318,0,0" Name="label6" VerticalAlignment="Top" />
-                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,255,523,0" Name="textBox5" VerticalAlignment="Top" Width="350" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,255,523,0" Name="txtVisitBroughtBy" VerticalAlignment="Top" Width="350" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" />
                         <Label Content="Brought By" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="36,255,0,0" Name="label7" VerticalAlignment="Top" />
-                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,195,523,0" Name="textBox6" VerticalAlignment="Top" Width="350" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,195,523,0" Name="txtVisitPatientName" VerticalAlignment="Top" Width="350" IsReadOnly="True" />
                         <Label Content="Patient Name" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="36,195,0,0" Name="label8" VerticalAlignment="Top" />
                         <Label Content="Time of Admission" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="662,182,0,0" Name="label9" VerticalAlignment="Top" />
                         <Label Content="Date of Admission" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="662,127,0,0" Name="label10" VerticalAlignment="Top" />
                         <Label Content="Deposit" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="36,514,0,0" Name="label11" VerticalAlignment="Top" />
-                        <DatePicker Height="40" HorizontalAlignment="Left" Margin="858,125,0,0" Name="datePicker1" VerticalAlignment="Top" Width="132" VerticalContentAlignment="Center" FontSize="20" />
-                        <Button Content="Submit" Height="40" HorizontalAlignment="Left" Margin="299,617,0,0" Name="button1" VerticalAlignment="Top" Width="100" FontSize="20" Background="#FFD19638" />
-                        <Button Content="Examine" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="538,617,0,0" Name="button3" VerticalAlignment="Top" Width="100" Background="#FFD19638" />
-                        <Button Content="Cancel" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="421,617,0,0" Name="button4" VerticalAlignment="Top" Width="100" Background="#FFD19638" />
-                        <ComboBox Height="40" HorizontalAlignment="Left" Margin="173,375,0,0" Name="comboBox1" VerticalAlignment="Top" Width="200" FontSize="20" Background="#FFCBD9D9" />
-                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,182,54,0" Name="textBox8" VerticalAlignment="Top" Width="132" />
+                        <DatePicker Height="40" HorizontalAlignment="Left" Margin="858,125,0,0" Name="dtDateOfAdmission" VerticalAlignment="Top" Width="132" VerticalContentAlignment="Center" FontSize="20" />
+                        <Button Content="Submit" Height="40" HorizontalAlignment="Left" Margin="299,617,0,0" Name="bttnVisitSubmit" VerticalAlignment="Top" Width="100" FontSize="20" Background="#FFD19638" Click="button1_Click" />
+                        <Button Content="Examine" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="538,617,0,0" Name="bttnVisitExamine" VerticalAlignment="Top" Width="100" Background="#FFD19638" />
+                        <Button Content="Cancel" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="421,617,0,0" Name="bttnVisitCancel" VerticalAlignment="Top" Width="100" Background="#FFD19638" />
+                        <ComboBox Height="40" HorizontalAlignment="Left" Margin="173,375,0,0" Name="drpDoctorIncharge" VerticalAlignment="Top" Width="200" FontSize="20" Background="#FFCBD9D9"></ComboBox>
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,182,54,0" Name="txtVisitTimeOfAdmission" VerticalAlignment="Top" Width="132" />
                     </Grid>
                 </TabItem>
                 <TabItem Header="Examination" Name="tabSearchPatient">
