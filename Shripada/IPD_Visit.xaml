@@ -8,7 +8,7 @@
                 <ImageBrush ImageSource="/Images/blue.jpg" Stretch="UniformToFill"/>
             </Grid.Background>
             <TabControl Height="900" Width="1050" HorizontalAlignment="Center" Name="tabVisit" VerticalAlignment="Stretch" FontSize="16" Background="#FFCDD5D5" VerticalContentAlignment="Stretch">
-                <TabItem Header="Visit Details" HorizontalAlignment="Left" Name="tabItem1" VerticalAlignment="Top">
+                <TabItem Header="Visit Details" HorizontalAlignment="Left" Name="tabVisitDetails" VerticalAlignment="Top">
                     <Grid>
                         <TextBox Height="40" HorizontalAlignment="Right" Name="txtVisitPatientID" VerticalAlignment="Top" Width="200" Margin="0,135,673,0" Background="#FFCBD9D9" BorderBrush="#FF7F969D" IsReadOnly="True" />
                         <Label Content="Patient ID" Height="40" HorizontalAlignment="Left" Margin="36,135,0,0" Name="label2" VerticalAlignment="Top" FontSize="20" />
@@ -33,101 +33,112 @@
                         <Button Content="Cancel" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="421,617,0,0" Name="bttnVisitCancel" VerticalAlignment="Top" Width="100" Background="#FFD19638" />
                         <ComboBox Height="40" HorizontalAlignment="Left" Margin="173,375,0,0" Name="drpDoctorIncharge" VerticalAlignment="Top" Width="200" FontSize="20" Background="#FFCBD9D9"></ComboBox>
                         <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,182,54,0" Name="txtVisitTimeOfAdmission" VerticalAlignment="Top" Width="132" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,382,667,0" Name="txtVisitDoctor" VerticalAlignment="Top" Width="200" Visibility="Hidden" IsReadOnly="True" />
+                        <Button Background="#FFD19638" Content="Edit" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="383,382,0,0" Name="bttnEditDoctor" VerticalAlignment="Top" Width="63" Visibility="Hidden" Click="bttnEditDoctor_Click" />
                     </Grid>
                 </TabItem>
-                <TabItem Header="Examination" Name="tabSearchPatient">
+                <TabItem Header="Examination" Name="tabVisitExam">
                     <Canvas HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Opacity="1" Visibility="Visible" Background="#FFCBD9D9">
                         <Rectangle Canvas.Left="202" Canvas.Top="19" Height="86" Name="rectangle4" Stroke="#FF23A0A0" Width="633" HorizontalAlignment="Center" />
                         <Label Canvas.Left="230" Canvas.Top="19" Content="Examination of Patient" FontFamily="Sitka Heading" FontSize="56" FontWeight="Bold" Foreground="#FF1D637C" Height="70" Name="label32" Width="580" HorizontalAlignment="Center" />
-                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Canvas.Left="202" Canvas.Top="125" Height="40" Name="textBox9" Width="200" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Canvas.Left="202" Canvas.Top="125" Height="40" Name="txtExamPatientID" Width="200" IsReadOnly="True" />
                         <Label Canvas.Left="67" Canvas.Top="125" Content="Patient ID" FontSize="20" Height="40" Name="label14" />
-                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Canvas.Left="642" Canvas.Top="125" Height="40" Name="textBox10" Width="350" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Canvas.Left="642" Canvas.Top="125" Height="40" Name="txtExamPatientName" Width="350" IsReadOnly="True" />
                         <Label Canvas.Left="507" Canvas.Top="125" Content="Patient Name" FontSize="20" Height="40" Name="label15" />
-                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Canvas.Left="702" Canvas.Top="285" Height="40" Name="textBox11" Width="200" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Canvas.Left="702" Canvas.Top="285" Height="40" Name="txtExamWeight" Width="200" />
                         <Label Canvas.Left="555" Canvas.Top="285" Content="Weight" FontSize="20" Height="40" Name="label1" />
-                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Canvas.Left="702" Canvas.Top="223" Height="40" Name="textBox12" Width="200" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Canvas.Left="702" Canvas.Top="223" Height="40" Name="txtExamBloodPressure" Width="200" />
                         <Label Canvas.Left="555" Canvas.Top="223" Content="Blood Pressure" FontSize="20" Height="40" Name="label16" />
-                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Canvas.Left="702" Canvas.Top="348" Height="80" Name="textBox13" Width="200" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Canvas.Left="702" Canvas.Top="348" Height="80" Name="txtExamCustom2" Width="200" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" />
                         <Label Canvas.Left="555" Canvas.Top="348" Content="Custom 2" FontSize="20" Height="40" Name="label17" />
-                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Canvas.Left="268" Canvas.Top="348" Height="80" Name="textBox14" Width="200" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Canvas.Left="268" Canvas.Top="348" Height="80" Name="txtExamCustom1" Width="200" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" />
                         <Label Canvas.Left="133" Canvas.Top="348" Content="Custom 1" FontSize="20" Height="40" Name="label18" />
-                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Canvas.Left="268" Canvas.Top="285" Height="40" Name="textBox15" Width="200" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Canvas.Left="268" Canvas.Top="285" Height="40" Name="txtExamTemperature" Width="200" />
                         <Label Canvas.Left="133" Canvas.Top="285" Content="Temperature" FontSize="20" Height="40" Name="label19" />
-                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Canvas.Left="268" Canvas.Top="223" Height="40" Name="textBox16" Width="200" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Canvas.Left="268" Canvas.Top="223" Height="40" Name="txtExamPulse" Width="200" />
                         <Label Canvas.Left="133" Canvas.Top="223" Content="Pulse" FontSize="20" Height="40" Name="label20" />
-                        <Border BorderBrush="#FF455F80" BorderThickness="1" Canvas.Left="67" Canvas.Top="195" Height="272" Name="border1" Width="925" />
-                        <Button Background="#FFD19638" Canvas.Left="404" Canvas.Top="528" Content="Submit" FontSize="20" Height="40" Name="button2" Width="100" />
-                        <Button Background="#FFD19638" Canvas.Left="642" Canvas.Top="528" Content="Next" FontSize="20" Height="40" Name="button5" Width="100" />
-                        <Button Background="#FFD19638" Canvas.Left="525" Canvas.Top="528" Content="Cancel" FontSize="20" Height="40" Name="button6" Width="100" />
-                        <Button Background="#FFD19638" Canvas.Left="285" Canvas.Top="528" Content="Previous" FontSize="20" Height="40" Name="button7" Width="100" />
+                        <Border BorderBrush="#FF455F80" BorderThickness="1" Canvas.Left="67" Canvas.Top="197" Height="272" Name="border1" Width="925" />
+                        <Button Background="#FFD19638" Canvas.Left="404" Canvas.Top="528" Content="Submit" FontSize="20" Height="40" Name="bttnExamSubmit" Width="100" />
+                        <Button Background="#FFD19638" Canvas.Left="642" Canvas.Top="528" Content="Next" FontSize="20" Height="40" Name="bttnExamNext" Width="100" />
+                        <Button Background="#FFD19638" Canvas.Left="525" Canvas.Top="528" Content="Cancel" FontSize="20" Height="40" Name="bttnExamCancel" Width="100" />
+                        <Button Background="#FFD19638" Canvas.Left="285" Canvas.Top="528" Content="Previous" FontSize="20" Height="40" Name="bttnExamPrevious" Width="100" />
                     </Canvas>
                 </TabItem>
-                <TabItem Header="Treatment" HorizontalAlignment="Left" Name="tabItem2" VerticalAlignment="Top">
+                <TabItem Header="Treatment" HorizontalAlignment="Left" Name="tabVisitTreatment" VerticalAlignment="Top">
                     <Grid>
                         <Rectangle HorizontalAlignment="Center" Margin="317,6,374,783" Name="rectangle3" Stroke="#FF23A0A0" Width="353" />
                         <Label Content="Treatment" FontFamily="Sitka Heading" FontSize="56" FontWeight="Bold" Foreground="#FF1D637C" Height="70" HorizontalAlignment="Center" Margin="353,7,374,790" Name="label12" Width="317" />
-                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="190,113,654,713" Name="textBox7" Width="200" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="190,113,654,713" Name="txtTreatPatientID" Width="200" IsReadOnly="True" />
                         <Label Content="Patient ID" FontSize="20" Height="40" Margin="55,113,893,713" Name="label13" />
-                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="630,113,64,713" Name="textBox17" Width="350" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="630,113,64,713" Name="txtTreatPatientName" Width="350" IsReadOnly="True" />
                         <Label Content="Patient Name" FontSize="20" Height="40" Margin="495,113,420,713" Name="label21" />
-                        <Border BorderBrush="#FF455F80" BorderThickness="1" Margin="55,200,64,208" Name="border2" Width="925" />
-                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="80" Margin="488,332,239,455" Name="textBox18" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" />
+                        <Border BorderBrush="#FF455F80" BorderThickness="1" Margin="55,200,64,208" Name="border2" Width="925">
+                            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,59,258,0" Name="txtWardType" VerticalAlignment="Top" Visibility="Hidden" Width="200" IsReadOnly="True" />
+                                <Button Background="#FFD19638" Content="Edit" FontSize="20" Height="40" Margin="682,59,0,357" Name="bttnEditWardType" Visibility="Hidden" HorizontalAlignment="Left" Width="67" Click="bttnEditWardType_Click" />
+                            </Grid>
+                        </Border>
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="80" Margin="488,332,239,455" Name="txtTreatCourseInWard" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" />
                         <Label Content="Treatment Adviced" FontSize="20" Height="40" Margin="239,559,617,268" Name="label22" />
                         <Label Content="Treatment Given" FontSize="20" Height="40" Margin="242,444,617,383" Name="label23" />
                         <Label Content="Course in Ward" FontSize="20" Height="40" Margin="242,332,614,495" Name="label24" />
-                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="80" Margin="495,557,232,230" Name="textBox19" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" />
-                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="80" Margin="490,444,237,343" Name="textBox20" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="80" Margin="495,557,232,230" Name="txtTreatAdviced" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="80" Margin="490,444,237,343" Name="txtTreatTreatmentGiven" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" />
                         <Label Content="Ward Type" FontSize="20" Height="40" Margin="242,262,614,565" Name="label25" />
-                        <ComboBox Background="#FFCBD9D9" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="495,262,0,0" Name="comboBox2" VerticalAlignment="Top" Width="200" />
-                        <Button Background="#FFD19638" Content="Submit" FontSize="20" Height="40" Margin="472,707,472,120" Name="button8" Width="100" />
-                        <Button Background="#FFD19638" Content="Next" FontSize="20" Height="40" Margin="710,707,234,120" Name="button9" Width="100" />
-                        <Button Background="#FFD19638" Content="Cancel" FontSize="20" Height="40" Margin="593,707,351,120" Name="button10" Width="100" />
-                        <Button Background="#FFD19638" Content="Previous" FontSize="20" Height="40" Margin="353,707,591,120" Name="button11" Width="100" />
+                        <ComboBox Background="#FFCBD9D9" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="495,262,0,0" Name="drpTreatWardType" VerticalAlignment="Top" Width="200" />
+                        <Button Background="#FFD19638" Content="Submit" FontSize="20" Height="40" Margin="472,707,472,120" Name="bttnTreatSubmit" Width="100" />
+                        <Button Background="#FFD19638" Content="Next" FontSize="20" Height="40" Margin="710,707,234,120" Name="bttnTreatNext" Width="100" />
+                        <Button Background="#FFD19638" Content="Cancel" FontSize="20" Height="40" Margin="593,707,351,120" Name="bttnTreatCancel" Width="100" />
+                        <Button Background="#FFD19638" Content="Previous" FontSize="20" Height="40" Margin="353,707,591,120" Name="bttnTreatPrevious" Width="100" />
                     </Grid>
                 </TabItem>
-                <TabItem Header="Medicines" HorizontalAlignment="Left" Name="tabItem3" VerticalAlignment="Top">
+                <TabItem Header="Medicines" HorizontalAlignment="Left" Name="tabVisitMedicines" VerticalAlignment="Top">
                     <Grid>
                         <Label Content="Medicines" FontFamily="Sitka Heading" FontSize="56" FontWeight="Bold" Foreground="#FF1D637C" Height="70" HorizontalAlignment="Center" Margin="350,16,419,781" Name="label27" Width="275" />
                         <Rectangle HorizontalAlignment="Center" Margin="307,7,384,780" Name="rectangle2" Stroke="#FF23A0A0" Width="353" />
-                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="187,118,657,708" Name="textBox21" Width="200" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="187,118,657,708" Name="txtMedPatientID" Width="200" IsReadOnly="True" />
                         <Label Content="Patient ID" FontSize="20" Height="40" Margin="52,118,896,708" Name="label28" />
-                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="627,118,67,708" Name="textBox22" Width="350" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="627,118,67,708" Name="txtMedPatientName" Width="350" IsReadOnly="True" />
                         <Label Content="Patient Name" FontSize="20" Height="40" Margin="492,118,423,708" Name="label29" />
-                        <ComboBox Background="#FFCBD9D9" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="285,213,0,0" Name="comboBox3" VerticalAlignment="Top" Width="200" />
-                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="508,212,423,615" Name="textBox23" />
+                        <ComboBox Background="#FFCBD9D9" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="285,213,0,0" Name="drpMedicine" VerticalAlignment="Top" Width="200" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="508,212,423,615" Name="txtMedQuantity" />
                         <Label Content="Quantity" FontSize="20" Height="40" Margin="510,180,438,647" Name="label30" />
                         <Label Content="Medicine" FontSize="20" Height="40" Margin="333,180,615,647" Name="label31" />
                         <DataGrid AutoGenerateColumns="False" Height="429" HorizontalAlignment="Left" Margin="285,285,0,0" Name="dataGrid1" VerticalAlignment="Top" Width="468" />
-                        <Button Background="#FFD19638" Content="Generate Bill" FontSize="20" Height="40" Margin="454,765,465,61" Name="button12" />
-                        <Button Background="#FFD19638" Content="Add New" FontSize="20" Height="40" Margin="670,213,274,614" Name="button13" Width="100" />
-                        <Border BorderBrush="#FF455F80" BorderThickness="1" Height="565" HorizontalAlignment="Left" Margin="245,175,0,0" Name="border4" VerticalAlignment="Top" Width="575" />
+                        <Button Background="#FFD19638" Content="Generate Bill" FontSize="20" Height="40" Margin="467,790,452,36" Name="bttnMedGenerateBill"  />
+                        <Button Background="#FFD19638" Content="Add New" FontSize="20" Height="40" Margin="670,213,274,614" Name="bttnMedAddNew" Width="100" />
+                        <Border BorderBrush="#FF455F80" BorderThickness="1" Height="606" HorizontalAlignment="Left" Margin="243,178,0,0" Name="border4" VerticalAlignment="Top" Width="575" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="510,720,334,107" Name="txtMedicineAmount" Width="200" IsReadOnly="True" />
+                        <Label Content="Total Amount" FontSize="20" Height="40" Margin="375,720,0,107" Name="label41" HorizontalAlignment="Left" Width="129" />
                     </Grid>
                 </TabItem>
-                <TabItem Header="Services" HorizontalAlignment="Left" Name="tabItem4" VerticalAlignment="Top">
+                <TabItem Header="Services" HorizontalAlignment="Left" Name="tabVisitServices" VerticalAlignment="Top">
                     <Grid>
                         <Rectangle HorizontalAlignment="Center" Margin="312,11,379,774" Name="rectangle5" Stroke="#FF23A0A0" Width="353" />
                         <Label Content="Services" FontFamily="Sitka Heading" FontSize="56" FontWeight="Bold" Foreground="#FF1D637C" Height="70" HorizontalAlignment="Center" Margin="368,23,427,774" Name="label33" Width="249" />
-                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="193,110,651,717" Name="textBox24" Width="200" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="193,110,651,717" Name="txtServicesPatientID" Width="200" IsReadOnly="True" />
                         <Label Content="Patient ID" FontSize="20" Height="40" Margin="58,110,890,717" Name="label34" />
-                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="633,110,61,717" Name="textBox25" Width="350" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="633,110,61,717" Name="txtServicesPatientName" Width="350" IsReadOnly="True" />
                         <Label Content="Patient Name" FontSize="20" Height="40" Margin="498,110,417,717" Name="label35" />
-                        <Border BorderBrush="#FF455F80" BorderThickness="1" Height="565" HorizontalAlignment="Left" Margin="245,158,0,0" Name="border3" VerticalAlignment="Top" Width="575"></Border>
-                        <ComboBox Background="#FFCBD9D9" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="263,193,0,0" Name="comboBox4" VerticalAlignment="Top" Width="200" />
-                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="486,192,445,635" Name="textBox26" />
+                        <Border BorderBrush="#FF455F80" BorderThickness="1" Height="610" HorizontalAlignment="Left" Margin="233,160,0,0" Name="border3" VerticalAlignment="Top" Width="575"></Border>
+                        <ComboBox Background="#FFCBD9D9" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="263,193,0,0" Name="drpServices" VerticalAlignment="Top" Width="200" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="486,192,445,635" Name="txtServicesNoOfDays" />
                         <Label Content="No of Days" FontSize="20" Height="40" Margin="488,160,445,667" Name="label36" />
                         <Label Content="Service" FontSize="20" Height="40" Margin="311,160,637,667" Name="label37" />
-                        <Button Background="#FFD19638" Content="Add New" FontSize="20" Height="40" Margin="648,193,296,634" Name="button14" Width="100" />
+                        <Button Background="#FFD19638" Content="Add New" FontSize="20" Height="40" Margin="648,193,296,634" Name="bttnServicesAddNew" Width="100" />
                         <DataGrid AutoGenerateColumns="False" Height="429" Name="dataGrid2" Margin="263,253,296,185" />
-                        <Button Background="#FFD19638" Content="Generate Bill" FontSize="20" Height="40" Margin="474,749,445,78" Name="button15" />
+                        <Button Background="#FFD19638" Content="Generate Bill" FontSize="20" Height="40" Margin="474,776,445,51" Name="bttnServicesGenerateBill" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="498,705,346,122" Name="txtServicesTotalAmount" Width="200" />
+                        <Label Content="Total Amount" FontSize="20" Height="40" Margin="363,705,552,122" Name="label26" />
                     </Grid>
                 </TabItem>
-                <TabItem Header="Discharge Bill" HorizontalAlignment="Left" Name="tabItem5" VerticalAlignment="Top">
+                <TabItem Header="Discharge Bill" HorizontalAlignment="Left" Name="tabVisitDischargeBill" VerticalAlignment="Top">
                     <Grid>
                         <Label Content="Discharge Bill" FontFamily="Sitka Heading" FontSize="56" FontWeight="Bold" Foreground="#FF1D637C" Height="70" HorizontalAlignment="Center" Margin="328,24,354,773" Name="label38" Width="362" />
                         <Rectangle HorizontalAlignment="Center" Margin="313,24,354,761" Name="rectangle6" Stroke="#FF23A0A0" Width="377" />
-                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="193,117,651,710" Name="textBox27" Width="200" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="193,117,0,710" Name="txtDischargePatientID" Width="200" IsReadOnly="True" HorizontalAlignment="Left" />
                         <Label Content="Patient ID" FontSize="20" Height="40" Margin="58,117,890,710" Name="label39" />
-                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="633,117,61,710" Name="textBox28" Width="350" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="633,117,61,710" Name="txtDischargePatientName" Width="350" IsReadOnly="True" />
                         <Label Content="Patient Name" FontSize="20" Height="40" Margin="498,117,417,710" Name="label40" />
                     </Grid>
                 </TabItem>

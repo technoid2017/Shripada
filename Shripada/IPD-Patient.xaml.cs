@@ -344,7 +344,8 @@ namespace Shripada
 
         private void dbttnCompleteVisit_Click(object sender, RoutedEventArgs e)
         {
-
+            Window w = new IPD_View(dPatientID.Text, dtxtPatientName.Text);
+            w.Show();
         }
 
     

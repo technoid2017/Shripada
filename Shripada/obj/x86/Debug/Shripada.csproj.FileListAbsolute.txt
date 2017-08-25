@@ -33,3 +33,4 @@ F:\Technoid\Shripada\Shripada\bin\Debug\Gallaxy Hospital.exe
 F:\Technoid\Shripada\Shripada\bin\Debug\Gallaxy Hospital.pdb
 F:\Technoid\Shripada\Shripada\obj\x86\Debug\Shripada.exe
 F:\Technoid\Shripada\Shripada\obj\x86\Debug\Shripada.pdb
+F:\Technoid\Shripada\Shripada\obj\x86\Debug\Shripada.csprojResolveAssemblyReference.cache

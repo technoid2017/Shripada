@@ -134,10 +134,11 @@ namespace Shripada.Code
                         
                         visitDetails.Add((String)rdr["timeOfAdmission"]);
                         visitDetails.Add((String)rdr["broughtBy"]);
-                        decimal deposit = (decimal)rdr["deposit"];
-                        visitDetails.Add(deposit.ToString());
                         visitDetails.Add((String)rdr["relation"]);
                         visitDetails.Add((String)rdr["inchargeDoctor"]);
+                        decimal deposit = (decimal)rdr["deposit"];
+                        visitDetails.Add(deposit.ToString());
+                                               
                         visitDetails.Add((String)rdr["medicalHistory"]);
                         visitDetails.Add((String)rdr["diagnosis"]);
                         visitDetails.Add((String)rdr["pulse"]);
