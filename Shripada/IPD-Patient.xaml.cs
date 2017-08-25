@@ -297,12 +297,12 @@ namespace Shripada
             if (currentStatus.Equals("Admitted"))
             {
                 dbttnAddVisit.IsEnabled = false;
-                dbttnCompleteVisit.IsEnabled = true;
+                //dbttnCompleteVisit.IsEnabled = true;
             }
             else
             {
                 dbttnAddVisit.IsEnabled = true;
-                dbttnCompleteVisit.IsEnabled = false;
+                //dbttnCompleteVisit.IsEnabled = false;
             }
         }
 
@@ -342,7 +342,12 @@ namespace Shripada
             
         }
 
-       
+        private void dbttnCompleteVisit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+    
 
         
 

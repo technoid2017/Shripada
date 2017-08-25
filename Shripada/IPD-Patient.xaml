@@ -99,7 +99,10 @@
                         <Border BorderBrush="#FF455F80" BorderThickness="1" Height="77" HorizontalAlignment="Left" Margin="105,464,0,0" Name="border4" VerticalAlignment="Top" Width="391" />
                         <Button Background="#FFD19638" Content="Update" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="145,772,0,0" Name="dbttnUpdate" VerticalAlignment="Top" Width="100" Click="dbttnUpdate_Click" />
                         <Button Background="#FFD19638" Content="Add Visit" FontSize="20" Height="40" Margin="644,772,0,0" Name="dbttnAddVisit" VerticalAlignment="Top" HorizontalAlignment="Left" Width="140" Click="dbttnAddVisit_Click" />
-                        <Button Background="#FFD19638" Content="Complete Visit" FontSize="20" Height="40" HorizontalAlignment="Right" Margin="0,772,406,0" Name="dbttnCompleteVisit" VerticalAlignment="Top" Width="175" />
+
+                     
+                       <Button Background="#FFD19638" Content="Complete Visit" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="463,772,0,0" Name="dbttnCompleteVisit" VerticalAlignment="Top" Width="175" Click="dbttnCompleteVisit_Click" />
+
                         <Button Background="#FFD19638" Content="Cancel" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="251,772,0,0" Name="dbttnCancel" VerticalAlignment="Top" Width="100" Click="dbttnCancel_Click" />
                         <Label Content="Sex" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="119,479,0,0" Name="label20" VerticalAlignment="Top" />
                         <RadioButton Content="Male" FontSize="20" GroupName="Sex" Height="40" HorizontalAlignment="Left" Margin="240,478,0,0" Name="dradioMale" VerticalAlignment="Top" VerticalContentAlignment="Center" />
