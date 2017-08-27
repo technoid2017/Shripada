@@ -26,6 +26,7 @@ namespace Shripada
             dtDateOfAdmission.SelectedDate = DateTime.Now;
             setDoctors();
             setWards();
+            setMedicines();
             getAllVisitData();
             
         }
@@ -61,6 +62,15 @@ namespace Shripada
 
         }
 
+        public void setMedicines()
+        {
+            List<String> medicines = Shripada.Code.Medicine.getMedicines();
+            foreach (String s in medicines)
+            {
+                drpMedicine.Items.Add(s);
+            }
+
+        }
         private void button1_Click(object sender, RoutedEventArgs e)
         {
             String patientID = txtVisitPatientID.Text;
