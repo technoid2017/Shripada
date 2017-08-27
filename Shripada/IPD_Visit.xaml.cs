@@ -25,6 +25,7 @@ namespace Shripada
             setPatientNames(patientID, patientName);
             dtDateOfAdmission.SelectedDate = DateTime.Now;
             setDoctors();
+            setWards();
             getAllVisitData();
             
         }
@@ -52,6 +53,13 @@ namespace Shripada
 
         }
 
+        public void setWards()
+        {
+            drpTreatWardType.Items.Add("ICU");
+            drpTreatWardType.Items.Add("General");
+
+
+        }
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
@@ -67,7 +75,7 @@ namespace Shripada
             decimal deposit = Convert.ToDecimal(txtVisitDeposit.Text);
 
             Shripada.Code.Visit.submitVisitBasicDetails(patientID, broughtBy, relation, doctor, medicalHistory, admissionDate, admissionTime, deposit);
-            refreshAdditionalDetails();
+            //refreshAdditionalDetails();
         }
 
         public void refreshAdditionalDetails()
@@ -207,12 +215,103 @@ namespace Shripada
             drpDoctorIncharge.Visibility = Visibility.Visible;
         }
 
+        
+        private void bttnVisitCancel_Click(object sender, RoutedEventArgs e)
+        {
+            txtVisitBroughtBy.Text = "";
+            txtVisitRelationship.Text = "";
+            txtVisitMedicalHistory.Text = "";
+            txtVisitTimeOfAdmission.Text = "";
+            txtVisitDeposit.Text = "";
+            drpDoctorIncharge.SelectedIndex = -1;
+            dtDateOfAdmission.SelectedDate = DateTime.Now;
+        }
+
+        private void bttnVisitExamine_Click(object sender, RoutedEventArgs e)
+        {
+            tabVisitExam.IsSelected = true;
+        }
+
+        private void bttnExamSubmit_Click(object sender, RoutedEventArgs e)
+        {
+            String pulse = txtExamPulse.Text;
+            String bp = txtExamTemperature.Text;
+            String temp = txtExamTemperature.Text;
+            String weight = txtExamWeight.Text;
+            String custom1 = txtExamCustom1.Text;
+            String custom2 = txtExamCustom2.Text;
+            String patientID = txtExamPatientID.Text;
+            Shripada.Code.Visit.submitVisitExamDetails(pulse,bp,temp,weight,custom1,custom2,patientID);
+            //clearExamForm();
+        }
+
+        private void bttnExamPrevious_Click(object sender, RoutedEventArgs e)
+        {
+            tabVisitDetails.IsSelected = true;
+        }
+
+        private void bttnExamNext_Click(object sender, RoutedEventArgs e)
+        {
+            tabVisitTreatment.IsSelected = true;
+        }
+
+        private void bttnExamCancel_Click(object sender, RoutedEventArgs e)
+        {
+            clearExamForm();
+        }
+        public void clearExamForm()
+        {
+            txtExamBloodPressure.Text = "";
+            txtExamPulse.Text = "";
+            txtExamTemperature.Text = "";
+            txtExamWeight.Text = "";
+            txtExamCustom1.Text = "";
+            txtExamCustom2.Text = "";
+        }
+
+        //Treatment Tab
+        private void bttnTreatPrevious_Click(object sender, RoutedEventArgs e)
+        {
+            tabVisitExam.IsSelected = true;
+        }
+
+        private void bttnTreatNext_Click(object sender, RoutedEventArgs e)
+        {
+            tabVisitMedicines.IsSelected = true;
+        }
+
+        private void bttnTreatCancel_Click(object sender, RoutedEventArgs e)
+        {
+            cancelTreatmentForm();
+        }
+
+        void cancelTreatmentForm()
+        {
+            drpTreatWardType.SelectedIndex = -1;
+            txtTreatAdviced.Text = "";
+            txtTreatCourseInWard.Text = "";
+            txtTreatTreatmentGiven.Text = "";
+        }
+
+        private void bttnTreatSubmit_Click(object sender, RoutedEventArgs e)
+        {
+            String patientID = txtTreatPatientID.Text;
+            String wardType = drpTreatWardType.SelectedItem.ToString();
+            String advicedTreatment = txtTreatAdviced.Text;
+            String givenTreatment = txtTreatTreatmentGiven.Text;
+            String courseinWard = txtTreatCourseInWard.Text;
+            Shripada.Code.Visit.submitVisitTreatmentDetails(wardType, advicedTreatment, givenTreatment, courseinWard, patientID);
+            //cancelTreatmentForm();
+        }
+
         private void bttnEditWardType_Click(object sender, RoutedEventArgs e)
         {
             txtWardType.Visibility = Visibility.Hidden;
             bttnEditWardType.Visibility = Visibility.Hidden;
             drpTreatWardType.Visibility = Visibility.Visible;
         }
+
+
 
     }
 }

@@ -29,8 +29,8 @@
                         <Label Content="Deposit" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="36,514,0,0" Name="label11" VerticalAlignment="Top" />
                         <DatePicker Height="40" HorizontalAlignment="Left" Margin="858,125,0,0" Name="dtDateOfAdmission" VerticalAlignment="Top" Width="132" VerticalContentAlignment="Center" FontSize="20" />
                         <Button Content="Submit" Height="40" HorizontalAlignment="Left" Margin="299,617,0,0" Name="bttnVisitSubmit" VerticalAlignment="Top" Width="100" FontSize="20" Background="#FFD19638" Click="button1_Click" />
-                        <Button Content="Examine" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="538,617,0,0" Name="bttnVisitExamine" VerticalAlignment="Top" Width="100" Background="#FFD19638" />
-                        <Button Content="Cancel" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="421,617,0,0" Name="bttnVisitCancel" VerticalAlignment="Top" Width="100" Background="#FFD19638" />
+                        <Button Content="Examine" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="538,617,0,0" Name="bttnVisitExamine" VerticalAlignment="Top" Width="100" Background="#FFD19638" Click="bttnVisitExamine_Click" />
+                        <Button Content="Cancel" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="421,617,0,0" Name="bttnVisitCancel" VerticalAlignment="Top" Width="100" Background="#FFD19638" Click="bttnVisitCancel_Click" />
                         <ComboBox Height="40" HorizontalAlignment="Left" Margin="173,375,0,0" Name="drpDoctorIncharge" VerticalAlignment="Top" Width="200" FontSize="20" Background="#FFCBD9D9"></ComboBox>
                         <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,182,54,0" Name="txtVisitTimeOfAdmission" VerticalAlignment="Top" Width="132" />
                         <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,382,667,0" Name="txtVisitDoctor" VerticalAlignment="Top" Width="200" Visibility="Hidden" IsReadOnly="True" />
@@ -58,10 +58,10 @@
                         <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Canvas.Left="268" Canvas.Top="223" Height="40" Name="txtExamPulse" Width="200" />
                         <Label Canvas.Left="133" Canvas.Top="223" Content="Pulse" FontSize="20" Height="40" Name="label20" />
                         <Border BorderBrush="#FF455F80" BorderThickness="1" Canvas.Left="67" Canvas.Top="197" Height="272" Name="border1" Width="925" />
-                        <Button Background="#FFD19638" Canvas.Left="404" Canvas.Top="528" Content="Submit" FontSize="20" Height="40" Name="bttnExamSubmit" Width="100" />
-                        <Button Background="#FFD19638" Canvas.Left="642" Canvas.Top="528" Content="Next" FontSize="20" Height="40" Name="bttnExamNext" Width="100" />
-                        <Button Background="#FFD19638" Canvas.Left="525" Canvas.Top="528" Content="Cancel" FontSize="20" Height="40" Name="bttnExamCancel" Width="100" />
-                        <Button Background="#FFD19638" Canvas.Left="285" Canvas.Top="528" Content="Previous" FontSize="20" Height="40" Name="bttnExamPrevious" Width="100" />
+                        <Button Background="#FFD19638" Canvas.Left="404" Canvas.Top="528" Content="Submit" FontSize="20" Height="40" Name="bttnExamSubmit" Width="100" Click="bttnExamSubmit_Click" />
+                        <Button Background="#FFD19638" Canvas.Left="642" Canvas.Top="528" Content="Next" FontSize="20" Height="40" Name="bttnExamNext" Width="100" Click="bttnExamNext_Click" />
+                        <Button Background="#FFD19638" Canvas.Left="525" Canvas.Top="528" Content="Cancel" FontSize="20" Height="40" Name="bttnExamCancel" Width="100" Click="bttnExamCancel_Click" />
+                        <Button Background="#FFD19638" Canvas.Left="285" Canvas.Top="528" Content="Previous" FontSize="20" Height="40" Name="bttnExamPrevious" Width="100" Click="bttnExamPrevious_Click" />
                     </Canvas>
                 </TabItem>
                 <TabItem Header="Treatment" HorizontalAlignment="Left" Name="tabVisitTreatment" VerticalAlignment="Top">
@@ -86,10 +86,10 @@
                         <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="80" Margin="490,444,237,343" Name="txtTreatTreatmentGiven" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" />
                         <Label Content="Ward Type" FontSize="20" Height="40" Margin="242,262,614,565" Name="label25" />
                         <ComboBox Background="#FFCBD9D9" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="495,262,0,0" Name="drpTreatWardType" VerticalAlignment="Top" Width="200" />
-                        <Button Background="#FFD19638" Content="Submit" FontSize="20" Height="40" Margin="472,707,472,120" Name="bttnTreatSubmit" Width="100" />
-                        <Button Background="#FFD19638" Content="Next" FontSize="20" Height="40" Margin="710,707,234,120" Name="bttnTreatNext" Width="100" />
-                        <Button Background="#FFD19638" Content="Cancel" FontSize="20" Height="40" Margin="593,707,351,120" Name="bttnTreatCancel" Width="100" />
-                        <Button Background="#FFD19638" Content="Previous" FontSize="20" Height="40" Margin="353,707,591,120" Name="bttnTreatPrevious" Width="100" />
+                        <Button Background="#FFD19638" Content="Submit" FontSize="20" Height="40" Margin="472,707,472,120" Name="bttnTreatSubmit" Width="100" Click="bttnTreatSubmit_Click" />
+                        <Button Background="#FFD19638" Content="Next" FontSize="20" Height="40" Margin="0,707,234,120" Name="bttnTreatNext" Width="100" Click="bttnTreatNext_Click" HorizontalAlignment="Right" />
+                        <Button Background="#FFD19638" Content="Cancel" FontSize="20" Height="40" Margin="593,707,351,120" Name="bttnTreatCancel" Width="100" Click="bttnTreatCancel_Click" />
+                        <Button Background="#FFD19638" Content="Previous" FontSize="20" Height="40" Margin="353,707,591,120" Name="bttnTreatPrevious" Width="100" Click="bttnTreatPrevious_Click" />
                     </Grid>
                 </TabItem>
                 <TabItem Header="Medicines" HorizontalAlignment="Left" Name="tabVisitMedicines" VerticalAlignment="Top">

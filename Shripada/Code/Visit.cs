@@ -180,7 +180,72 @@ namespace Shripada.Code
             return visitDetails;
         }
 
-    }
 
-   
+        public static void submitVisitExamDetails(String pulse, String bp, String temperature, String pWeight, String examCustom1, String examCustom2, string patientID)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(utils.cons))
+                {
+                    SqlCommand cmd = new SqlCommand("update visitData set pulse = @pulse, bp = @bp, temperature = @temperature, pWeight= @pWeight, examCustom1 = @examCustom1, examCustom2= @examCustom2 where patientId = @patientID", con);
+
+                    cmd.Parameters.AddWithValue("@pulse", pulse);
+                    cmd.Parameters.AddWithValue("@bp", bp);
+                    cmd.Parameters.AddWithValue("@temperature", temperature);
+                    cmd.Parameters.AddWithValue("@pWeight", pWeight);
+
+                    cmd.Parameters.AddWithValue("@examCustom1", examCustom1);
+                    cmd.Parameters.AddWithValue("@examCustom2", examCustom2);
+                    cmd.Parameters.AddWithValue("@patientID", patientID);
+
+                    con.Open();
+
+                    int i = cmd.ExecuteNonQuery();
+                    if (i >= 1)
+                    {
+                        System.Windows.MessageBox.Show("Examination Details saved Successfully");
+
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                System.Windows.Forms.MessageBox.Show(e.ToString());
+            }
+
+        }
+
+        public static void submitVisitTreatmentDetails(String wardType, String treatmentAdvanced, String treatmentGiven, String courseInWard, string patientID)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(utils.cons))
+                {
+                    SqlCommand cmd = new SqlCommand("update visitData set wardType = @wardType, courseInWard = @courseInWard, treatmentGiven = @treatmentGiven, treatmentAdvanced= @treatmentAdvanced where patientId = @patientID", con);
+
+                    cmd.Parameters.AddWithValue("@wardType", wardType);
+                    cmd.Parameters.AddWithValue("@treatmentAdvanced", treatmentAdvanced);
+                    cmd.Parameters.AddWithValue("@treatmentGiven", treatmentGiven);
+                    cmd.Parameters.AddWithValue("@courseInWard", courseInWard);
+                    cmd.Parameters.AddWithValue("@patientID", patientID);
+
+                    con.Open();
+
+                    int i = cmd.ExecuteNonQuery();
+                    if (i >= 1)
+                    {
+                        System.Windows.MessageBox.Show("Examination Details saved Successfully");
+
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                System.Windows.Forms.MessageBox.Show(e.ToString());
+            }
+
+        }
+
+    }
+      
 }
