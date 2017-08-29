@@ -104,10 +104,10 @@
                         <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="508,212,423,615" Name="txtMedQuantity" />
                         <Label Content="Quantity" FontSize="20" Height="40" Margin="510,180,438,647" Name="label30" />
                         <Label Content="Medicine" FontSize="20" Height="40" Margin="333,180,615,647" Name="label31" />
-                        <DataGrid AutoGenerateColumns="False" Height="429" HorizontalAlignment="Left" Margin="285,285,0,0" Name="dataGrid1" VerticalAlignment="Top" Width="468" />
+                        <DataGrid AutoGenerateColumns="True" Height="429" HorizontalAlignment="Left" Margin="285,285,0,0" Name="dataGrid1" VerticalAlignment="Top" Width="468" />
                         <Button Background="#FFD19638" Content="Generate Bill" FontSize="20" Height="40" Margin="467,790,452,36" Name="bttnMedGenerateBill"  />
-                        <Button Background="#FFD19638" Content="Add New" FontSize="20" Height="40" Margin="670,213,274,614" Name="bttnMedAddNew" Width="100" />
-                        <Border BorderBrush="#FF455F80" BorderThickness="1" Height="606" HorizontalAlignment="Left" Margin="243,178,0,0" Name="border4" VerticalAlignment="Top" Width="575" />
+                        <Button Background="#FFD19638" Content="Add New" FontSize="20" Height="40" Margin="670,213,274,614" Name="bttnMedAddNew" Width="100" Click="bttnMedAddNew_Click" />
+                        <Border BorderBrush="#FF455F80" BorderThickness="1" Height="606" HorizontalAlignment="Left" Margin="246,268,0,0" Name="border4" VerticalAlignment="Top" Width="575" />
                         <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="510,720,334,107" Name="txtMedicineAmount" Width="200" IsReadOnly="True" />
                         <Label Content="Total Amount" FontSize="20" Height="40" Margin="375,720,0,107" Name="label41" HorizontalAlignment="Left" Width="129" />
                     </Grid>

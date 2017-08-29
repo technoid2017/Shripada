@@ -10,6 +10,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data;
 
 namespace Shripada
 {
@@ -27,6 +28,7 @@ namespace Shripada
             setDoctors();
             setWards();
             setMedicines();
+            setServices();
             getAllVisitData();
             
         }
@@ -71,6 +73,17 @@ namespace Shripada
             }
 
         }
+
+        public void setServices()
+        {
+            List<String> services = Shripada.Code.Services.getServices();
+            foreach (String s in services)
+            {
+                drpServices.Items.Add(s);
+            }
+
+        }
+
         private void button1_Click(object sender, RoutedEventArgs e)
         {
             String patientID = txtVisitPatientID.Text;
@@ -319,6 +332,29 @@ namespace Shripada
             txtWardType.Visibility = Visibility.Hidden;
             bttnEditWardType.Visibility = Visibility.Hidden;
             drpTreatWardType.Visibility = Visibility.Visible;
+        }
+
+        private void bttnMedAddNew_Click(object sender, RoutedEventArgs e)
+        {
+            decimal grandTotalAmount = 0;
+            int quantity = Convert.ToInt32(txtMedQuantity.Text);
+            
+            decimal totalAmount = Shripada.Code.Medicine.calculateMedicinePrice(drpMedicine.SelectedItem.ToString(), quantity);
+
+            Shripada.Code.Medicine.placeMedicineOrder(txtMedPatientID.Text,drpMedicine.SelectedItem.ToString(),quantity,totalAmount);
+            
+            DataTable dt = Shripada.Code.Medicine.addMedicineToGrid(txtMedPatientID.Text);
+            dataGrid1.ItemsSource = dt.DefaultView;
+            
+            decimal previousAmount = Shripada.Code.Medicine.getCurrentMedicineBill(txtMedPatientID.Text);
+            grandTotalAmount = previousAmount + totalAmount;
+
+            Shripada.Code.Medicine.addTotalBillToMain(txtMedPatientID.Text, grandTotalAmount);
+            txtMedicineAmount.Text = grandTotalAmount.ToString();
+            
+            Shripada.Code.Medicine.addMedicineToGrid(txtMedPatientID.Text);
+
+                        
         }
 
 

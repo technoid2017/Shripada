@@ -68,6 +68,7 @@
     <Compile Include="Code\LoginCode.cs" />
     <Compile Include="Code\Medicine.cs" />
     <Compile Include="Code\Patient.cs" />
+    <Compile Include="Code\Services.cs" />
     <Compile Include="Code\utils.cs" />
     <Compile Include="Code\Visit.cs" />
     <Compile Include="ResetPassword.xaml.cs">
