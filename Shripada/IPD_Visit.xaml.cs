@@ -30,6 +30,8 @@ namespace Shripada
             setMedicines();
             setServices();
             getAllVisitData();
+            loadDefaultGrid(patientID);
+            
             
         }
 
@@ -82,6 +84,23 @@ namespace Shripada
                 drpServices.Items.Add(s);
             }
 
+        }
+
+        public void loadDefaultGrid(String patientID)
+        {
+
+            DataTable dtMedicine = Shripada.Code.Medicine.addMedicineToGrid(patientID);
+            dataGrid1.ItemsSource = dtMedicine.DefaultView;
+            decimal previousAmount = Shripada.Code.Medicine.getCurrentMedicineBill(patientID);
+            //System.Windows.MessageBox.Show(previousAmount.ToString());
+            txtMedicineAmount.Text = previousAmount.ToString();
+
+            DataTable dtServices = Shripada.Code.Services.addServiceToGrid(patientID);
+            dataGrid2.ItemsSource = dtServices.DefaultView;
+            decimal previousAmountServices = Shripada.Code.Services.getCurrentServiceBill(patientID);
+            //System.Windows.MessageBox.Show(previousAmountServices.ToString());
+            txtServicesTotalAmount.Text = previousAmountServices.ToString();
+            
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
@@ -354,7 +373,33 @@ namespace Shripada
             
             Shripada.Code.Medicine.addMedicineToGrid(txtMedPatientID.Text);
 
-                        
+            drpMedicine.SelectedIndex = -1;
+            txtMedQuantity = "";
+        }
+
+        private void bttnServicesAddNew_Click(object sender, RoutedEventArgs e)
+        {
+
+            decimal grandTotalAmount = 0;
+            int noOfDays = Convert.ToInt32(txtServicesNoOfDays.Text);
+
+            decimal totalAmount = Shripada.Code.Services.calculateServicePrice(drpServices.SelectedItem.ToString(), noOfDays);
+
+            Shripada.Code.Services.placeServiceOrder(txtServicesPatientID.Text, drpServices.SelectedItem.ToString(), noOfDays, totalAmount);
+
+            DataTable dtServices = Shripada.Code.Services.addServiceToGrid(txtServicesPatientID.Text);
+            dataGrid2.ItemsSource = dtServices.DefaultView;
+
+            decimal previousAmount = Shripada.Code.Services.getCurrentServiceBill(txtServicesPatientID.Text);
+            grandTotalAmount = previousAmount + totalAmount;
+
+            Shripada.Code.Services.addTotalBillToMain(txtServicesPatientID.Text, grandTotalAmount);
+            txtServicesTotalAmount.Text = grandTotalAmount.ToString();
+
+            Shripada.Code.Services.addServiceToGrid(txtServicesPatientID.Text);
+
+            drpServices.SelectedIndex = -1;
+            txtServicesNoOfDays = "";
         }
 
 

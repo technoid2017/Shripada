@@ -107,7 +107,7 @@
                         <DataGrid AutoGenerateColumns="True" Height="429" HorizontalAlignment="Left" Margin="285,285,0,0" Name="dataGrid1" VerticalAlignment="Top" Width="468" />
                         <Button Background="#FFD19638" Content="Generate Bill" FontSize="20" Height="40" Margin="467,790,452,36" Name="bttnMedGenerateBill"  />
                         <Button Background="#FFD19638" Content="Add New" FontSize="20" Height="40" Margin="670,213,274,614" Name="bttnMedAddNew" Width="100" Click="bttnMedAddNew_Click" />
-                        <Border BorderBrush="#FF455F80" BorderThickness="1" Height="606" HorizontalAlignment="Left" Margin="246,268,0,0" Name="border4" VerticalAlignment="Top" Width="575" />
+                        <Border BorderBrush="#FF455F80" BorderThickness="1" Height="606" HorizontalAlignment="Left" Margin="234,268,0,0" Name="border4" VerticalAlignment="Top" Width="575" />
                         <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="510,720,334,107" Name="txtMedicineAmount" Width="200" IsReadOnly="True" />
                         <Label Content="Total Amount" FontSize="20" Height="40" Margin="375,720,0,107" Name="label41" HorizontalAlignment="Left" Width="129" />
                     </Grid>
@@ -125,8 +125,8 @@
                         <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="486,192,445,635" Name="txtServicesNoOfDays" />
                         <Label Content="No of Days" FontSize="20" Height="40" Margin="488,160,445,667" Name="label36" />
                         <Label Content="Service" FontSize="20" Height="40" Margin="311,160,637,667" Name="label37" />
-                        <Button Background="#FFD19638" Content="Add New" FontSize="20" Height="40" Margin="648,193,296,634" Name="bttnServicesAddNew" Width="100" />
-                        <DataGrid AutoGenerateColumns="False" Height="429" Name="dataGrid2" Margin="263,253,296,185" />
+                        <Button Background="#FFD19638" Content="Add New" FontSize="20" Height="40" Margin="648,193,296,634" Name="bttnServicesAddNew" Width="100" Click="bttnServicesAddNew_Click" />
+                        <DataGrid AutoGenerateColumns="True" Height="429" Name="dataGrid2" Margin="263,253,296,185" />
                         <Button Background="#FFD19638" Content="Generate Bill" FontSize="20" Height="40" Margin="474,776,445,51" Name="bttnServicesGenerateBill" />
                         <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="498,705,346,122" Name="txtServicesTotalAmount" Width="200" />
                         <Label Content="Total Amount" FontSize="20" Height="40" Margin="363,705,552,122" Name="label26" />

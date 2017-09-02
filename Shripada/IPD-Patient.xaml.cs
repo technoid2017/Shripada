@@ -54,6 +54,8 @@ namespace Shripada
             //this.Close();
            Shripada.Code.Visit.addNewVisit(txtPatientID.Text, txtPatientName.Text);
 
+
+
         }
 
         public String getSex()
