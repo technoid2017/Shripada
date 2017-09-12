@@ -15,7 +15,7 @@
             </Button>
             <Button Height="300" HorizontalAlignment="Left" Margin="356,409,0,0" Name="bttnSetting" VerticalAlignment="Top" Width="300" Click="bttnSetting_Click">
                 <StackPanel Height="270">
-                    <Image Height="224" Source="/Images/Settings1.jpg" />
+                    <Image Height="224" Source="/Images/Settings1.jpg"  />
                     <TextBlock FontSize="24" FontWeight="Bold" Foreground="#FF651717" TextAlignment="Center">Settings</TextBlock>
                 </StackPanel>
             </Button>

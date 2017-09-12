@@ -53,16 +53,21 @@ namespace Shripada
 
         public void setDoctors()
         {
-            drpDoctorIncharge.Items.Add("Doc1");
-            drpDoctorIncharge.Items.Add("Doc2");
+            List<String> doctors = Shripada.Code.Doctors.getDoctors();
+            foreach (String s in doctors)
+            {
+                drpDoctorIncharge.Items.Add(s);
+            }
 
         }
 
         public void setWards()
         {
-            drpTreatWardType.Items.Add("ICU");
-            drpTreatWardType.Items.Add("General");
-
+            List<String> wards = Shripada.Code.Wards.getWards();
+            foreach (String s in wards)
+            {
+                drpTreatWardType.Items.Add(s);
+            }
 
         }
 
@@ -374,7 +379,7 @@ namespace Shripada
             Shripada.Code.Medicine.addMedicineToGrid(txtMedPatientID.Text);
 
             drpMedicine.SelectedIndex = -1;
-            txtMedQuantity = "";
+            txtMedQuantity.Text = "";
         }
 
         private void bttnServicesAddNew_Click(object sender, RoutedEventArgs e)
@@ -399,8 +404,24 @@ namespace Shripada
             Shripada.Code.Services.addServiceToGrid(txtServicesPatientID.Text);
 
             drpServices.SelectedIndex = -1;
-            txtServicesNoOfDays = "";
+            txtServicesNoOfDays.Text = "";
         }
+
+        private void bttnDischargeGenerateBill_Click(object sender, RoutedEventArgs e)
+        {
+            List<String> DischargeDetails = Shripada.Code.Visit.getVisitDetails(txtVisitPatientID.Text);
+
+            lbDischargeDOA.Content = DischargeDetails.ElementAt(1).ToString();
+            lblDischargeTime.Content = DischargeDetails.ElementAt(2).ToString();
+            txtDischargeDeposit.Text = DischargeDetails.ElementAt(6).ToString();
+            txtDischargeWardType.Text = DischargeDetails.ElementAt(15).ToString();
+            txtDischargeMedicineCharges.Text = DischargeDetails.ElementAt(19).ToString();
+            txtDischargeServiceCharges.Text = DischargeDetails.ElementAt(20).ToString();
+            dtDischargeDate.SelectedDate = DateTime.Now;
+            
+
+        }
+
 
 
 

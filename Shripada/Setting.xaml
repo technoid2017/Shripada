@@ -18,16 +18,16 @@
                     <Grid>
                         <Label Content="Doctors" FontFamily="Sitka Heading" FontSize="56" FontWeight="Bold" Foreground="#FF1D637C" Height="70" HorizontalAlignment="Center" Margin="403,15,425,782" Name="label1" Width="216" />
                         <Rectangle HorizontalAlignment="Center" Margin="364,15,385,770" Name="rectangle5" Stroke="#FF23A0A0" Width="279" />
-                        <TextBox Background="#FFCBD9D9" FontSize="18" Height="40" Margin="332,146,369,681" Name="txtSearchByName" Text="Enter Doctor Name Here" Width="343"  />
-                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="422,257,272,570" Name="textBox25" Width="350" />
-                        <Label Content="Doctor Name" FontSize="20" Height="40" Margin="287,257,628,570" Name="label35" />
-                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="423,320,271,507" Name="textBox1" Width="350" />
-                        <Label Content="Specialization" FontSize="20" Height="40" Margin="288,320,627,507" Name="label2" />
-                        <Button Background="#FFD19638" Content="Submit" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="315,435,0,0" Name="button1" VerticalAlignment="Top" Width="100" />
-                        <Button Background="#FFD19638" Content="Update" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="527,435,0,0" Name="button3" VerticalAlignment="Top" Width="100" />
-                        <Button Background="#FFD19638" Content="Cancel" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="421,435,0,0" Name="button4" VerticalAlignment="Top" Width="100" />
-                        <Button Background="#FFD19638" Content="Delete" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="633,435,0,0" Name="button2" VerticalAlignment="Top" Width="100" />
-                        <Button Height="40" Margin="667,146,311,681" Name="button17" />
+                        <TextBox Background="#FFCBD9D9" FontSize="18" Height="40" Margin="332,146,369,681" Name="txtDoctorSearchByName" Text="Enter Doctor Name Here" Width="343"  />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="422,257,272,570" Name="txtDoctorName" Width="350" />
+                        <Label Content="Doctor Name" FontSize="20" Height="40" Margin="270,257,628,570" Name="label35" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="423,320,271,507" Name="txtDoctorSpecialization" Width="350" />
+                        <Label Content="Specialization" FontSize="20" Height="40" Margin="270,320,627,507" Name="label2" />
+                        <Button Background="#FFD19638" Content="Submit" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="315,435,0,0" Name="bttnDoctorSubmit" VerticalAlignment="Top" Width="100" Click="button1_Click" />
+                        <Button Background="#FFD19638" Content="Update" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="527,435,0,0" Name="bttnDoctorUpdate" VerticalAlignment="Top" Width="100" Click="bttnDoctorUpdate_Click" />
+                        <Button Background="#FFD19638" Content="Cancel" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="421,435,0,0" Name="bttnDoctorCancel" VerticalAlignment="Top" Width="100" Click="bttnDoctorCancel_Click" />
+                        <Button Background="#FFD19638" Content="Delete" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="633,435,0,0" Name="bttnDoctorDelete" VerticalAlignment="Top" Width="100" Click="bttnDoctorDelete_Click" />
+                        <Button Height="40" Margin="667,146,311,681" Name="bttnDoctorSearch" Click="bttnDoctorSearch_Click" />
                         <Image Height="30" Margin="681,146,317,691" Source="/Images/search1.jpg" Width="30" />
                     </Grid>
                 </TabItem>
@@ -54,17 +54,19 @@
                     <Grid>
                         <Label Content="Services" FontFamily="Sitka Heading" FontSize="56" FontWeight="Bold" Foreground="#FF1D637C" Height="70" HorizontalAlignment="Center" Margin="403,15,425,782" Name="label3" Width="216" />
                         <Rectangle HorizontalAlignment="Center" Margin="360,15,384,769" Name="rectangle1" Stroke="#FF23A0A0" Width="284" />
-                        <TextBox Background="#FFCBD9D9" FontSize="18" Height="40" Margin="332,146,369,681" Name="textBox2" Text="Enter Service Name Here" Width="343" />
-                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="422,257,272,570" Name="textBox3" Width="350" />
-                        <Label Content="Service Name" FontSize="20" Height="40" Margin="287,257,628,570" Name="label4" />
-                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="423,320,417,507" Name="textBox4" />
-                        <Label Content="Amount" FontSize="20" Height="40" Margin="288,320,627,507" Name="label5" />
-                        <Button Background="#FFD19638" Content="Submit" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="315,435,0,0" Name="button6" VerticalAlignment="Top" Width="100" />
-                        <Button Background="#FFD19638" Content="Update" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="527,435,0,0" Name="button7" VerticalAlignment="Top" Width="100" />
-                        <Button Background="#FFD19638" Content="Cancel" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="421,435,0,0" Name="button8" VerticalAlignment="Top" Width="100" />
-                        <Button Background="#FFD19638" Content="Delete" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="633,435,0,0" Name="button9" VerticalAlignment="Top" Width="100" />
-                        <Button Height="40" Margin="689,146,289,681" Name="button19" />
+                        <TextBox Background="#FFCBD9D9" FontSize="18" Height="40" Margin="332,146,369,681" Name="txtServiceSearch" Text="Enter Service Name Here" Width="343" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="422,257,272,570" Name="txtServiceName" Width="350" />
+                        <Label Content="Service Name" FontSize="20" Height="40" Margin="269,257,628,570" Name="label4" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="423,350,417,477" Name="txtServiceAmount" />
+                        <Label Content="Amount" FontSize="20" Height="40" Margin="269,350,0,477" Name="label5" HorizontalAlignment="Left" Width="132" />
+                        <Button Background="#FFD19638" Content="Submit" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="315,435,0,0" Name="bttnServicesSubmit" VerticalAlignment="Top" Width="100" Click="bttnServicesSubmit_Click" />
+                        <Button Background="#FFD19638" Content="Update" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="527,435,0,0" Name="bttnServicesUpdate" VerticalAlignment="Top" Width="100" Click="bttnServicesUpdate_Click" />
+                        <Button Background="#FFD19638" Content="Cancel" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="421,435,0,0" Name="bttnServicesCancel" VerticalAlignment="Top" Width="100" Click="bttnServicesCancel_Click" />
+                        <Button Background="#FFD19638" Content="Delete" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="633,435,0,0" Name="bttnServicesDelete" VerticalAlignment="Top" Width="100" Click="bttnServicesDelete_Click" />
+                        <Button Height="40" Margin="689,146,289,681" Name="bttnServiceSearchByName" Click="bttnServiceSearchByName_Click" />
                         <Image Height="30" Margin="703,146,295,691" Source="/Images/search1.jpg" Width="30" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="423,303,255,524" Name="txtServiceDescription" Width="350" />
+                        <Label Content="Description" FontSize="20" Height="40" Margin="270,303,627,524" Name="label16" />
                     </Grid>
                 </TabItem>
                 <TabItem Header="Add User" HorizontalAlignment="Left" Name="tabItem1" VerticalAlignment="Top">

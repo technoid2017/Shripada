@@ -134,12 +134,47 @@
                 </TabItem>
                 <TabItem Header="Discharge Bill" HorizontalAlignment="Left" Name="tabVisitDischargeBill" VerticalAlignment="Top">
                     <Grid>
-                        <Label Content="Discharge Bill" FontFamily="Sitka Heading" FontSize="56" FontWeight="Bold" Foreground="#FF1D637C" Height="70" HorizontalAlignment="Center" Margin="328,24,354,773" Name="label38" Width="362" />
-                        <Rectangle HorizontalAlignment="Center" Margin="313,24,354,761" Name="rectangle6" Stroke="#FF23A0A0" Width="377" />
-                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="193,117,0,710" Name="txtDischargePatientID" Width="200" IsReadOnly="True" HorizontalAlignment="Left" />
-                        <Label Content="Patient ID" FontSize="20" Height="40" Margin="58,117,890,710" Name="label39" />
-                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="633,117,61,710" Name="txtDischargePatientName" Width="350" IsReadOnly="True" />
-                        <Label Content="Patient Name" FontSize="20" Height="40" Margin="498,117,417,710" Name="label40" />
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="67*" />
+                            <ColumnDefinition Width="977*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Discharge Bill" FontFamily="Sitka Heading" FontSize="56" FontWeight="Bold" Foreground="#FF1D637C" Height="70" HorizontalAlignment="Center" Margin="261,7,354,789" Name="label38" Width="362" Grid.Column="1" />
+                        <Rectangle HorizontalAlignment="Center" Margin="246,7,354,777" Name="rectangle6" Stroke="#FF23A0A0" Width="377" Grid.Column="1" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="126,117,0,710" Name="txtDischargePatientID" Width="200" IsReadOnly="True" HorizontalAlignment="Left" Grid.Column="1" />
+                        <Label Content="Patient ID" FontSize="20" Height="40" Margin="58,117,890,710" Name="label39" Grid.ColumnSpan="2" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="566,117,61,710" Name="txtDischargePatientName" Width="350" IsReadOnly="True" Grid.Column="1" />
+                        <Label Content="Patient Name" FontSize="20" Height="40" Margin="431,117,417,710" Name="label40" Grid.Column="1" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Left" IsReadOnly="True" Margin="721,432,0,395" Name="txtDischargeMedicineCharges" Width="200" Grid.Column="1" />
+                        <Label Content="Medicine Charges" FontSize="20" Height="40" Margin="522,432,277,395" Name="label42" Grid.Column="1" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Left" IsReadOnly="True" Margin="206,432,0,395" Name="txtDischargeServiceCharges" Width="200" Grid.Column="1" />
+                        <Label Content="Service Charges" FontSize="20" Height="40" Margin="7,432,777,395" Name="label43" Grid.Column="1" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Left" IsReadOnly="True" Margin="206,386,0,441" Name="txtDischargeWardType" Width="200" Grid.Column="1" />
+                        <Label Content="Ward Type" FontSize="20" Height="40" Margin="0,386,792,441" Name="label44" HorizontalAlignment="Right" Width="178" Grid.Column="1" />
+                        <Label FontSize="20" Height="40" Margin="63,237,795,590" Name="label45" Content="Date Of Admission :" Grid.ColumnSpan="2" />
+                        <Label FontSize="20" Height="40" HorizontalAlignment="Right" Margin="0,235,666,592" Name="lbDischargeDOA" Width="121" Grid.Column="1" />
+                        <Label Content="Time Of Admission:" FontSize="20" Height="40" Margin="63,277,795,550" Name="label46" Grid.ColumnSpan="2" />
+                        <Label FontSize="20" Height="40" HorizontalAlignment="Right" Margin="0,277,666,550" Name="lblDischargeTime" Width="121" Grid.Column="1" />
+                        <Label Content="Time of Discharge" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="597,277,0,0" Name="label47" VerticalAlignment="Top" Grid.Column="1" />
+                        <Label Content="Date of Discharge" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="597,233,0,0" Name="label48" VerticalAlignment="Top" Grid.Column="1" />
+                        <DatePicker FontSize="20" Grid.Column="1" Height="40" HorizontalAlignment="Left" Margin="771,231,0,0" Name="dtDischargeDate" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="150" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Grid.Column="1" Height="40" HorizontalAlignment="Right" Margin="0,277,56,0" Name="txtDischargeTOD" VerticalAlignment="Top" Width="132" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Grid.Column="1" Height="40" HorizontalAlignment="Left" IsReadOnly="True" Margin="721,478,0,349" Name="txtDischargeDeposit" Width="200" />
+                        <Label Content="Deposit" FontSize="20" Height="40" Margin="522,478,277,349" Name="label49" Grid.Column="1" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Grid.Column="1" Height="40" HorizontalAlignment="Left" IsReadOnly="True" Margin="206,478,0,349" Name="txtDischargeTotalCharges" Width="200" />
+                        <Label Content="Total Charges" FontSize="20" Height="40" Margin="7,478,0,349" Name="label50" Grid.Column="1" HorizontalAlignment="Left" Width="178" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Grid.Column="1" Height="40" HorizontalAlignment="Right" IsReadOnly="True" Margin="0,524,56,303" Name="txtDsichargePayable" Width="200" />
+                        <Label Content="Total Payable" FontSize="24" Height="40" Margin="522,524,277,303" Name="label51" Grid.Column="1" FontStyle="Italic" FontWeight="SemiBold" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Grid.Column="1" Height="40" HorizontalAlignment="Left" IsReadOnly="False" Margin="206,524,0,303" Name="txtDischargeDiscount" Width="200" />
+                        <Label Content="Discount" FontSize="20" Height="40" Margin="7,524,792,303" Name="label52" Grid.Column="1" />
+                        <Button Background="#FFD19638" Content="Discharge" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="311,661,0,0" Name="bttnDischargeSubmit" VerticalAlignment="Top" Width="100" Grid.Column="1" />
+                        <Button Background="#FFD19638" Content="Cancel" FontSize="20" Height="40" HorizontalAlignment="Right" Margin="0,661,460,0" Name="bttnDischargeCancel" VerticalAlignment="Top" Width="100" Grid.Column="1" />
+                        <Button Background="#FFD19638" Content="Generate Bill" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="378,163,0,0" Name="bttnDischargeGenerateBill" VerticalAlignment="Top" Width="127" Grid.Column="1" Click="bttnDischargeGenerateBill_Click" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Grid.Column="1" Height="40" HorizontalAlignment="Right" IsReadOnly="True" Margin="0,386,56,441" Name="txtDischargeWardCharges" Width="200" />
+                        <Label Content="Ward Charges" FontSize="20" Height="40" HorizontalAlignment="Right" Margin="0,386,277,441" Name="label53" Width="178" Grid.Column="1" />
+                        <Border BorderBrush="Silver" BorderThickness="1" Grid.ColumnSpan="2" Height="252" HorizontalAlignment="Left" Margin="45,352,0,0" Name="border5" VerticalAlignment="Top" Width="967"></Border>
+                        <Button Background="#FFD19638" Content="Print" FontSize="20" Height="40" Name="bttnDischargePrint" Width="100" Grid.Column="1" Margin="523,661,354,165" />
+                        <Border BorderBrush="Silver" BorderThickness="1" Height="100" Name="border6" Grid.Column="1" Margin="280,631,309,135" />
+                        <Border BorderBrush="Silver" BorderThickness="1" Height="119" Name="borderDate" Width="967" Grid.ColumnSpan="2" Margin="45,209,32,539" />
                     </Grid>
                 </TabItem>
             </TabControl>

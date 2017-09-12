@@ -226,5 +226,118 @@ namespace Shripada.Code
         }
         
 
+        //Methods for Services Admin operations
+
+        public static void addService(String name, String Description, decimal Amount)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(utils.cons))
+                {
+                    SqlCommand cmd = new SqlCommand("insert into ServiceData values(@serviceName, @serviceDescription, @amount)", con);
+                    cmd.Parameters.AddWithValue("@serviceName", name);
+                    cmd.Parameters.AddWithValue("@serviceDescription", Description);
+                    cmd.Parameters.AddWithValue("@amount", Amount);
+                    con.Open();
+                    int i = cmd.ExecuteNonQuery();
+
+
+                    if (i >= 1)
+                    {
+                        System.Windows.MessageBox.Show("Service added Successfully");
+
+                    }
+                }
+            }
+
+            catch (Exception cs)
+            {
+                System.Windows.MessageBox.Show(cs.Message);
+            }
+        }
+
+
+        public static List<String> searchService(String serviceName)
+        {
+            List<String> serviceDetails = new List<string>();
+            try
+            {
+                using (SqlConnection con = new SqlConnection(utils.cons))
+                {
+                    SqlCommand cmd = new SqlCommand("select * from ServiceData where serviceName like  '%'+ @service +  '%'", con);
+                    cmd.Parameters.AddWithValue("@service", serviceName);
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    SqlDataReader rdr = cmd.ExecuteReader();
+
+                    while (rdr.Read())
+                    {
+                        serviceDetails.Add((String)rdr["serviceName"]);
+                        serviceDetails.Add((String)rdr["serviceDescription"]);
+                        serviceDetails.Add(Convert.ToString((decimal)rdr["servicePrice"]));
+                    }
+                }
+            }
+
+            catch (Exception cs)
+            {
+                System.Windows.MessageBox.Show(cs.Message);
+            }
+            return serviceDetails;
+        }
+
+
+        public static void updateService(String name, String description, decimal amount)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(utils.cons))
+                {
+                    SqlCommand cmd = new SqlCommand("update ServiceData set serviceName = @name, serviceDescription = @serviceDescription, servicePrice = @amount where serviceName = @name", con);
+                    cmd.Parameters.AddWithValue("@name", name);
+                    cmd.Parameters.AddWithValue("@serviceDescription", description);
+                    cmd.Parameters.AddWithValue("@amount", amount);
+                    
+                    con.Open();
+
+                    int i = cmd.ExecuteNonQuery();
+                    if (i >= 1)
+                    {
+                        System.Windows.MessageBox.Show("Details Updated Successfully");
+
+                    }
+
+                }
+            }
+
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show(ex.Message);
+            }
+        }
+
+        public static void deleteService(String serviceName)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(utils.cons))
+                {
+                    SqlCommand cmd = new SqlCommand("delete from ServiceData where serviceName=@service", con);
+                    cmd.Parameters.AddWithValue("@service", serviceName);
+                    con.Open();
+                    int i = cmd.ExecuteNonQuery();
+                    if (i >= 1)
+                    {
+                        System.Windows.MessageBox.Show("Service Deleted Successfully");
+
+                    }
+                }
+            }
+
+            catch (Exception cs)
+            {
+                System.Windows.MessageBox.Show(cs.Message);
+            }
+        }
     }
 }

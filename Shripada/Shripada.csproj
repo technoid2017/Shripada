@@ -65,12 +65,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Code\Doctors.cs" />
     <Compile Include="Code\LoginCode.cs" />
     <Compile Include="Code\Medicine.cs" />
     <Compile Include="Code\Patient.cs" />
     <Compile Include="Code\Services.cs" />
     <Compile Include="Code\utils.cs" />
     <Compile Include="Code\Visit.cs" />
+    <Compile Include="Code\Wards.cs" />
     <Compile Include="ResetPassword.xaml.cs">
       <DependentUpon>ResetPassword.xaml</DependentUpon>
     </Compile>

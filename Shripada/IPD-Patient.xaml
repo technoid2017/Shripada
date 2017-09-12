@@ -98,7 +98,7 @@
                         <Border BorderBrush="#FF455F80" BorderThickness="2" CornerRadius="1" Height="140" HorizontalAlignment="Left" Margin="105,548,0,0" Name="border3" VerticalAlignment="Top" Width="335" />
                         <Border BorderBrush="#FF455F80" BorderThickness="1" Height="77" HorizontalAlignment="Left" Margin="105,464,0,0" Name="border4" VerticalAlignment="Top" Width="391" />
                         <Button Background="#FFD19638" Content="Update" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="145,772,0,0" Name="dbttnUpdate" VerticalAlignment="Top" Width="100" Click="dbttnUpdate_Click" />
-                        <Button Background="#FFD19638" Content="Add Visit" FontSize="20" Height="40" Margin="644,772,0,0" Name="dbttnAddVisit" VerticalAlignment="Top" HorizontalAlignment="Left" Width="140" Click="dbttnAddVisit_Click" />
+                        <Button Background="#FFD19638" Content="Add Visit" FontSize="20" Height="40" Margin="0,772,260,0" Name="dbttnAddVisit" VerticalAlignment="Top" HorizontalAlignment="Right" Width="140" Click="dbttnAddVisit_Click" />
 
                      
                        <Button Background="#FFD19638" Content="Complete Visit" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="463,772,0,0" Name="dbttnCompleteVisit" VerticalAlignment="Top" Width="175" Click="dbttnCompleteVisit_Click" />
