@@ -73,25 +73,25 @@
                     <Grid>
                         <Label Content="Add User" FontFamily="Sitka Heading" FontSize="56" FontWeight="Bold" Foreground="#FF1D637C" Height="70" HorizontalAlignment="Center" Margin="423,13,367,784" Name="label9" Width="238" />
                         <Rectangle HorizontalAlignment="Center" Margin="403,13,353,770" Name="rectangle3" Stroke="#FF23A0A0" Width="272" />
-                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="0,159,308,668" Name="textBox9" Width="239" HorizontalAlignment="Right" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="0,159,308,668" Name="txtAddUserName" Width="239" HorizontalAlignment="Right" />
                         <Label Content="User Name" FontSize="20" Height="40" Margin="345,159,0,668" Name="label10" HorizontalAlignment="Left" Width="113" />
                         <Label Content="Password" FontSize="20" Height="40" Margin="346,222,569,605" Name="label11" />
-                        <Button Background="#FFD19638" Content="Submit" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="456,378,0,0" Name="button16" VerticalAlignment="Top" Width="100" />
-                        <Button Background="#FFD19638" Content="Cancel" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="562,378,0,0" Name="button18" VerticalAlignment="Top" Width="100" />
+                        <Button Background="#FFD19638" Content="Submit" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="456,378,0,0" Name="button16" VerticalAlignment="Top" Width="100" Click="button16_Click" />
+                        <Button Background="#FFD19638" Content="Cancel" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="562,378,0,0" Name="bttnAddCancel" VerticalAlignment="Top" Width="100" Click="bttnAddCancel_Click" />
                         <Label Content="Confirm Password" FontSize="20" Height="40" Margin="285,290,570,537" Name="label12" />
-                        <PasswordBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Left" Margin="481,290,0,0" Name="passwordBox2" SelectionBrush="#FF3399FF" VerticalAlignment="Top" Width="238" />
-                        <PasswordBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Left" Margin="482,222,0,0" Name="passwordBox3" SelectionBrush="#FF3399FF" VerticalAlignment="Top" Width="238" />
+                        <PasswordBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Left" Margin="481,290,0,0" Name="txtAddPassword2" SelectionBrush="#FF3399FF" VerticalAlignment="Top" Width="238" />
+                        <PasswordBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Left" Margin="482,222,0,0" Name="txtAddPassword1" SelectionBrush="#FF3399FF" VerticalAlignment="Top" Width="238" />
                     </Grid>
                 </TabItem>
                 <TabItem Header="Reset Password">
                     <Grid>
                         <Label Content="Reset Password" FontFamily="Sitka Heading" FontSize="56" FontWeight="Bold" Foreground="#FF1D637C" Height="70" HorizontalAlignment="Center" Margin="346,13,276,784" Name="label13" Width="406" />
                         <Rectangle HorizontalAlignment="Center" Margin="327,13,276,770" Name="rectangle4" Stroke="#FF23A0A0" Width="425" />
-                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,159,308,668" Name="textBox11" Width="239" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,159,308,668" Name="txtResetUserName" Width="239" />
                         <Label Content="User Name" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="345,159,0,668" Name="label14" Width="113" />
                         <Label Content="Old Password" FontSize="20" Height="40" Margin="327,222,569,605" Name="label15" />
-                        <Button Background="#FFD19638" Content="Reset" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="481,304,0,0" Name="button15" VerticalAlignment="Top" Width="100" Click="button15_Click" />
-                        <PasswordBox Height="40" HorizontalAlignment="Left" Margin="481,222,0,0" Name="passwordBox1" VerticalAlignment="Top" Width="238" SelectionBrush="#FF3399FF" Background="#FFCBD9D9" BorderBrush="#FF7F969D" />
+                        <Button Background="#FFD19638" Content="Reset" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="481,304,0,0" Name="bttnResetPassword1" VerticalAlignment="Top" Width="100" Click="button15_Click" />
+                        <PasswordBox Height="40" HorizontalAlignment="Left" Margin="481,222,0,0" Name="txtResetOldPassword" VerticalAlignment="Top" Width="238" SelectionBrush="#FF3399FF" Background="#FFCBD9D9" BorderBrush="#FF7F969D" />
                     </Grid>
                 </TabItem>
             </TabControl>

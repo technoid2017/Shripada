@@ -65,6 +65,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Code\Admin.cs" />
     <Compile Include="Code\Doctors.cs" />
     <Compile Include="Code\LoginCode.cs" />
     <Compile Include="Code\Medicine.cs" />

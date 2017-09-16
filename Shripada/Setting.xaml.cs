@@ -23,12 +23,7 @@ namespace Shripada
             InitializeComponent();
         }
 
-        private void button15_Click(object sender, RoutedEventArgs e)
-        {
-            Window w = new ResetPassword();
-            w.Show();
-        }
-
+       
         private void button1_Click(object sender, RoutedEventArgs e)
         {
             String doctorName = txtDoctorName.Text;
@@ -131,7 +126,46 @@ namespace Shripada
             txtServiceSearch.Text = "";
         }
 
-        
+        private void button16_Click(object sender, RoutedEventArgs e)
+        {
+            String userName = txtAddUserName.Text;
+            String password = txtAddPassword1.Password;
+            String password2 = txtAddPassword2.Password;
+            if (password.Equals(password2))
+            {
+                Shripada.Code.Admin.addNewUser(userName, password);
+                txtAddUserName.Text = "";
+                txtAddPassword1.Password = "";
+                txtAddPassword2.Password = "";
+            }
+
+            else
+            {
+                System.Windows.MessageBox.Show("Password doesnot match! Please check");
+                txtAddPassword2.Password = "";
+            }
+        }
+
+        private void bttnAddCancel_Click(object sender, RoutedEventArgs e)
+        {
+            txtAddUserName.Text = "";
+            txtAddPassword1.Password = "";
+            txtAddPassword2.Password = "";
+        }
+
+        private void button15_Click(object sender, RoutedEventArgs e)
+        {
+            String userName = txtResetUserName.Text;
+            String password = txtResetOldPassword.Password;
+            if (Shripada.Code.LoginCode.login(userName, password))
+            {
+                Window w = new ResetPassword(userName);
+                w.Show();
+            }
+                        
+
+        }
+ 
 
       
     }
