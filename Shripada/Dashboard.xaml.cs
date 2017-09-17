@@ -42,6 +42,16 @@ namespace Shripada
             w.Show();
         }
 
+        private void bttnStock_Click(object sender, RoutedEventArgs e)
+        {
+            Window w = new StockManagement();
+            w.Show();
+        }
+
+
+
+       
+
 
     
     }

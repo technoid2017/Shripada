@@ -36,7 +36,9 @@ namespace Shripada.Code
                     else if (pass.Trim() == password)
                     {
                         result = true;
-                                              
+
+                        Window w = new Dashboard();
+                        w.Show();                      
                     }
                     else
                     {

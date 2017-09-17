@@ -71,6 +71,7 @@
     <Compile Include="Code\Medicine.cs" />
     <Compile Include="Code\Patient.cs" />
     <Compile Include="Code\Services.cs" />
+    <Compile Include="Code\Stock.cs" />
     <Compile Include="Code\utils.cs" />
     <Compile Include="Code\Visit.cs" />
     <Compile Include="Code\Wards.cs" />
@@ -79,6 +80,9 @@
     </Compile>
     <Compile Include="Setting.xaml.cs">
       <DependentUpon>Setting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StockManagement.xaml.cs">
+      <DependentUpon>StockManagement.xaml</DependentUpon>
     </Compile>
     <Page Include="Dashboard.xaml">
       <SubType>Designer</SubType>
@@ -118,6 +122,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Setting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StockManagement.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

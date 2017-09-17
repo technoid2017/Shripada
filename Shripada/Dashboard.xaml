@@ -19,7 +19,7 @@
                     <TextBlock FontSize="24" FontWeight="Bold" Foreground="#FF651717" TextAlignment="Center">Settings</TextBlock>
                 </StackPanel>
             </Button>
-            <Button Height="300" HorizontalAlignment="Left" Margin="356,98,0,0" Name="bttnStock" VerticalAlignment="Top" Width="300">
+            <Button Height="300" HorizontalAlignment="Left" Margin="356,98,0,0" Name="bttnStock" VerticalAlignment="Top" Width="300" Click="bttnStock_Click">
                 <StackPanel Height="264">
                     <Image Height="224" Source="/Images/stock1.jpg" />
                     <TextBlock FontSize="24" FontWeight="Bold" Foreground="#FF651717" TextAlignment="Center">Stock Management</TextBlock>
