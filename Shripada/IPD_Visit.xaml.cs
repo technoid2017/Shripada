@@ -362,24 +362,39 @@ namespace Shripada
         {
             decimal grandTotalAmount = 0;
             int quantity = Convert.ToInt32(txtMedQuantity.Text);
-            
-            decimal totalAmount = Shripada.Code.Medicine.calculateMedicinePrice(drpMedicine.SelectedItem.ToString(), quantity);
+            decimal availableStock = Shripada.Code.Medicine.getAvailableStock(drpMedicine.SelectedItem.ToString());
+            if (availableStock == 0)
+            {
+                System.Windows.Forms.MessageBox.Show("Sorry, You have no stock available!");
+            }
 
-            Shripada.Code.Medicine.placeMedicineOrder(txtMedPatientID.Text,drpMedicine.SelectedItem.ToString(),quantity,totalAmount);
-            
-            DataTable dt = Shripada.Code.Medicine.addMedicineToGrid(txtMedPatientID.Text);
-            dataGrid1.ItemsSource = dt.DefaultView;
-            
-            decimal previousAmount = Shripada.Code.Medicine.getCurrentMedicineBill(txtMedPatientID.Text);
-            grandTotalAmount = previousAmount + totalAmount;
+            else if (availableStock < quantity)
+            {
+                System.Windows.Forms.MessageBox.Show("Sorry! You have only" +availableStock +" stock remaining!");
+            }
 
-            Shripada.Code.Medicine.addTotalBillToMain(txtMedPatientID.Text, grandTotalAmount);
-            txtMedicineAmount.Text = grandTotalAmount.ToString();
-            
-            Shripada.Code.Medicine.addMedicineToGrid(txtMedPatientID.Text);
+            else if (availableStock >= quantity)
+            {
+                decimal totalAmount = Shripada.Code.Medicine.calculateMedicinePrice(drpMedicine.SelectedItem.ToString(), quantity);
 
-            drpMedicine.SelectedIndex = -1;
-            txtMedQuantity.Text = "";
+                Shripada.Code.Medicine.placeMedicineOrder(txtMedPatientID.Text, drpMedicine.SelectedItem.ToString(), quantity, totalAmount);
+
+                DataTable dt = Shripada.Code.Medicine.addMedicineToGrid(txtMedPatientID.Text);
+                dataGrid1.ItemsSource = dt.DefaultView;
+
+                decimal previousAmount = Shripada.Code.Medicine.getCurrentMedicineBill(txtMedPatientID.Text);
+                grandTotalAmount = previousAmount + totalAmount;
+
+                Shripada.Code.Medicine.addTotalBillToMain(txtMedPatientID.Text, grandTotalAmount);
+                txtMedicineAmount.Text = grandTotalAmount.ToString();
+                
+                decimal remainingStock = availableStock - quantity;
+                //System.Windows.Forms.MessageBox.Show(remainingStock.ToString());
+                Shripada.Code.Medicine.updateRemainingStock(drpMedicine.SelectedItem.ToString(), remainingStock);
+
+                drpMedicine.SelectedIndex = -1;
+                txtMedQuantity.Text = "";
+            }
         }
 
         private void bttnServicesAddNew_Click(object sender, RoutedEventArgs e)

@@ -224,7 +224,68 @@ namespace Shripada.Code
                 System.Windows.Forms.MessageBox.Show(e.ToString());
             }
 
+        }
+
+        public static decimal getAvailableStock(String medicineName)
+        {
+            decimal availableStock = 0;
+            try
+            {
+
+                using (SqlConnection con = new SqlConnection(utils.cons))
+                {
+                    SqlCommand cmd = new SqlCommand("select * from MedicineData where medicineName = @medicineName", con);
+
+                    cmd.Parameters.Add(new SqlParameter("@medicineName", medicineName));
+
+
+                    con.Open();
+
+                    SqlDataReader rdr = cmd.ExecuteReader();
+
+                    while (rdr.Read())
+                    {
+                        availableStock = (decimal)rdr["quantity"];
+
+                    }
+                }
+               
             }
+            catch (Exception e)
+            {
+                System.Windows.Forms.MessageBox.Show(e.ToString());
+            }
+
+
+            return availableStock;
+        }
+
+        public static void updateRemainingStock(String medicineName, decimal remainingStock)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(utils.cons))
+                {
+                    SqlCommand cmd = new SqlCommand("update MedicineData set quantity=@quantity where medicineName = @medicineName", con);
+
+                    cmd.Parameters.AddWithValue("@medicineName", medicineName);
+                    cmd.Parameters.AddWithValue("@quantity", remainingStock);
+                    
+                    con.Open();
+
+                    int i = cmd.ExecuteNonQuery();
+                    if (i >= 1)
+                    {
+                        System.Windows.MessageBox.Show("Stock updated Successfully");
+
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                System.Windows.Forms.MessageBox.Show(e.ToString());
+            }
+        }
             
     }
     }

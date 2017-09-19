@@ -24,14 +24,14 @@
                     <Label Content="Manufacturer" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="36,351,0,0" Name="label6" VerticalAlignment="Top" />
                     <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="80" HorizontalAlignment="Right" Margin="0,255,503,0" Name="txtMedDesc" TextWrapping="Wrap" VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" Width="350" />
                     <Label Content="Description" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="36,255,0,0" Name="label7" VerticalAlignment="Top" />
-                    <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,195,503,0" Name="txtMedName" VerticalAlignment="Top" Width="350" />
+                    <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,195,503,0" Name="txtMedName" VerticalAlignment="Top" Width="350" IsReadOnly="True" />
                     <Label Content="Medicine Name" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="36,195,0,0" Name="label8" VerticalAlignment="Top" />
                     <Label Content="Date" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="680,127,0,0" Name="label10" VerticalAlignment="Top" />
-                    <RadioButton Content="None" FontSize="20" GroupName="Reminder" Height="40" HorizontalAlignment="Left" Margin="188,703,0,0" Name="rdAddMedNone" VerticalAlignment="Top" VerticalContentAlignment="Center" IsChecked="True" />
-                    <RadioButton Content="Quantity" FontSize="20" GroupName="Reminder" Height="40" HorizontalAlignment="Left" Margin="355,703,0,0" Name="rdAddMedQuantity" VerticalAlignment="Top" VerticalContentAlignment="Center" Unchecked="rdAddMedQuantity_Unchecked" Checked="rdAddMedQuantity_Checked" />
-                    <RadioButton Content="Date" FontSize="20" GroupName="Reminder" Height="40" HorizontalAlignment="Left" IsChecked="False" Margin="271,704,0,0" Name="rdAddMedDate" VerticalAlignment="Top" VerticalContentAlignment="Center" Checked="rdAddMedDate_Checked" Unchecked="rdAddMedDate_Unchecked" />
+                    <RadioButton Content="None" FontSize="20" GroupName="Reminder" Height="40" HorizontalAlignment="Left" Margin="188,703,0,0" Name="rdAddMedNone" VerticalAlignment="Top" VerticalContentAlignment="Center" IsChecked="False" Checked="rdAddMedNone_Checked" />
+                    <RadioButton Content="Quantity" FontSize="20" GroupName="Reminder" Height="40" HorizontalAlignment="Left" Margin="355,703,0,0" Name="rdAddMedQuantity" VerticalAlignment="Top" VerticalContentAlignment="Center"  Checked="rdAddMedQuantity_Checked" />
+                    <RadioButton Content="Date" FontSize="20" GroupName="Reminder" Height="40" HorizontalAlignment="Left" IsChecked="False" Margin="271,704,0,0" Name="rdAddMedDate" VerticalAlignment="Top" VerticalContentAlignment="Center" Checked="rdAddMedDate_Checked"  />
                     <DatePicker FontSize="20" Height="40" HorizontalAlignment="Left" Margin="753,132,0,0" Name="dtMedRegisterDate" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="132" />
-                    <Border BorderBrush="#FF455F80" BorderThickness="1" Height="54" HorizontalAlignment="Left" Margin="27,699,0,0" Name="border2" VerticalAlignment="Top" Width="436" />
+                    <Border BorderBrush="#FF455F80" BorderThickness="1" Height="54" HorizontalAlignment="Left" Margin="28,694,0,0" Name="border2" VerticalAlignment="Top" Width="436" />
                     <Button Background="#FFD19638"  Content="Submit" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="432,771,0,0" Name="bttnMedSumbit" VerticalAlignment="Top" Width="100" Click="bttnMedSumbit_Click" />
                     <Button Background="#FFD19638" Content="Cancel" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="554,771,0,0" Name="bttnMedCancel" VerticalAlignment="Top" Width="100" Click="bttnMedCancel_Click" />
                     <Label Content="Expire Date" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="36,477,0,0" Name="label1" VerticalAlignment="Top" />
@@ -60,29 +60,30 @@
                     <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="80" HorizontalAlignment="Right" Margin="0,255,503,0" Name="txtMedEditDesc" TextWrapping="Wrap" VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" Width="350" />
                     <Label Content="Description" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="36,255,0,0" Name="label18" VerticalAlignment="Top" />
                     <Label Content="Current Date" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="673,255,0,0" Name="label20" VerticalAlignment="Top" />
-                    <RadioButton Content="None" FontSize="20" GroupName="Reminder" Height="40" HorizontalAlignment="Left" IsChecked="True" Margin="188,703,0,0" Name="rdMedRemNone" VerticalAlignment="Top" VerticalContentAlignment="Center" />
-                    <RadioButton Content="Quantity" FontSize="20" GroupName="Reminder" Height="40" HorizontalAlignment="Left" Margin="355,703,0,0" Name="rdMedRemQuantity" VerticalAlignment="Top" VerticalContentAlignment="Center" />
-                    <RadioButton Content="Date" FontSize="20" GroupName="Reminder" Height="40" HorizontalAlignment="Right" IsChecked="False" Margin="0,704,713,0" Name="rdMedRemDate" VerticalAlignment="Top" VerticalContentAlignment="Center" />
+                    <RadioButton Content="None" FontSize="20" GroupName="Reminder" Height="40" HorizontalAlignment="Left" IsChecked="False" Margin="188,703,0,0" Name="rdMedRemNone" VerticalAlignment="Top" VerticalContentAlignment="Center" Checked="rdMedRemNone_Checked"  />
+                    <RadioButton Content="Quantity" FontSize="20" GroupName="Reminder" Height="40" HorizontalAlignment="Right" Margin="0,703,594,0" Name="rdMedRemQuantity" VerticalAlignment="Top" VerticalContentAlignment="Center" Checked="rdMedRemQuantity_Checked"  />
+                    <RadioButton Content="Date" FontSize="20" GroupName="Reminder" Height="40" HorizontalAlignment="Left" IsChecked="False" Margin="271,704,0,0" Name="rdMedRemDate" VerticalAlignment="Top" VerticalContentAlignment="Center" Checked="rdMedRemDate_Checked"  />
                     <DatePicker FontSize="20" Height="40" HorizontalAlignment="Left" Margin="794,255,0,0" Name="dtMedEditCurrentDate" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="132" />
-                    <Border BorderBrush="#FF455F80" BorderThickness="1" Height="54" HorizontalAlignment="Left" Margin="34,757,0,0" Name="border1" VerticalAlignment="Top" Width="436" />
-                    <Button Background="#FFD19638" Content="Save" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="432,771,0,0" Name="bttnMedEditSave" VerticalAlignment="Top" Width="100" />
-                    <Button Background="#FFD19638" Content="Cancel" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="554,771,0,0" Name="bttnMedEditCancel" VerticalAlignment="Top" Width="100" />
+                    <Border BorderBrush="#FF455F80" BorderThickness="1" Height="54" HorizontalAlignment="Left" Margin="34,704,0,0" Name="border1" VerticalAlignment="Top" Width="436" />
+                    <Button Background="#FFD19638" Content="Save" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="345,771,0,0" Name="bttnMedEditSave" VerticalAlignment="Top" Width="100" Click="bttnMedEditSave_Click" />
+                    <Button Background="#FFD19638" Content="Cancel" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="467,771,0,0" Name="bttnMedEditCancel" VerticalAlignment="Top" Width="100" Click="bttnMedEditCancel_Click" />
                     <Label Content="Expire Date" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="36,477,0,0" Name="label21" VerticalAlignment="Top" />
-                    <DatePicker FontSize="20" Height="40" HorizontalAlignment="Left" Margin="191,475,0,0" Name="dtMedEditExpireDate" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="132" />
-                    <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,644,653,0" Name="txtMedEditAmount" VerticalAlignment="Top" Width="200" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,644,653,0" Name="txtMedEditAmount" VerticalAlignment="Top" Width="200" />
                     <Label Content="Amount" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="36,644,0,0" Name="label22" VerticalAlignment="Top" />
                     <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,592,653,0" Name="txtMedEditRate" VerticalAlignment="Top" Width="200" />
                     <Label Content="Rate" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="36,592,0,0" Name="label23" VerticalAlignment="Top" />
                     <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,531,653,0" Name="txtMedEditQuantity" VerticalAlignment="Top" Width="200" />
                     <Label Content="Quantity" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="36,531,0,0" Name="label24" VerticalAlignment="Top" />
-                    <DatePicker FontSize="20" Height="40" HorizontalAlignment="Left" Margin="495,702,0,0" Name="dtMedEditReminderDate" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="132" Visibility="Hidden" />
-                    <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,702,358,0" Name="txtMedEditQauntityThrashhold" VerticalAlignment="Top" Width="155" Visibility="Hidden" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,702,469,0" Name="txtMedEditQauntityThrashhold" VerticalAlignment="Top" Width="80" Visibility="Hidden" />
                     <TextBox Background="#FFCBD9D9" FontSize="18" Height="40" Margin="307,110,394,717" Name="txtMedSearchByName" Text="Enter Medicine Name Here" Width="343" />
-                    <Button Height="40" Margin="642,110,352,717" Name="bttnMedSearch" />
+                    <Button Height="40" Margin="642,110,352,717" Name="bttnMedSearch" Click="bttnMedSearch_Click" />
                     <Image Height="30" Margin="656,110,358,727" Source="/Images/search1.jpg" Width="30" />
                     <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,195,118,0" Name="txtMedEditLastUpdateDate" VerticalAlignment="Top" Width="132" />
                     <Label Content="Last Update" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="681,195,0,0" Name="label2" VerticalAlignment="Top" />
-                </Grid>
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,702,394,0" Name="txtMedEditReminderDate" VerticalAlignment="Top" Width="134" Visibility="Hidden" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,473,719,0" Name="txtMedEditExpireDate" VerticalAlignment="Top" Width="134" />
+                        <Button Background="#FFD19638" Content="Delete" FontSize="20" Height="40" HorizontalAlignment="Right" Margin="0,771,358,0" Name="bttnMedDelete" VerticalAlignment="Top" Width="100" Click="bttnMedDelete_Click" />
+                    </Grid>
             </TabItem>
         </TabControl>
     </Grid>

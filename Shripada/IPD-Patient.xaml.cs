@@ -183,8 +183,7 @@ namespace Shripada
         {
            // System.Windows.Forms.MessageBox.Show("I am coming soon!");
             String patientID = txtSearchById.Text;
-            List<String> patientDetails = new List<string>();
-               patientDetails =  Shripada.Code.Patient.getPatientDetails(patientID);
+            List<String> patientDetails = Shripada.Code.Patient.getPatientDetails(patientID);
 
             dPatientID.Text = patientDetails.ElementAt(0).ToString();
             dtxtPatientName.Text = patientDetails.ElementAt(1);
