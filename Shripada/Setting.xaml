@@ -35,19 +35,33 @@
                     <Grid>
                         <Label Content="Ward Details" FontFamily="Sitka Heading" FontSize="56" FontWeight="Bold" Foreground="#FF1D637C" Height="70" HorizontalAlignment="Center" Margin="378,17,338,780" Name="label6" Width="328" />
                         <Rectangle HorizontalAlignment="Center" Margin="332,17,295,765" Name="rectangle2" Stroke="#FF23A0A0" Width="401" />
-                        <Button Height="40" Margin="683,146,295,681" Name="button10"></Button>
-                        <TextBox Background="#FFCBD9D9" FontSize="18" Height="40" Margin="332,146,369,681" Name="textBox5" Text="Enter Ward Name Here" Width="343" />
-                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="422,257,272,570" Name="textBox6" Width="350" />
-                        <Label Content="Ward Name" FontSize="20" Height="40" Margin="287,257,628,570" Name="label7" />
-                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="423,320,417,507" Name="textBox7" />
-                        <Label Content="Amount" FontSize="20" Height="40" Margin="288,320,627,507" Name="label8" />
-                        <Button Background="#FFD19638" Content="Submit" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="315,435,0,0" Name="button11" VerticalAlignment="Top" Width="100" />
-                        <Button Background="#FFD19638" Content="Update" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="527,435,0,0" Name="button12" VerticalAlignment="Top" Width="100" />
-                        <Button Background="#FFD19638" Content="Cancel" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="421,435,0,0" Name="button13" VerticalAlignment="Top" Width="100" />
-                        <Button Background="#FFD19638" Content="Delete" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="633,435,0,0" Name="button14" VerticalAlignment="Top" Width="100" />
-                        <StackPanel Height="30" Width="42" Margin="691,146,295,691">
-                            <Image Height="30" Source="/Images/search1.jpg" Width="30" />
-                        </StackPanel>
+                        <Button Height="40" Margin="680,124,298,702" Name="bttnSearchWard" Click="bttnSearchWard_Click"></Button>
+                        <TextBox Background="#FFCBD9D9" FontSize="18" Height="40" Margin="329,124,356,702" Name="txtSearchWard" Text="Enter Ward Name Here" Width="343" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="404,192,274,635" Name="txtWardName" Width="350" />
+                        <Label Content="Ward Name" FontSize="20" Height="40" Margin="193,192,722,635" Name="label7" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="405,238,435,589" Name="txtHospitalStay" />
+                        <Label Content="Hospital Stay" FontSize="20" Height="40" Margin="194,238,705,589" Name="label8" />
+                        <Button Background="#FFD19638" Content="Submit" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="280,692,0,0" Name="bttnWardSubmit" VerticalAlignment="Top" Width="100" Click="bttnWardSubmit_Click" />
+                        <Button Background="#FFD19638" Content="Update" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="492,692,0,0" Name="bttnWardUpdate" VerticalAlignment="Top" Width="100" Click="bttnWardUpdate_Click" />
+                        <Button Background="#FFD19638" Content="Cancel" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="386,692,0,0" Name="bttnWardCancel" VerticalAlignment="Top" Width="100" Click="bttnWardCancel_Click" />
+                        <Button Background="#FFD19638" Content="Delete" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="598,692,0,0" Name="bttnWardDelete" VerticalAlignment="Top" Width="100" Click="bttnWardDelete_Click" />
+                        <Image Height="30" Source="/Images/search1.jpg" Width="30" Margin="694,124,304,712" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="405,376,435,451" Name="txtOTCharge" />
+                        <Label Content="OT Charge" FontSize="20" Height="40" Margin="194,376,705,451" Name="label17" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="404,330,436,497" Name="txtAnaesthesia" />
+                        <Label Content="Anaesthesia" FontSize="20" Height="40" Margin="193,330,706,497" Name="label18" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="405,284,435,543" Name="txtOperationalDelivery" />
+                        <Label Content="Operational Delivery" FontSize="20" Height="40" Margin="194,284,630,543" Name="label19" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="0,514,432,313" Name="txtPaediatricianCharge" HorizontalAlignment="Right" Width="188" />
+                        <Label Content="Nursing" FontSize="20" Height="40" Margin="193,468,706,359" Name="label20" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="409,468,431,359" Name="txtNursing" />
+                        <Label Content="Paediatrician's Charge" FontSize="20" Height="40" Margin="193,514,630,313" Name="label21" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" Margin="405,422,435,405" Name="txtAssistantCharge" />
+                        <Label Content="Assistant's Charge" FontSize="20" Height="40" Margin="194,422,648,405" Name="label22" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,560,431,267" Name="txtRoundCharge" Width="188" />
+                        <Label Content="Round Charge" FontSize="20" Height="40" Margin="194,560,677,267" Name="label23" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,606,436,221" Name="txtMiscellaneousCharge" Width="188" />
+                        <Label Content="Miscellaneous Charge" FontSize="20" Height="40" Margin="194,606,630,221" Name="label24" />
                     </Grid>
                 </TabItem>
                 <TabItem Header="Services" HorizontalAlignment="Left" Name="tabItem4" VerticalAlignment="Top">

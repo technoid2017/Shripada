@@ -165,6 +165,94 @@ namespace Shripada
                         
 
         }
+
+        //Ward Methods
+        private void bttnWardSubmit_Click(object sender, RoutedEventArgs e)
+        {
+            
+            String wardName = txtWardName.Text;
+            decimal stayCharges = Convert.ToDecimal(txtHospitalStay.Text);
+            decimal operationdelivery = Convert.ToDecimal(txtOperationalDelivery.Text);
+            decimal anaesthesia= Convert.ToDecimal(txtAnaesthesia.Text);
+            decimal OTCharge=Convert.ToDecimal(txtOTCharge.Text);
+            decimal assistantCharge=Convert.ToDecimal(txtAssistantCharge.Text);
+            decimal nursing=Convert.ToDecimal(txtNursing.Text);
+            decimal consultantCharge=Convert.ToDecimal(txtPaediatricianCharge.Text);
+            decimal roundCharge=Convert.ToDecimal(txtRoundCharge.Text);
+            decimal miscellaneousCharge = Convert.ToDecimal(txtMiscellaneousCharge.Text);
+
+            Shripada.Code.Wards.addWard(wardName,stayCharges,operationdelivery,anaesthesia,OTCharge,assistantCharge,nursing,consultantCharge,roundCharge,miscellaneousCharge);
+            refreshWards();
+        }
+
+        public void refreshWards()
+        {
+            txtSearchWard.Text = "";
+            txtWardName.Text = "";
+            txtHospitalStay.Text = "";
+            txtOperationalDelivery.Text = "";
+            txtAnaesthesia.Text="";
+            txtOTCharge.Text="";
+            txtAssistantCharge.Text="";
+            txtNursing.Text="";
+            txtPaediatricianCharge.Text="";
+            txtRoundCharge.Text="";
+            txtMiscellaneousCharge.Text="";
+        }
+
+        private void bttnWardCancel_Click(object sender, RoutedEventArgs e)
+        {
+            refreshWards();
+        }
+
+        private void bttnWardUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            String wardName = txtWardName.Text;
+            decimal stayCharges = Convert.ToDecimal(txtHospitalStay.Text);
+            decimal operationdelivery = Convert.ToDecimal(txtOperationalDelivery.Text);
+            decimal anaesthesia = Convert.ToDecimal(txtAnaesthesia.Text);
+            decimal OTCharge = Convert.ToDecimal(txtOTCharge.Text);
+            decimal assistantCharge = Convert.ToDecimal(txtAssistantCharge.Text);
+            decimal nursing = Convert.ToDecimal(txtNursing.Text);
+            decimal consultantCharge = Convert.ToDecimal(txtPaediatricianCharge.Text);
+            decimal roundCharge = Convert.ToDecimal(txtRoundCharge.Text);
+            decimal miscellaneousCharge = Convert.ToDecimal(txtMiscellaneousCharge.Text);
+
+            Shripada.Code.Wards.updateWard(wardName, stayCharges, operationdelivery, anaesthesia, OTCharge, assistantCharge, nursing, consultantCharge, roundCharge, miscellaneousCharge);
+            refreshWards();
+        }
+
+        private void bttnSearchWard_Click(object sender, RoutedEventArgs e)
+        {
+            String wardName = txtSearchWard.Text;
+            List<String> wardDetails = Shripada.Code.Wards.searchWard(wardName);
+            
+            txtWardName.Text = wardDetails.ElementAt(0);
+            txtHospitalStay.Text = wardDetails.ElementAt(1);
+            txtOperationalDelivery.Text = wardDetails.ElementAt(2);
+            txtAnaesthesia.Text = wardDetails.ElementAt(3);
+            txtOTCharge.Text = wardDetails.ElementAt(4);
+            txtAssistantCharge.Text = wardDetails.ElementAt(5);
+            txtNursing.Text = wardDetails.ElementAt(6);
+            txtPaediatricianCharge.Text = wardDetails.ElementAt(7);
+            txtRoundCharge.Text = wardDetails.ElementAt(8);
+            txtMiscellaneousCharge.Text = wardDetails.ElementAt(9);
+
+
+        }
+
+        private void bttnWardDelete_Click(object sender, RoutedEventArgs e)
+        {
+
+            String wardName = txtWardName.Text;
+            Shripada.Code.Wards.deleteWard(wardName);
+            refreshWards();
+        }
+
+        
+        
+        
+       
  
 
       
