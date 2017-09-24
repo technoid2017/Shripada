@@ -106,7 +106,7 @@ namespace Shripada.Code
 
 
 
-        public static List<String> getVisitDetails(String patientID)
+        public static List<String> getVisitDetails(String patientID, String visitStatus)
         {
             List<String> visitDetails = new List<string>();
 
@@ -119,7 +119,7 @@ namespace Shripada.Code
 
                     cmd.Parameters.Add(new SqlParameter("@patientID", patientID));
 
-                    cmd.Parameters.Add(new SqlParameter("@visitStatus", "Incomplete"));
+                    cmd.Parameters.Add(new SqlParameter("@visitStatus", visitStatus));
                    
 
                     con.Open();
@@ -246,7 +246,8 @@ namespace Shripada.Code
 
         }
 
-        
+
+
     }
       
 }

@@ -19,20 +19,53 @@ namespace Shripada
     /// </summary>
     public partial class IPD_View : Window
     {
+        String GvisitStatus;
+        
         public IPD_View(String patientID, String patientName)
         {
             InitializeComponent();
-           
             setPatientNames(patientID, patientName);
             dtDateOfAdmission.SelectedDate = DateTime.Now;
             setDoctors();
             setWards();
             setMedicines();
             setServices();
-            getAllVisitData();
+            GvisitStatus = "Incomplete";
+            getAllVisitData(GvisitStatus);
             loadDefaultGrid(patientID);
             
+        }
+
+        public IPD_View(String patientName, String patientID, String visitStatus)
+        {
+            InitializeComponent();
+            setPatientNames(patientID, patientName);
+            viewOnlyMode();
+           
+            GvisitStatus = visitStatus;
+            getAllVisitData(GvisitStatus);
+        }
+
+        public void viewOnlyMode()
+        {
+            bttnVisitSubmit.Visibility = Visibility.Hidden;
+            bttnVisitCancel.Visibility = Visibility.Hidden;
+            bttnEditDoctor.Visibility = Visibility.Hidden;
             
+            bttnExamCancel.Visibility = Visibility.Hidden;
+            bttnExamSubmit.Visibility = Visibility.Hidden;
+
+            bttnTreatCancel.Visibility = Visibility.Hidden;
+            bttnTreatSubmit.Visibility = Visibility.Hidden;
+            bttnEditWardType.Visibility = Visibility.Hidden;
+
+            bttnServicesAddNew.Visibility = Visibility.Hidden;
+            bttnMedAddNew.Visibility = Visibility.Hidden;
+
+            bttnDischargeCancel.Visibility = Visibility.Hidden;
+            bttnDischargeGenerateBill.Visibility = Visibility.Hidden;
+            bttnDischargeSubmit.Visibility = Visibility.Hidden;
+           
         }
 
         public void setPatientNames(String patientID, String patientName)
@@ -137,11 +170,15 @@ namespace Shripada
 
         }
 
-        public void getAllVisitData()
+        public void getAllVisitData(String visitStatus)
         {
-            List<String> visitDetails = Shripada.Code.Visit.getVisitDetails(txtVisitPatientID.Text);
+            List<String> visitDetails = Shripada.Code.Visit.getVisitDetails(txtVisitPatientID.Text, visitStatus);
 
+            dtDateOfAdmission.Visibility = Visibility.Hidden;
+            txtDateOfAdmission.Visibility = Visibility.Visible;
+            txtDateOfAdmission.Text = visitDetails.ElementAt(1).ToString();
             
+
             if (!visitDetails.ElementAt(2).ToString().TrimEnd().Equals("00:00 AM"))
             {
                 txtVisitTimeOfAdmission.Text = visitDetails.ElementAt(2).ToString();
@@ -424,7 +461,7 @@ namespace Shripada
 
         private void bttnDischargeGenerateBill_Click(object sender, RoutedEventArgs e)
         {
-            List<String> DischargeDetails = Shripada.Code.Visit.getVisitDetails(txtVisitPatientID.Text);
+            List<String> DischargeDetails = Shripada.Code.Visit.getVisitDetails(txtVisitPatientID.Text, GvisitStatus);
 
             lbDischargeDOA.Content = DischargeDetails.ElementAt(1).ToString();
             lblDischargeTime.Content = DischargeDetails.ElementAt(2).ToString();

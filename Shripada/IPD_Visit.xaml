@@ -35,6 +35,7 @@
                         <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,182,54,0" Name="txtVisitTimeOfAdmission" VerticalAlignment="Top" Width="132" />
                         <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,382,667,0" Name="txtVisitDoctor" VerticalAlignment="Top" Width="200" Visibility="Hidden" IsReadOnly="True" />
                         <Button Background="#FFD19638" Content="Edit" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="383,382,0,0" Name="bttnEditDoctor" VerticalAlignment="Top" Width="63" Visibility="Hidden" Click="bttnEditDoctor_Click" />
+                        <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,122,34,0" Name="txtDateOfAdmission" VerticalAlignment="Top" Width="132" Visibility="Hidden" />
                     </Grid>
                 </TabItem>
                 <TabItem Header="Examination" Name="tabVisitExam">

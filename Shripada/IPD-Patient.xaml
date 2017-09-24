@@ -115,7 +115,7 @@
                         <Button Background="#FFD19638" Content="Edit Details" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="823,191,0,0" Name="dbttnEditDetails" VerticalAlignment="Top" Width="131" Click="dbttnEditDetails_Click" />
                         <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,136,90,0" Name="dtxtRegDate" VerticalAlignment="Top" Width="134" />
                         <Button Background="#FFD19638" Content="Delete" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="357,772,0,0" Name="dbttnDelete" VerticalAlignment="Top" Width="100" />
-                        <Button Background="#FFD19638" Content="View All" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="357,709,0,0" Name="dbttnViewAllVisits" VerticalAlignment="Top" Width="100" />
+                        <Button Background="#FFD19638" Content="View All" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="357,709,0,0" Name="dbttnViewAllVisits" VerticalAlignment="Top" Width="100" Click="dbttnViewAllVisits_Click" />
                     </Grid>
                 </TabItem>
             </TabControl>

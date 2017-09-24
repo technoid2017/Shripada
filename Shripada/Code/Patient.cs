@@ -246,5 +246,35 @@ namespace Shripada.Code
                 System.Windows.Forms.MessageBox.Show(e.ToString());
             }
         }
+
+
+        public static DataTable showVisitdataInGrid(String patientID)
+        {
+            DataTable dt = new DataTable("visitData");
+
+            try
+            {
+                using (SqlConnection con = new SqlConnection(utils.cons))
+                {
+                    SqlCommand cmd = new SqlCommand("selectAllProcedure", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add(new SqlParameter("@tableName", "visitData"));
+                    cmd.Parameters.Add(new SqlParameter("@columnName", "patientID"));
+                    cmd.Parameters.Add(new SqlParameter("@columnValue", patientID));
+                   
+                    con.Open();
+
+                    SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                    
+                    sda.Fill(dt);
+                }
+
+            }
+            catch (Exception e)
+            {
+                System.Windows.Forms.MessageBox.Show(e.ToString());
+            }
+            return dt;
+        }
     }
 }

@@ -1,0 +1,29 @@
+﻿<Window x:Class="Shripada.VisitGrid"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="VisitGrid" Height="400" Width="800" WindowStartupLocation="CenterScreen" WindowState="Normal" ResizeMode="NoResize">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/blue.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <DataGrid AutoGenerateColumns="False" Height="339" HorizontalAlignment="Left" Margin="10,10,0,0" Name="dataGrid1" VerticalAlignment="Top" Width="756" SelectionChanged="dataGrid1_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="PatientID" Binding="{Binding patientID}" Width="75" />
+                <DataGridTextColumn Header="Admission Date" Binding="{Binding dateOfAdmission}" Width="*" />
+                <DataGridTextColumn Header="Medicine History" Binding="{Binding medicalHistory}" Width="110" />
+                <DataGridTextColumn Header="Ward" Binding="{Binding wardType}" Width="120" />
+                <DataGridTextColumn Header="Status" Binding="{Binding visitStatus}" Width="120" />
+                <DataGridTextColumn Header="Discharge Date" Binding="{Binding dateOfDischarge}" Width="120" />
+                       
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="visitDetails">More Details</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+
+        </DataGrid>
+    </Grid>
+</Window>

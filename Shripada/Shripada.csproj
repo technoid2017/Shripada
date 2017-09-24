@@ -84,6 +84,9 @@
     <Compile Include="StockManagement.xaml.cs">
       <DependentUpon>StockManagement.xaml</DependentUpon>
     </Compile>
+    <Compile Include="VisitGrid.xaml.cs">
+      <DependentUpon>VisitGrid.xaml</DependentUpon>
+    </Compile>
     <Page Include="Dashboard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -129,6 +132,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="VisitGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -169,6 +176,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\blue.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

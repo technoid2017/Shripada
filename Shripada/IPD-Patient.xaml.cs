@@ -351,6 +351,13 @@ namespace Shripada
             w.Show();
         }
 
+        private void dbttnViewAllVisits_Click(object sender, RoutedEventArgs e)
+        {
+            Window w = new VisitGrid(dPatientID.Text, dtxtPatientName.Text);
+            w.Show();
+
+        }
+
     
 
         
