@@ -36,7 +36,7 @@ namespace Shripada.Code
         }
 
 
-        public static void addNewVisit(String patientID, String patientName)
+        public static int addNewVisit(String patientID, String patientName)
         {
 
             int serial = generateSrNo();
@@ -67,6 +67,7 @@ namespace Shripada.Code
             {
                 System.Windows.Forms.MessageBox.Show(e.ToString());
             }
+            return serial;
 
          }
 
@@ -168,7 +169,7 @@ namespace Shripada.Code
 
                         visitDetails.Add((String)rdr["timeOfDischarge"]);
                         visitDetails.Add((String)rdr["visitStatus"]);
-                       
+                        visitDetails.Add(Convert.ToString((int)rdr["srNo"]));
                     }
 
                 }

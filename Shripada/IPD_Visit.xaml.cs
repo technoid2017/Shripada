@@ -20,6 +20,7 @@ namespace Shripada
     public partial class IPD_View : Window
     {
         String GvisitStatus;
+        int GvisitID;
         
         public IPD_View(String patientID, String patientName)
         {
@@ -177,7 +178,7 @@ namespace Shripada
             dtDateOfAdmission.Visibility = Visibility.Hidden;
             txtDateOfAdmission.Visibility = Visibility.Visible;
             txtDateOfAdmission.Text = visitDetails.ElementAt(1).ToString();
-            
+            GvisitID = Convert.ToInt32(visitDetails.ElementAt(27));
 
             if (!visitDetails.ElementAt(2).ToString().TrimEnd().Equals("00:00 AM"))
             {
@@ -379,6 +380,7 @@ namespace Shripada
 
         private void bttnTreatSubmit_Click(object sender, RoutedEventArgs e)
         {
+            submitWardDetailsToWardOrder();
             String patientID = txtTreatPatientID.Text;
             String wardType = drpTreatWardType.SelectedItem.ToString();
             String advicedTreatment = txtTreatAdviced.Text;
@@ -386,6 +388,63 @@ namespace Shripada
             String courseinWard = txtTreatCourseInWard.Text;
             Shripada.Code.Visit.submitVisitTreatmentDetails(wardType, advicedTreatment, givenTreatment, courseinWard, patientID);
             //cancelTreatmentForm();
+        }
+
+        public void submitWardDetailsToWardOrder()
+        {
+            String patientID = txtTreatPatientID.Text;
+            String wardType = drpTreatWardType.SelectedItem.ToString();
+            DateTime admissionDate = Convert.ToDateTime(txtDateOfAdmission.Text);
+            DateTime dischargeDate = admissionDate;
+            int noOfDays = 0;
+            int hospitalStay = 0;
+            int operationalDelivery = 0;
+            int aneasthesia = 0;
+            int OTCharge = 0;
+            int assistantCharge = 0;
+            int nursing = 0;
+            int padiatricianCharge = 0;
+            int roundCharge = 0;
+            int miscellaneousCharge = 0;
+
+            if (chkHospitalStay.IsChecked == true)
+            {
+                hospitalStay = 1;
+            }
+            if (chkOperationalDelivery.IsChecked == true)
+            {
+                operationalDelivery = 1;
+            }
+            if (chkAneasthesia.IsChecked == true)
+            {
+                aneasthesia = 1;
+            }
+            if (chkOTCharge.IsChecked == true)
+            {
+                OTCharge = 1;
+            }
+            if (chkAssistantCharge.IsChecked == true)
+            {
+                assistantCharge = 1;
+            }
+            if (chkNursing.IsChecked == true)
+            {
+                nursing = 1;
+            }
+            if (chkPaediatricianCharge.IsChecked == true)
+            {
+                padiatricianCharge = 1;
+            }
+            if (chkRoundCharge.IsChecked == true)
+            {
+                roundCharge = 1;
+            }
+            if (chkMiscellaneousCharge.IsChecked == true)
+            {
+                miscellaneousCharge = 1;
+            }
+
+            Shripada.Code.Wards.updateWardData(GvisitID, patientID, wardType, hospitalStay, operationalDelivery, aneasthesia, OTCharge, assistantCharge, nursing, padiatricianCharge, roundCharge, miscellaneousCharge, admissionDate, dischargeDate, noOfDays);
         }
 
         private void bttnEditWardType_Click(object sender, RoutedEventArgs e)
@@ -473,6 +532,15 @@ namespace Shripada
             
 
         }
+
+        private void drpTreatWardType_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            expander1.Visibility = Visibility.Visible;
+        }
+
+        
+
+       
 
 
 

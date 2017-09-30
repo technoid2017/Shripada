@@ -49,7 +49,8 @@ namespace Shripada
         private void button2_Click(object sender, RoutedEventArgs e)
         {
             Shripada.Code.Patient.addVisitNumber(txtPatientID.Text);
-            Shripada.Code.Visit.addNewVisit(txtPatientID.Text, txtPatientName.Text);
+            int visitID = Shripada.Code.Visit.addNewVisit(txtPatientID.Text, txtPatientName.Text);
+            Shripada.Code.Wards.addWardDetails(visitID,txtPatientID.Text);
             Window w = new IPD_View(txtPatientID.Text, txtPatientName.Text);
             w.Show();
             //this.Close();
@@ -336,12 +337,10 @@ namespace Shripada
         private void dbttnAddVisit_Click(object sender, RoutedEventArgs e)
         {
             Shripada.Code.Patient.addVisitNumber(dPatientID.Text);
-            Shripada.Code.Visit.addNewVisit(dPatientID.Text, dtxtPatientName.Text);
+            int visitID = Shripada.Code.Visit.addNewVisit(dPatientID.Text, dtxtPatientName.Text);
+            Shripada.Code.Wards.addWardDetails(visitID, txtPatientID.Text);
             Window w = new IPD_View(dPatientID.Text, dtxtPatientName.Text);
             w.Show();
-           
-            
-           // dPatientID.Text = w.
             
         }
 
