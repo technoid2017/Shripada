@@ -274,6 +274,186 @@ namespace Shripada.Code
             }
         }
 
-    
+        public static void setDischargeDate(DateTime date, int visitID)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(utils.cons))
+                {
+                    SqlCommand cmd = new SqlCommand("update WardOrder set dischargeDate = @dischargeDate where visitID = @visitID", con);
+
+                    cmd.Parameters.AddWithValue("@dischargeDate", date);
+                    cmd.Parameters.AddWithValue("@visitID", visitID);
+
+                    con.Open();
+
+                    int i = cmd.ExecuteNonQuery();
+                    if (i >= 1)
+                    {
+                        //System.Windows.MessageBox.Show("Examination Details saved Successfully");
+
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                System.Windows.Forms.MessageBox.Show(e.ToString());
+            }
+        }
+
+        public static List<int> getWardCharges(int visitID)
+        {
+            List<int> wardServices = new List<int>();
+
+            try
+            {
+                using (SqlConnection con = new SqlConnection(utils.cons))
+                {
+                    SqlCommand cmd = new SqlCommand("select * from WardOrder where visitID = @visitID", con);
+
+                    cmd.Parameters.AddWithValue("@visitID", visitID);
+
+                    con.Open();
+                    SqlDataReader rdr = cmd.ExecuteReader();
+
+                    while (rdr.Read())
+                    {
+
+                        wardServices.Add((int)rdr["hospitalStay"]);
+                        wardServices.Add((int)rdr["operationalDelivery"]);
+                        wardServices.Add((int)rdr["aneasthesia"]);
+                        wardServices.Add((int)rdr["OTCharge"]);
+                        wardServices.Add((int)rdr["assistantCharge"]);
+                        wardServices.Add((int)rdr["nursing"]);
+                        wardServices.Add((int)rdr["padiatricianCharge"]);
+                        wardServices.Add((int)rdr["roundCharge"]);
+                        wardServices.Add((int)rdr["miscellaneousCharge"]);
+                      
+                    }
+
+                }
+
+            }
+            catch (Exception e)
+            {
+                System.Windows.Forms.MessageBox.Show(e.ToString());
+            }
+            return wardServices;
+        }
+
+
+        public static String getWardTypeOfVisit(int visitID)
+        {
+            String wardType = "";
+
+            try
+            {
+                using (SqlConnection con = new SqlConnection(utils.cons))
+                {
+                    SqlCommand cmd = new SqlCommand("select * from WardOrder where visitID = @visitID", con);
+
+                    cmd.Parameters.AddWithValue("@visitID", visitID);
+
+                    con.Open();
+                    SqlDataReader rdr = cmd.ExecuteReader();
+
+                    while (rdr.Read())
+                    {
+
+                        wardType = (String)rdr["wardType"];
+                        
+                    }
+
+                }
+
+            }
+            catch (Exception e)
+            {
+                System.Windows.Forms.MessageBox.Show(e.ToString());
+            }
+         
+
+            return wardType;
+        }
+
+        public static List<decimal> getWardTypeWiseRates(String wardType)
+        {
+            List<decimal> wardTypeRates = new List<decimal>();
+
+               try
+            {
+                using (SqlConnection con = new SqlConnection(utils.cons))
+                {
+                    SqlCommand cmd = new SqlCommand("select * from WardData where wardType = @wardType", con);
+
+                    cmd.Parameters.AddWithValue("@wardType", wardType);
+
+                    con.Open();
+                    SqlDataReader rdr = cmd.ExecuteReader();
+
+                    while (rdr.Read())
+                    {
+
+                        wardTypeRates.Add((decimal)rdr["stayCharges"]);
+                        wardTypeRates.Add((decimal)rdr["operationdelivery"]);
+                        wardTypeRates.Add((decimal)rdr["anaesthesia"]);
+                        wardTypeRates.Add((decimal)rdr["OTCharge"]);
+                        wardTypeRates.Add((decimal)rdr["assistantCharge"]);
+                        wardTypeRates.Add((decimal)rdr["nursing"]);
+                        wardTypeRates.Add((decimal)rdr["consultantCharge"]);
+                        wardTypeRates.Add((decimal)rdr["roundCharge"]);
+                        wardTypeRates.Add((decimal)rdr["miscellaneousCharge"]);
+                    }
+
+                }
+
+            }
+            catch (Exception e)
+            {
+                System.Windows.Forms.MessageBox.Show(e.ToString());
+            }
+         
+            return wardTypeRates;
+        }
+
+
+        public static void setWardChargesForVisit(int noOfdays, decimal stayAmount,decimal operationAmount, decimal aneasthesiaAmount, decimal oTChargeAmount, decimal assistantAmount, decimal nursingAmount, decimal paediatricianAmount, decimal roundAmount, decimal miscellaneousAmount, decimal totalWardAmount, int visitID)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(utils.cons))
+                {
+                    SqlCommand cmd = new SqlCommand("update WardOrder set noOfdays =  @noOfdays, stayAmount =  @stayAmount, operationAmount=@operationAmount, aneasthesiaAmount=@aneasthesiaAmount, oTChargeAmount=@oTChargeAmount, assistantAmount=@assistantAmount, nursingAmount=@nursingAmount, paediatricianAmount=@paediatricianAmount, roundAmount=@roundAmount, miscellaneousAmount=@miscellaneousAmount, totalWardAmount=@totalWardAmount where visitID = @visitID", con);
+
+                    cmd.Parameters.AddWithValue("@noOfdays", noOfdays);
+                    cmd.Parameters.AddWithValue("@stayAmount", stayAmount);
+                    cmd.Parameters.AddWithValue("@operationAmount", operationAmount);
+                    cmd.Parameters.AddWithValue("@aneasthesiaAmount", aneasthesiaAmount);
+                    cmd.Parameters.AddWithValue("@oTChargeAmount", oTChargeAmount);
+                    cmd.Parameters.AddWithValue("@assistantAmount", assistantAmount);
+                    cmd.Parameters.AddWithValue("@nursingAmount", nursingAmount);
+                    cmd.Parameters.AddWithValue("@paediatricianAmount", paediatricianAmount);
+                    cmd.Parameters.AddWithValue("@roundAmount", roundAmount);
+                    cmd.Parameters.AddWithValue("@miscellaneousAmount", miscellaneousAmount);
+                    cmd.Parameters.AddWithValue("@totalWardAmount", totalWardAmount);
+                    cmd.Parameters.AddWithValue("@visitID", visitID);
+                    
+                    con.Open();
+                    int i = cmd.ExecuteNonQuery();
+
+
+                    if (i >= 1)
+                    {
+                        //System.Windows.MessageBox.Show("Ward details updated Successfully");
+
+                    }
+                }
+            }
+
+            catch (Exception cs)
+            {
+                System.Windows.MessageBox.Show(cs.Message);
+            }
+        }
     }
 }

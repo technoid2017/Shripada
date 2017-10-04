@@ -27,6 +27,7 @@ namespace Shripada
             InitializeComponent();
             setPatientNames(patientID, patientName);
             dtDateOfAdmission.SelectedDate = DateTime.Now;
+            dtDischargeDate.SelectedDate = DateTime.Now;
             setDoctors();
             setWards();
             setMedicines();
@@ -520,17 +521,97 @@ namespace Shripada
 
         private void bttnDischargeGenerateBill_Click(object sender, RoutedEventArgs e)
         {
-            List<String> DischargeDetails = Shripada.Code.Visit.getVisitDetails(txtVisitPatientID.Text, GvisitStatus);
+            DateTime disChargeDate = Convert.ToDateTime(dtDischargeDate.SelectedDate);
+            String dischargeTime = txtDischargeTOD.Text;
+            Shripada.Code.Visit.setDischargeDateAndTime(disChargeDate, dischargeTime, GvisitID);
+            Shripada.Code.Wards.setDischargeDate(disChargeDate,GvisitID);
 
-            lbDischargeDOA.Content = DischargeDetails.ElementAt(1).ToString();
-            lblDischargeTime.Content = DischargeDetails.ElementAt(2).ToString();
-            txtDischargeDeposit.Text = DischargeDetails.ElementAt(6).ToString();
-            txtDischargeWardType.Text = DischargeDetails.ElementAt(15).ToString();
-            txtDischargeMedicineCharges.Text = DischargeDetails.ElementAt(19).ToString();
-            txtDischargeServiceCharges.Text = DischargeDetails.ElementAt(20).ToString();
-            dtDischargeDate.SelectedDate = DateTime.Now;
+            List<String> admitDetails = Shripada.Code.Visit.getVisitDetails(txtVisitPatientID.Text, GvisitStatus);
+            DateTime admitDate = Convert.ToDateTime(admitDetails.ElementAt(1));
+
+            calculateWardCharges(admitDate, disChargeDate);
+
+            List<String> DischargeDetails = Shripada.Code.Visit.getVisitDetails(txtVisitPatientID.Text, GvisitStatus);
+            lbDischargeDOA.Content = DischargeDetails.ElementAt(1);
+            lblDischargeTime.Content = DischargeDetails.ElementAt(2);
+            txtDischargeDeposit.Text = DischargeDetails.ElementAt(6);
+            txtDischargeWardType.Text = DischargeDetails.ElementAt(15);
+            txtDischargeMedicineCharges.Text = DischargeDetails.ElementAt(19);
+            txtDischargeServiceCharges.Text = DischargeDetails.ElementAt(20);
+            txtDischargeWardCharges.Text = DischargeDetails.ElementAt(28);
             
 
+        }
+
+        void calculateWardCharges(DateTime admitDate, DateTime disChargeDate)
+        {
+            decimal totalWardCharges = 0;
+            int noOfDays = disChargeDate.Subtract((admitDate)).Days;
+            String wardType = Shripada.Code.Wards.getWardTypeOfVisit(GvisitID);
+            decimal hospitalStay = 0;
+            decimal operationdelivery = 0;
+            decimal anaesthesia = 0;
+            decimal OTCharge = 0;
+            decimal assistantCharge = 0;
+            decimal nursing = 0;
+            decimal consultantCharge = 0;
+            decimal roundCharge = 0;
+            decimal miscellaneousCharge = 0;
+
+            List<decimal> wardRates = Shripada.Code.Wards.getWardTypeWiseRates(wardType);
+
+
+            List<int> wardCharges = Shripada.Code.Wards.getWardCharges(GvisitID);
+
+            if (wardCharges.ElementAt(0) == 1)
+            {
+                hospitalStay = wardRates.ElementAt(0) * noOfDays;
+            }
+
+            if (wardCharges.ElementAt(1) == 1)
+            {
+                operationdelivery = wardRates.ElementAt(1);
+            }
+
+            if (wardCharges.ElementAt(2) == 1)
+            {
+                anaesthesia = wardRates.ElementAt(2);
+            }
+
+            if (wardCharges.ElementAt(3) == 1)
+            {
+                OTCharge = wardRates.ElementAt(3) * noOfDays;
+            }
+
+            if (wardCharges.ElementAt(4) == 1)
+            {
+                assistantCharge = wardRates.ElementAt(4) * noOfDays;
+            }
+
+            if (wardCharges.ElementAt(5) == 1)
+            {
+                nursing = wardRates.ElementAt(5) * noOfDays;
+            }
+
+            if (wardCharges.ElementAt(6) == 1)
+            {
+                consultantCharge = wardRates.ElementAt(6) * noOfDays;
+            }
+
+            if (wardCharges.ElementAt(7) == 1)
+            {
+                roundCharge = wardRates.ElementAt(7) * noOfDays;
+            }
+
+            if (wardCharges.ElementAt(8) == 1)
+            {
+                miscellaneousCharge = wardRates.ElementAt(8);
+            }
+
+            totalWardCharges = hospitalStay + operationdelivery + anaesthesia + OTCharge + assistantCharge + nursing + consultantCharge + roundCharge + miscellaneousCharge;
+            Shripada.Code.Wards.setWardChargesForVisit(noOfDays,hospitalStay,operationdelivery,anaesthesia,OTCharge,assistantCharge,nursing,consultantCharge,roundCharge,miscellaneousCharge,totalWardCharges, GvisitID);
+            Shripada.Code.Visit.setWardChargesToVisitData(GvisitID, totalWardCharges);
+        
         }
 
         private void drpTreatWardType_SelectionChanged(object sender, SelectionChangedEventArgs e)

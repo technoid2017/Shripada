@@ -44,7 +44,7 @@ namespace Shripada.Code
             {
                 using (SqlConnection con = new SqlConnection(utils.cons))
                 {
-                    SqlCommand cmd = new SqlCommand("insert into visitData values(@srNo,@patientID,@DOA,'00:00 AM', 'broughtby', 'relation', 'incharge', 0, 'medicalhistory', 'diagnosis', 'pulse', 'bp', 'temp', 'weight', 'custom1', 'custom2', 'wardtype', 'course', 'treatmentgiven', 'treatmentadvanced', 0,0, '2025-12-31', '00:00 AM', 0,0,0, 'Incomplete')", con);
+                    SqlCommand cmd = new SqlCommand("insert into visitData values(@srNo,@patientID,@DOA,'00:00 AM', 'broughtby', 'relation', 'incharge', 0, 'medicalhistory', 'diagnosis', 'pulse', 'bp', 'temp', 'weight', 'custom1', 'custom2', 'wardtype', 'course', 'treatmentgiven', 'treatmentadvanced', 0,0, '2025-12-31', '00:00 AM', 0,0,0, 'Incomplete',0)", con);
 
                     cmd.Parameters.AddWithValue("@srNo", serial);
                     cmd.Parameters.AddWithValue("@patientID", patientID);
@@ -170,6 +170,7 @@ namespace Shripada.Code
                         visitDetails.Add((String)rdr["timeOfDischarge"]);
                         visitDetails.Add((String)rdr["visitStatus"]);
                         visitDetails.Add(Convert.ToString((int)rdr["srNo"]));
+                        visitDetails.Add(Convert.ToString((decimal)rdr["wardCharges"]));
                     }
 
                 }
@@ -247,8 +248,63 @@ namespace Shripada.Code
 
         }
 
+        public static void setDischargeDateAndTime(DateTime date, String time, int visitID)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(utils.cons))
+                {
+                    SqlCommand cmd = new SqlCommand("update visitData set dateOfDischarge = @dateOfDischarge, timeOfDischarge = @timeOfDischarge where srNo = @visitID", con);
+
+                    cmd.Parameters.AddWithValue("@dateOfDischarge", date);
+                    cmd.Parameters.AddWithValue("@timeOfDischarge", time);
+                    cmd.Parameters.AddWithValue("@visitID", visitID);
+                    
+                    con.Open();
+
+                    int i = cmd.ExecuteNonQuery();
+                    if (i >= 1)
+                    {
+                        //System.Windows.MessageBox.Show("Examination Details saved Successfully");
+
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                System.Windows.Forms.MessageBox.Show(e.ToString());
+            }
+        }
 
 
+        public static void setWardChargesToVisitData(int visitID, decimal wardCharges)
+        {
+
+            try
+            {
+                using (SqlConnection con = new SqlConnection(utils.cons))
+                {
+                    SqlCommand cmd = new SqlCommand("update visitData set wardCharges = @wardCharges where srNo = @visitID", con);
+
+                    cmd.Parameters.AddWithValue("@wardCharges", wardCharges);
+                    cmd.Parameters.AddWithValue("@visitID", visitID);
+                    
+                    con.Open();
+
+                    int i = cmd.ExecuteNonQuery();
+                    if (i >= 1)
+                    {
+                        //System.Windows.MessageBox.Show("Details saved Successfully");
+
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                System.Windows.Forms.MessageBox.Show(e.ToString());
+            }
+
+        }
     }
       
 }
