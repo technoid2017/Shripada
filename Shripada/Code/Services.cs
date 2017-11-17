@@ -102,21 +102,21 @@ namespace Shripada.Code
 
 
 
-        public static void placeServiceOrder(String patientID, String serviceName, int noOfDays, decimal totalAmount)
+        public static void placeServiceOrder(String patientID, String serviceName, int noOfDays, decimal totalAmount, int visitID)
         {
             int serial = generateSrNo();
             try
             {
                 using (SqlConnection con = new SqlConnection(utils.cons))
                 {
-                    SqlCommand cmd = new SqlCommand("insert into ServiceOrder values(@srNo, @serviceName, @noOfDays, @totalAmount, @patientID)", con);
+                    SqlCommand cmd = new SqlCommand("insert into ServiceOrder values(@srNo, @serviceName, @noOfDays, @totalAmount, @patientID, @visitID)", con);
 
                     cmd.Parameters.AddWithValue("@srNo", serial);
                     cmd.Parameters.AddWithValue("@serviceName", serviceName);
                     cmd.Parameters.AddWithValue("@noOfDays", noOfDays);
                     cmd.Parameters.AddWithValue("@totalAmount", totalAmount);
                     cmd.Parameters.AddWithValue("@patientID", patientID);
-
+                    cmd.Parameters.AddWithValue("@visitID", visitID);
                     con.Open();
 
                     int i = cmd.ExecuteNonQuery();
@@ -136,7 +136,7 @@ namespace Shripada.Code
 
         }
 
-        public static DataTable addServiceToGrid(String patientID)
+        public static DataTable addServiceToGrid(int visitID)
         {
             DataTable dt = new DataTable();
             try
@@ -144,8 +144,8 @@ namespace Shripada.Code
 
                 using (SqlConnection con = new SqlConnection(utils.cons))
                 {
-                    SqlCommand cmd = new SqlCommand("select serviceName as 'Service Name', noOfDays as 'No of Days', totalAmount as 'Cost' from ServiceOrder where patientID = @patientID", con);
-                    cmd.Parameters.AddWithValue("@patientID", patientID);
+                    SqlCommand cmd = new SqlCommand("select serviceName as 'Service Name', noOfDays as 'No of Days', totalAmount as 'Cost' from ServiceOrder where visitID = @visitID", con);
+                    cmd.Parameters.AddWithValue("@visitID", visitID);
                     con.Open();
                     SqlDataAdapter sda = new SqlDataAdapter(cmd);
                     dt = new DataTable("ServiceOrder");
@@ -161,7 +161,7 @@ namespace Shripada.Code
             return dt;
         }
 
-        public static decimal getCurrentServiceBill(String patientID)
+        public static decimal getCurrentServiceBill(int visitID)
         {
             decimal currentServiceBill = 0;
             try
@@ -169,9 +169,9 @@ namespace Shripada.Code
 
                 using (SqlConnection con = new SqlConnection(utils.cons))
                 {
-                    SqlCommand cmd = new SqlCommand("select serviceBill from visitData where patientID = @patientID and visitStatus = @visitStatus", con);
+                    SqlCommand cmd = new SqlCommand("select serviceBill from visitData where srNo = @visitID and visitStatus = @visitStatus", con);
 
-                    cmd.Parameters.Add(new SqlParameter("@patientID", patientID));
+                    cmd.Parameters.Add(new SqlParameter("@visitID", visitID));
 
                     cmd.Parameters.Add(new SqlParameter("@visitStatus", "Incomplete"));
 
@@ -197,16 +197,16 @@ namespace Shripada.Code
             return currentServiceBill;
         }
 
-        public static void addTotalBillToMain(String patientID, decimal totalAmount)
+        public static void addTotalBillToMain(int visitID, decimal totalAmount)
         {
             try
             {
                 using (SqlConnection con = new SqlConnection(utils.cons))
                 {
-                    SqlCommand cmd = new SqlCommand("update visitData set serviceBill = @serviceBill where patientID = @patientID", con);
+                    SqlCommand cmd = new SqlCommand("update visitData set serviceBill = @serviceBill where srNo = @visitID", con);
 
                     cmd.Parameters.AddWithValue("@serviceBill", totalAmount);
-                    cmd.Parameters.AddWithValue("@patientID", patientID);
+                    cmd.Parameters.AddWithValue("@visitID", visitID);
 
                     con.Open();
 

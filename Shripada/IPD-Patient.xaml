@@ -22,7 +22,7 @@
                         <StackPanel Height="30" Width="30" Canvas.Left="564" Canvas.Top="138">
                             <Image Source="/Images/search1.jpg" Height="30" Width="30" />
                         </StackPanel>
-                        <DataGrid AutoGenerateColumns="False" Height="397" Name="dataGrid1" Width="529" Visibility="Hidden" SelectionMode="Single" SelectionUnit="Cell" Margin="-78,791,560,-288" Canvas.Left="256" Canvas.Top="-422">
+                        <DataGrid AutoGenerateColumns="False" Height="397" Name="dataGrid1" Width="529" Visibility="Hidden"  Margin="-78,791,560,-288" Canvas.Left="256" Canvas.Top="-422" SelectionChanged="dataGrid1_SelectionChanged">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="PatientID" Binding="{Binding patientID}" Width="75" />
                                 <DataGridTextColumn Header="Patient Name" Binding="{Binding patientName}" Width="*" />

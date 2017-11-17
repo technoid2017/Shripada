@@ -25,6 +25,8 @@ namespace Shripada
         String GpatientID;
         String visitStatus;
         String GpatientName;
+        DateTime admissionDate;
+        DateTime dischargeDate;
       
         public VisitGrid(String patientID, String patientName)
         {
@@ -43,6 +45,8 @@ namespace Shripada
                 if (row_selected != null)
                 {
                     visitStatus = row_selected["visitStatus"].ToString();
+                    admissionDate = Convert.ToDateTime(row_selected["dateOfAdmission"].ToString());
+                    dischargeDate = Convert.ToDateTime(row_selected["dateOfDischarge"].ToString());
                     
                 }
                
@@ -50,7 +54,7 @@ namespace Shripada
 
         private void visitDetails(object sender, RoutedEventArgs e)
         {
-            Window w = new IPD_View(GpatientName, GpatientID, visitStatus);
+            Window w = new IPD_View(GpatientName, GpatientID, visitStatus, admissionDate, dischargeDate);
             w.Show();
 
         }

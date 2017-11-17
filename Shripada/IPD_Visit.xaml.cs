@@ -34,18 +34,19 @@ namespace Shripada
             setServices();
             GvisitStatus = "Incomplete";
             getAllVisitData(GvisitStatus);
-            loadDefaultGrid(patientID);
+            loadDefaultGrid(GvisitID);
             
         }
 
-        public IPD_View(String patientName, String patientID, String visitStatus)
+        public IPD_View(String patientName, String patientID, String visitStatus, DateTime admissionDate, DateTime dischargeDate)
         {
             InitializeComponent();
             setPatientNames(patientID, patientName);
             viewOnlyMode();
            
             GvisitStatus = visitStatus;
-            getAllVisitData(GvisitStatus);
+            getAllVisitDataForViewOnly(GvisitStatus, admissionDate, dischargeDate);
+            loadDefaultGrid(GvisitID);
         }
 
         public void viewOnlyMode()
@@ -126,19 +127,19 @@ namespace Shripada
 
         }
 
-        public void loadDefaultGrid(String patientID)
+        public void loadDefaultGrid(int visitID)
         {
 
-            DataTable dtMedicine = Shripada.Code.Medicine.addMedicineToGrid(patientID);
+            DataTable dtMedicine = Shripada.Code.Medicine.addMedicineToGrid(visitID);
             dataGrid1.ItemsSource = dtMedicine.DefaultView;
-            decimal previousAmount = Shripada.Code.Medicine.getCurrentMedicineBill(patientID);
+            decimal previousAmount = Shripada.Code.Medicine.getCurrentMedicineBill(visitID);
             //System.Windows.MessageBox.Show(previousAmount.ToString());
             txtMedicineAmount.Text = previousAmount.ToString();
 
-            DataTable dtServices = Shripada.Code.Services.addServiceToGrid(patientID);
+            DataTable dtServices = Shripada.Code.Services.addServiceToGrid(visitID);
             dataGrid2.ItemsSource = dtServices.DefaultView;
-            decimal previousAmountServices = Shripada.Code.Services.getCurrentServiceBill(patientID);
-            //System.Windows.MessageBox.Show(previousAmountServices.ToString());
+            decimal previousAmountServices = Shripada.Code.Services.getCurrentServiceBill(visitID);
+          
             txtServicesTotalAmount.Text = previousAmountServices.ToString();
             
         }
@@ -148,15 +149,24 @@ namespace Shripada
             String patientID = txtVisitPatientID.Text;
             String broughtBy = txtVisitBroughtBy.Text;
             String relation = txtVisitRelationship.Text;
-            String doctor = drpDoctorIncharge.SelectedItem.ToString();
+            String doctor = txtVisitDoctor.Text;
+            if (drpDoctorIncharge.IsVisible)
+            {
+                doctor = drpDoctorIncharge.SelectedItem.ToString();
+            }
             String medicalHistory = txtVisitMedicalHistory.Text;
-            DateTime admissionDt = Convert.ToDateTime(dtDateOfAdmission.SelectedDate);
-            String admissionDate = admissionDt.ToString("yyyy-MM-dd");
-            System.Windows.MessageBox.Show(admissionDate);
+            
+            String admissionDate = txtDateOfAdmission.Text;
+            if (dtDateOfAdmission.IsVisible)
+            {
+                DateTime admissionDt = Convert.ToDateTime(dtDateOfAdmission.SelectedDate);
+                admissionDate = admissionDt.ToString("yyyy-MM-dd");
+            }
+            //System.Windows.MessageBox.Show(admissionDate);
             string admissionTime = txtVisitTimeOfAdmission.Text;
             decimal deposit = Convert.ToDecimal(txtVisitDeposit.Text);
 
-            Shripada.Code.Visit.submitVisitBasicDetails(patientID, broughtBy, relation, doctor, medicalHistory, admissionDate, admissionTime, deposit);
+            Shripada.Code.Visit.submitVisitBasicDetails(GvisitID, broughtBy, relation, doctor, medicalHistory, admissionDate, admissionTime, deposit);
             //refreshAdditionalDetails();
         }
 
@@ -184,11 +194,13 @@ namespace Shripada
             if (!visitDetails.ElementAt(2).ToString().TrimEnd().Equals("00:00 AM"))
             {
                 txtVisitTimeOfAdmission.Text = visitDetails.ElementAt(2).ToString();
+                lbDischargeDOA.Content = visitDetails.ElementAt(2).ToString();
             }
 
             if (!visitDetails.ElementAt(3).ToString().TrimEnd().Equals("broughtby"))
             {
                 txtVisitBroughtBy.Text = visitDetails.ElementAt(3).ToString();
+                lblDischargeTime.Content = visitDetails.ElementAt(3).ToString();
             }
 
             if (!visitDetails.ElementAt(4).ToString().TrimEnd().Equals("relation"))
@@ -207,6 +219,7 @@ namespace Shripada
             if (!visitDetails.ElementAt(6).ToString().TrimEnd().Equals("0"))
             {
                 txtVisitDeposit.Text = visitDetails.ElementAt(6).ToString();
+                txtDischargeDeposit.Text = visitDetails.ElementAt(6).ToString();
             }
 
             if (!visitDetails.ElementAt(7).ToString().TrimEnd().Equals("medicalhistory"))
@@ -251,6 +264,7 @@ namespace Shripada
                 txtWardType.Visibility = Visibility.Visible;
                 bttnEditWardType.Visibility = Visibility.Visible;
                 txtWardType.Text = visitDetails.ElementAt(15).ToString();
+                txtDischargeWardType.Text = visitDetails.ElementAt(15).ToString();
             }
 
             if (!visitDetails.ElementAt(16).ToString().TrimEnd().Equals("course"))
@@ -269,30 +283,168 @@ namespace Shripada
             if (!visitDetails.ElementAt(19).ToString().TrimEnd().Equals("0"))
             {
                 txtMedicineAmount.Text = visitDetails.ElementAt(19).ToString();
+                txtDischargeMedicineCharges.Text = visitDetails.ElementAt(19).ToString(); 
             }
             if (!visitDetails.ElementAt(20).ToString().TrimEnd().Equals("0"))
             {
                 txtServicesTotalAmount.Text = visitDetails.ElementAt(20).ToString();
+                txtDischargeServiceCharges.Text = visitDetails.ElementAt(20).ToString();
             }
 
-            /*Code for Date & Time of Discharge
-            if (!visitDetails.ElementAt(21).ToString().TrimEnd().Equals("2025-12-31"))
+            //Code for Date & Time of Discharge
+            if (!visitDetails.ElementAt(24).ToString().TrimEnd().Equals("2025-12-31"))
             {
-                txtVisitTimeOfAdmission.Text = visitDetails.ElementAt(21).ToString();
+                txtDischargeDateOfDischarge.Text = visitDetails.ElementAt(24).ToString();
             }
-            if (!visitDetails.ElementAt(22).ToString().TrimEnd().Equals("00:00 AM"))
+            if (!visitDetails.ElementAt(25).ToString().TrimEnd().Equals("00:00 AM"))
             {
-                txtVisitTimeOfAdmission.Text = visitDetails.ElementAt(22).ToString();
-            }*/
+                txtDischargeTOD.Text = visitDetails.ElementAt(25).ToString();
+            }
             
             //Total Charges
-            //txtVisitTimeOfAdmission.Text = visitDetails.ElementAt(23).ToString();
+            txtDischargeTotalCharges.Text = visitDetails.ElementAt(21).ToString();
             //Discounts
-            //txtVisitTimeOfAdmission.Text = visitDetails.ElementAt(24).ToString();
+            txtDischargeDiscount.Text = visitDetails.ElementAt(22).ToString();
             //Total Payable
-            //txtVisitTimeOfAdmission.Text = visitDetails.ElementAt(25).ToString();
+            txtDsichargePayable.Text = visitDetails.ElementAt(23).ToString();
+            //Ward Charges
+            txtDischargeWardCharges.Text = visitDetails.ElementAt(27).ToString();
            
         }
+
+
+        public void getAllVisitDataForViewOnly(String visitStatus, DateTime admissionDate, DateTime dischargeDate)
+        {
+            List<String> visitDetails = Shripada.Code.Visit.getVisitDetailsForViewOnly(txtVisitPatientID.Text, visitStatus, admissionDate, dischargeDate);
+
+            dtDateOfAdmission.Visibility = Visibility.Hidden;
+            txtDateOfAdmission.Visibility = Visibility.Visible;
+            txtDateOfAdmission.Text = visitDetails.ElementAt(1).ToString();
+            GvisitID = Convert.ToInt32(visitDetails.ElementAt(27));
+
+            if (!visitDetails.ElementAt(2).ToString().TrimEnd().Equals("00:00 AM"))
+            {
+                txtVisitTimeOfAdmission.Text = visitDetails.ElementAt(2).ToString();
+                lbDischargeDOA.Content = visitDetails.ElementAt(2).ToString();
+            }
+
+            if (!visitDetails.ElementAt(3).ToString().TrimEnd().Equals("broughtby"))
+            {
+                txtVisitBroughtBy.Text = visitDetails.ElementAt(3).ToString();
+                lblDischargeTime.Content = visitDetails.ElementAt(3).ToString();
+            }
+
+            if (!visitDetails.ElementAt(4).ToString().TrimEnd().Equals("relation"))
+            {
+                txtVisitRelationship.Text = visitDetails.ElementAt(4).ToString();
+            }
+
+            if (!visitDetails.ElementAt(5).ToString().TrimEnd().Equals("incharge"))
+            {
+                drpDoctorIncharge.Visibility = Visibility.Hidden;
+                txtVisitDoctor.Visibility = Visibility.Visible;
+                bttnEditDoctor.Visibility = Visibility.Visible;
+                txtVisitDoctor.Text = visitDetails.ElementAt(5).ToString();
+            }
+
+            if (!visitDetails.ElementAt(6).ToString().TrimEnd().Equals("0"))
+            {
+                txtVisitDeposit.Text = visitDetails.ElementAt(6).ToString();
+                txtDischargeDeposit.Text = visitDetails.ElementAt(6).ToString();
+            }
+
+            if (!visitDetails.ElementAt(7).ToString().TrimEnd().Equals("medicalhistory"))
+            {
+                txtVisitMedicalHistory.Text = visitDetails.ElementAt(7).ToString();
+            }
+
+
+            if (!visitDetails.ElementAt(9).ToString().TrimEnd().Equals("pulse"))
+            {
+                txtExamPulse.Text = visitDetails.ElementAt(9).ToString();
+            }
+
+            if (!visitDetails.ElementAt(10).ToString().TrimEnd().Equals("bp"))
+            {
+                txtExamBloodPressure.Text = visitDetails.ElementAt(10).ToString();
+            }
+
+            if (!visitDetails.ElementAt(11).ToString().TrimEnd().Equals("temp"))
+            {
+                txtExamTemperature.Text = visitDetails.ElementAt(11).ToString();
+            }
+
+            if (!visitDetails.ElementAt(12).ToString().TrimEnd().Equals("weight"))
+            {
+                txtExamWeight.Text = visitDetails.ElementAt(12).ToString();
+            }
+
+            if (!visitDetails.ElementAt(13).ToString().TrimEnd().Equals("custom1"))
+            {
+                txtExamCustom1.Text = visitDetails.ElementAt(13).ToString();
+            }
+
+            if (!visitDetails.ElementAt(14).ToString().TrimEnd().Equals("custom2"))
+            {
+                txtExamCustom2.Text = visitDetails.ElementAt(14).ToString();
+            }
+
+            if (!visitDetails.ElementAt(15).ToString().TrimEnd().Equals("wardtype"))
+            {
+                drpTreatWardType.Visibility = Visibility.Hidden;
+                txtWardType.Visibility = Visibility.Visible;
+                bttnEditWardType.Visibility = Visibility.Visible;
+                txtWardType.Text = visitDetails.ElementAt(15).ToString();
+                txtDischargeWardType.Text = visitDetails.ElementAt(15).ToString();
+            }
+
+            if (!visitDetails.ElementAt(16).ToString().TrimEnd().Equals("course"))
+            {
+                txtTreatCourseInWard.Text = visitDetails.ElementAt(16).ToString();
+            }
+
+            if (!visitDetails.ElementAt(17).ToString().TrimEnd().Equals("treatmentgiven"))
+            {
+                txtTreatTreatmentGiven.Text = visitDetails.ElementAt(17).ToString();
+            }
+            if (!visitDetails.ElementAt(18).ToString().TrimEnd().Equals("treatmentadvanced"))
+            {
+                txtTreatAdviced.Text = visitDetails.ElementAt(18).ToString();
+            }
+            if (!visitDetails.ElementAt(19).ToString().TrimEnd().Equals("0"))
+            {
+                txtMedicineAmount.Text = visitDetails.ElementAt(19).ToString();
+                txtDischargeMedicineCharges.Text = visitDetails.ElementAt(19).ToString();
+            }
+            if (!visitDetails.ElementAt(20).ToString().TrimEnd().Equals("0"))
+            {
+                txtServicesTotalAmount.Text = visitDetails.ElementAt(20).ToString();
+                txtDischargeServiceCharges.Text = visitDetails.ElementAt(20).ToString();
+            }
+
+            //Code for Date & Time of Discharge
+            if (!visitDetails.ElementAt(24).ToString().TrimEnd().Equals("2025-12-31"))
+            {
+                dtDischargeDate.Visibility = Visibility.Hidden;
+                txtDischargeDateOfDischarge.Visibility = Visibility.Visible;
+                txtDischargeDateOfDischarge.Text = visitDetails.ElementAt(24).ToString();
+            }
+            if (!visitDetails.ElementAt(25).ToString().TrimEnd().Equals("00:00 AM"))
+            {
+                txtDischargeTOD.Text = visitDetails.ElementAt(25).ToString();
+            }
+
+            //Total Charges
+            txtDischargeTotalCharges.Text = visitDetails.ElementAt(21).ToString();
+            //Discounts
+            txtDischargeDiscount.Text = visitDetails.ElementAt(22).ToString();
+            //Total Payable
+            txtDsichargePayable.Text = visitDetails.ElementAt(23).ToString();
+            //Ward Charges
+            txtDischargeWardCharges.Text = visitDetails.ElementAt(27).ToString();
+
+        }
+
 
         private void bttnEditDoctor_Click(object sender, RoutedEventArgs e)
         {
@@ -327,7 +479,7 @@ namespace Shripada
             String custom1 = txtExamCustom1.Text;
             String custom2 = txtExamCustom2.Text;
             String patientID = txtExamPatientID.Text;
-            Shripada.Code.Visit.submitVisitExamDetails(pulse,bp,temp,weight,custom1,custom2,patientID);
+            Shripada.Code.Visit.submitVisitExamDetails(pulse,bp,temp,weight,custom1,custom2,GvisitID);
             //clearExamForm();
         }
 
@@ -387,7 +539,7 @@ namespace Shripada
             String advicedTreatment = txtTreatAdviced.Text;
             String givenTreatment = txtTreatTreatmentGiven.Text;
             String courseinWard = txtTreatCourseInWard.Text;
-            Shripada.Code.Visit.submitVisitTreatmentDetails(wardType, advicedTreatment, givenTreatment, courseinWard, patientID);
+            Shripada.Code.Visit.submitVisitTreatmentDetails(wardType, advicedTreatment, givenTreatment, courseinWard, GvisitID);
             //cancelTreatmentForm();
         }
 
@@ -474,15 +626,15 @@ namespace Shripada
             {
                 decimal totalAmount = Shripada.Code.Medicine.calculateMedicinePrice(drpMedicine.SelectedItem.ToString(), quantity);
 
-                Shripada.Code.Medicine.placeMedicineOrder(txtMedPatientID.Text, drpMedicine.SelectedItem.ToString(), quantity, totalAmount);
+                Shripada.Code.Medicine.placeMedicineOrder(txtMedPatientID.Text, drpMedicine.SelectedItem.ToString(), quantity, totalAmount, GvisitID);
 
-                DataTable dt = Shripada.Code.Medicine.addMedicineToGrid(txtMedPatientID.Text);
+                DataTable dt = Shripada.Code.Medicine.addMedicineToGrid(GvisitID);
                 dataGrid1.ItemsSource = dt.DefaultView;
 
-                decimal previousAmount = Shripada.Code.Medicine.getCurrentMedicineBill(txtMedPatientID.Text);
+                decimal previousAmount = Shripada.Code.Medicine.getCurrentMedicineBill(GvisitID);
                 grandTotalAmount = previousAmount + totalAmount;
 
-                Shripada.Code.Medicine.addTotalBillToMain(txtMedPatientID.Text, grandTotalAmount);
+                Shripada.Code.Medicine.addTotalBillToMain(GvisitID, grandTotalAmount);
                 txtMedicineAmount.Text = grandTotalAmount.ToString();
                 
                 decimal remainingStock = availableStock - quantity;
@@ -494,6 +646,12 @@ namespace Shripada
             }
         }
 
+        private void bttnMedGenerateBill_Click(object sender, RoutedEventArgs e)
+        {
+            MedicineBill window = new MedicineBill(GvisitID);
+            window.Show();
+        }
+
         private void bttnServicesAddNew_Click(object sender, RoutedEventArgs e)
         {
 
@@ -502,27 +660,39 @@ namespace Shripada
 
             decimal totalAmount = Shripada.Code.Services.calculateServicePrice(drpServices.SelectedItem.ToString(), noOfDays);
 
-            Shripada.Code.Services.placeServiceOrder(txtServicesPatientID.Text, drpServices.SelectedItem.ToString(), noOfDays, totalAmount);
+            Shripada.Code.Services.placeServiceOrder(txtServicesPatientID.Text, drpServices.SelectedItem.ToString(), noOfDays, totalAmount, GvisitID);
 
-            DataTable dtServices = Shripada.Code.Services.addServiceToGrid(txtServicesPatientID.Text);
+            DataTable dtServices = Shripada.Code.Services.addServiceToGrid(GvisitID);
             dataGrid2.ItemsSource = dtServices.DefaultView;
 
-            decimal previousAmount = Shripada.Code.Services.getCurrentServiceBill(txtServicesPatientID.Text);
+            decimal previousAmount = Shripada.Code.Services.getCurrentServiceBill(GvisitID);
             grandTotalAmount = previousAmount + totalAmount;
 
-            Shripada.Code.Services.addTotalBillToMain(txtServicesPatientID.Text, grandTotalAmount);
+            Shripada.Code.Services.addTotalBillToMain(GvisitID, grandTotalAmount);
             txtServicesTotalAmount.Text = grandTotalAmount.ToString();
 
-            Shripada.Code.Services.addServiceToGrid(txtServicesPatientID.Text);
+            Shripada.Code.Services.addServiceToGrid(GvisitID);
 
             drpServices.SelectedIndex = -1;
             txtServicesNoOfDays.Text = "";
         }
 
+        private void bttnServicesGenerateBill_Click(object sender, RoutedEventArgs e)
+        {
+            ServiceBill s = new ServiceBill(GvisitID);
+            s.Show();
+        }
+
         private void bttnDischargeGenerateBill_Click(object sender, RoutedEventArgs e)
         {
+            //txtDischargeTotalCharges.Text = "";
+            //txtDischargeWardCharges.Text = "";
+            //txtDischargeDeposit.Text = "";
             DateTime disChargeDate = Convert.ToDateTime(dtDischargeDate.SelectedDate);
             String dischargeTime = txtDischargeTOD.Text;
+            decimal totalCharges = 0;
+            decimal totalPayable = 0;
+
             Shripada.Code.Visit.setDischargeDateAndTime(disChargeDate, dischargeTime, GvisitID);
             Shripada.Code.Wards.setDischargeDate(disChargeDate,GvisitID);
 
@@ -539,8 +709,12 @@ namespace Shripada
             txtDischargeMedicineCharges.Text = DischargeDetails.ElementAt(19);
             txtDischargeServiceCharges.Text = DischargeDetails.ElementAt(20);
             txtDischargeWardCharges.Text = DischargeDetails.ElementAt(28);
-            
 
+            totalCharges = Convert.ToDecimal(txtDischargeMedicineCharges.Text) + Convert.ToDecimal(txtDischargeServiceCharges.Text) + Convert.ToDecimal(txtDischargeWardCharges.Text);
+            txtDischargeTotalCharges.Text = totalCharges.ToString();
+
+            totalPayable = totalCharges - Convert.ToDecimal(DischargeDetails.ElementAt(6)) - Convert.ToDecimal(txtDischargeDiscount.Text);
+            txtDsichargePayable.Text = totalPayable.ToString();
         }
 
         void calculateWardCharges(DateTime admitDate, DateTime disChargeDate)
@@ -618,6 +792,46 @@ namespace Shripada
         {
             expander1.Visibility = Visibility.Visible;
         }
+
+        private void bttnDischargeSubmit_Click(object sender, RoutedEventArgs e)
+        {
+            System.Windows.MessageBox.Show("Are you sure you want to proceed?");
+            decimal discounts = Convert.ToDecimal(txtDischargeDiscount.Text);
+            decimal totalCharges = Convert.ToDecimal(txtDischargeTotalCharges.Text);
+            decimal payable = Convert.ToDecimal(txtDsichargePayable.Text);
+                        
+            Shripada.Code.Visit.completeVisit(totalCharges, discounts, payable, GvisitID);
+            Shripada.Code.Patient.dischargePatient(txtDischargePatientID.Text);
+            //refreshDischargePage();
+            bttnDischargeSubmit.IsEnabled = false;
+        }
+
+        void refreshDischargePage()
+        {
+            txtDischargeTOD.Text = "";
+            txtDischargeWardType.Text = "";
+            txtDischargeWardCharges.Text = "";
+            txtDischargeServiceCharges.Text = "";
+            txtDischargeMedicineCharges.Text = "";
+            txtDischargeDiscount.Text = "";
+            txtDischargeTotalCharges.Text = "";
+            txtDsichargePayable.Text = "";
+        }
+
+        private void bttnDischargeCancel_Click(object sender, RoutedEventArgs e)
+        {
+            refreshDischargePage();
+        }
+
+        private void bttnDischargePrint_Click(object sender, RoutedEventArgs e)
+        {
+            DischargeBill d = new DischargeBill(GvisitID);
+            d.Show();
+        }
+
+        
+
+        
 
         
 

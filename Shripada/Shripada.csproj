@@ -70,16 +70,56 @@
     <Compile Include="Code\LoginCode.cs" />
     <Compile Include="Code\Medicine.cs" />
     <Compile Include="Code\Patient.cs" />
+    <Compile Include="Code\Reminder.cs" />
     <Compile Include="Code\Services.cs" />
     <Compile Include="Code\Stock.cs" />
     <Compile Include="Code\utils.cs" />
     <Compile Include="Code\Visit.cs" />
     <Compile Include="Code\Wards.cs" />
+    <Compile Include="DischargeBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DischargeBill.Designer.cs">
+      <DependentUpon>DischargeBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DischargeBillDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DischargeBillDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="MedicineBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MedicineBill.Designer.cs">
+      <DependentUpon>MedicineBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MedicineBillDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MedicineBillDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reminder.xaml.cs">
+      <DependentUpon>Reminder.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ResetPassword.xaml.cs">
       <DependentUpon>ResetPassword.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ServiceBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ServiceBill.Designer.cs">
+      <DependentUpon>ServiceBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceBillDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ServiceBillDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Setting.xaml.cs">
       <DependentUpon>Setting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Splash.xaml.cs">
+      <DependentUpon>Splash.xaml</DependentUpon>
     </Compile>
     <Compile Include="StockManagement.xaml.cs">
       <DependentUpon>StockManagement.xaml</DependentUpon>
@@ -120,11 +160,19 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Reminder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ResetPassword.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Setting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Splash.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -151,16 +199,61 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="DischargeBill.resx">
+      <DependentUpon>DischargeBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DischargeBillReport.rdlc" />
+    <EmbeddedResource Include="MedicineBill.resx">
+      <DependentUpon>MedicineBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MedicineBillReport.rdlc" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="ServiceBill.resx">
+      <DependentUpon>ServiceBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ServiceBillReport.rdlc" />
     <None Include="App.config" />
+    <None Include="DischargeBillDataSet.xsc">
+      <DependentUpon>DischargeBillDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DischargeBillDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DischargeBillDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DischargeBillDataSet.xss">
+      <DependentUpon>DischargeBillDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="MedicineBillDataSet.xsc">
+      <DependentUpon>MedicineBillDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="MedicineBillDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MedicineBillDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="MedicineBillDataSet.xss">
+      <DependentUpon>MedicineBillDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="ServiceBillDataSet.xsc">
+      <DependentUpon>ServiceBillDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ServiceBillDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ServiceBillDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ServiceBillDataSet.xss">
+      <DependentUpon>ServiceBillDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\search1.jpg" />
@@ -179,6 +272,10 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\logo.png" />
+    <Resource Include="Images\splash11.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

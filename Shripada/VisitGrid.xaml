@@ -6,7 +6,7 @@
         <Grid.Background>
             <ImageBrush ImageSource="/Images/blue.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
-        <DataGrid AutoGenerateColumns="False" Height="339" HorizontalAlignment="Left" Margin="10,10,0,0" Name="dataGrid1" VerticalAlignment="Top" Width="756" SelectionChanged="dataGrid1_SelectionChanged">
+        <DataGrid AutoGenerateColumns="False" Height="339" HorizontalAlignment="Left" Margin="10,17,0,0" Name="dataGrid1" VerticalAlignment="Top" Width="756" SelectionChanged="dataGrid1_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="PatientID" Binding="{Binding patientID}" Width="75" />
                 <DataGridTextColumn Header="Admission Date" Binding="{Binding dateOfAdmission}" Width="*" />

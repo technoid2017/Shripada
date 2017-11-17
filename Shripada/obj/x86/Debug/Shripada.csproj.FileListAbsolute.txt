@@ -9,7 +9,6 @@ c:\users\kalpesh\documents\visual studio 2010\Projects\Shripada\Shripada\obj\x86
 c:\users\kalpesh\documents\visual studio 2010\Projects\Shripada\Shripada\obj\x86\Debug\Shripada.csproj.GenerateResource.Cache
 c:\users\kalpesh\documents\visual studio 2010\Projects\Shripada\Shripada\obj\x86\Debug\Shripada.exe
 c:\users\kalpesh\documents\visual studio 2010\Projects\Shripada\Shripada\obj\x86\Debug\Shripada.pdb
-F:\Technoid\Shripada\Shripada\obj\x86\Debug\Shripada.csprojResolveAssemblyReference.cache
 F:\Technoid\Shripada\Shripada\obj\x86\Debug\Dashboard.baml
 F:\Technoid\Shripada\Shripada\obj\x86\Debug\IPD-Patient.baml
 F:\Technoid\Shripada\Shripada\obj\x86\Debug\MainWindow.baml
@@ -38,3 +37,13 @@ F:\Technoid\Shripada\Shripada\obj\x86\Debug\Shripada.Properties.Resources.resour
 F:\Technoid\Shripada\Shripada\obj\x86\Debug\Shripada.csproj.GenerateResource.Cache
 F:\Technoid\Shripada\Shripada\obj\x86\Debug\Shripada.exe
 F:\Technoid\Shripada\Shripada\obj\x86\Debug\Shripada.pdb
+F:\Technoid\Shripada\Shripada\obj\x86\Debug\Shripada.csprojResolveAssemblyReference.cache
+F:\Technoid\Shripada\Shripada\obj\x86\Debug\Shripada.MedicineBill.resources
+F:\Technoid\Shripada\Shripada\obj\x86\Debug\RdlCompile.cache
+F:\Technoid\Shripada\Shripada\obj\x86\Debug\RdlCompile.compiled
+F:\Technoid\Shripada\Shripada\obj\x86\Debug\Shripada.ServiceBill.resources
+F:\Technoid\Shripada\Shripada\obj\x86\Debug\Shripada.DischargeBill.resources
+F:\Technoid\Shripada\Shripada\obj\x86\Debug\Reminder.baml
+F:\Technoid\Shripada\Shripada\obj\x86\Debug\Reminder.g.cs
+F:\Technoid\Shripada\Shripada\obj\x86\Debug\Splash.baml
+F:\Technoid\Shripada\Shripada\obj\x86\Debug\Splash.g.cs

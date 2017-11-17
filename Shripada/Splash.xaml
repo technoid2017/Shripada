@@ -1,0 +1,10 @@
+﻿<Window x:Class="Shripada.Splash"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Splash" Height="500" Width="800" WindowStartupLocation="CenterScreen" WindowState="Normal" ResizeMode="NoResize">
+    <Grid Name="Splash1">
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/splash11.png" Stretch="UniformToFill"/>
+        </Grid.Background>
+    </Grid>
+</Window>

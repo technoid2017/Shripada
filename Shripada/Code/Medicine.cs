@@ -103,20 +103,21 @@ namespace Shripada.Code
 
 
 
-        public static void placeMedicineOrder(String patientID, String medicineName, int quantity, decimal totalAmount)
+        public static void placeMedicineOrder(String patientID, String medicineName, int quantity, decimal totalAmount, int visitID)
         {
             int serial = generateSrNo();
             try
             {
                 using (SqlConnection con = new SqlConnection(utils.cons))
                 {
-                    SqlCommand cmd = new SqlCommand("insert into MedicineOrder values(@srNo, @medicineName, @quantity, @totalAmount, @patientID)", con);
+                    SqlCommand cmd = new SqlCommand("insert into MedicineOrder values(@srNo, @medicineName, @quantity, @totalAmount, @patientID, @visitID)", con);
 
                     cmd.Parameters.AddWithValue("@srNo", serial);
                     cmd.Parameters.AddWithValue("@medicineName", medicineName);
                     cmd.Parameters.AddWithValue("@quantity", quantity);
                     cmd.Parameters.AddWithValue("@totalAmount", totalAmount);
                     cmd.Parameters.AddWithValue("@patientID", patientID);
+                    cmd.Parameters.AddWithValue("@visitID", visitID);
 
                     con.Open();
 
@@ -137,7 +138,7 @@ namespace Shripada.Code
 
         }
 
-        public static DataTable addMedicineToGrid(String patientID)
+        public static DataTable addMedicineToGrid(int visitID)
         {
             DataTable dt = new DataTable();
             try
@@ -145,8 +146,8 @@ namespace Shripada.Code
 
                 using (SqlConnection con = new SqlConnection(utils.cons))
                 {
-                    SqlCommand cmd = new SqlCommand("select medicineName as 'Medicine Name', quantity as 'Quantity', totalAmount as 'Price' from MedicineOrder where patientID = @patientID", con);
-                    cmd.Parameters.AddWithValue("@patientID", patientID);
+                    SqlCommand cmd = new SqlCommand("select medicineName as 'Medicine Name', quantity as 'Quantity', totalAmount as 'Price' from MedicineOrder where visitID = @visitID", con);
+                    cmd.Parameters.AddWithValue("@visitID", visitID);
                     con.Open();
                     SqlDataAdapter sda = new SqlDataAdapter(cmd);
                     dt = new DataTable("MedicineOrder");
@@ -162,7 +163,7 @@ namespace Shripada.Code
             return dt;
         }
 
-        public static decimal getCurrentMedicineBill(String patientID)
+        public static decimal getCurrentMedicineBill(int visitID)
         {
             decimal currentMedicineBill = 0;
             try
@@ -170,9 +171,9 @@ namespace Shripada.Code
 
                 using (SqlConnection con = new SqlConnection(utils.cons))
                 {
-                    SqlCommand cmd = new SqlCommand("select medicineBill from visitData where patientID = @patientID and visitStatus = @visitStatus", con);
+                    SqlCommand cmd = new SqlCommand("select medicineBill from visitData where srNo = @srNo and visitStatus = @visitStatus", con);
 
-                    cmd.Parameters.Add(new SqlParameter("@patientID", patientID));
+                    cmd.Parameters.Add(new SqlParameter("@srNo", visitID));
 
                     cmd.Parameters.Add(new SqlParameter("@visitStatus", "Incomplete"));
 
@@ -198,16 +199,16 @@ namespace Shripada.Code
             return currentMedicineBill;
         }
 
-        public static void addTotalBillToMain(String patientID, decimal totalAmount)
+        public static void addTotalBillToMain(int visitID, decimal totalAmount)
         {
             try
             {
                 using (SqlConnection con = new SqlConnection(utils.cons))
                 {
-                    SqlCommand cmd = new SqlCommand("update visitData set medicineBill = @medicineBill where patientID = @patientID", con);
+                    SqlCommand cmd = new SqlCommand("update visitData set medicineBill = @medicineBill where srNo = @visitID", con);
 
                     cmd.Parameters.AddWithValue("@medicineBill", totalAmount);
-                    cmd.Parameters.AddWithValue("@patientID", patientID);
+                    cmd.Parameters.AddWithValue("@visitID", visitID);
 
                     con.Open();
 

@@ -71,13 +71,13 @@ namespace Shripada.Code
 
          }
 
-        public static void submitVisitBasicDetails(String patientID, String broughtBy, String relation,String doctor, String medicalHistory,String admissionDate, string admissionTime, decimal deposit)
+        public static void submitVisitBasicDetails(int visitID, String broughtBy, String relation, String doctor, String medicalHistory, String admissionDate, string admissionTime, decimal deposit)
         {
             try
             {
                 using (SqlConnection con = new SqlConnection(utils.cons))
                 {
-                    SqlCommand cmd = new SqlCommand("update visitData set dateOfAdmission = @dateOfAdmission, timeOfAdmission = @timeOfAdmission, broughtBy = @broughtBy, relation= @relation, inchargeDoctor= @inchargeDoctor, medicalHistory = @medicalHistory, deposit = @deposit where patientId = @patientID", con);
+                    SqlCommand cmd = new SqlCommand("update visitData set dateOfAdmission = @dateOfAdmission, timeOfAdmission = @timeOfAdmission, broughtBy = @broughtBy, relation= @relation, inchargeDoctor= @inchargeDoctor, medicalHistory = @medicalHistory, deposit = @deposit where srNo = @visitID", con);
 
                     cmd.Parameters.AddWithValue("@broughtBy", broughtBy);
                     cmd.Parameters.AddWithValue("@relation", relation);
@@ -86,7 +86,7 @@ namespace Shripada.Code
                     cmd.Parameters.AddWithValue("@deposit", Convert.ToDecimal(deposit));
                     cmd.Parameters.AddWithValue("@timeOfAdmission", admissionTime);
                     cmd.Parameters.AddWithValue("@dateOfAdmission", Convert.ToDateTime(admissionDate));
-                    cmd.Parameters.AddWithValue("@patientID", patientID);
+                    cmd.Parameters.AddWithValue("@visitID", visitID);
 
                     con.Open();
 
@@ -106,7 +106,6 @@ namespace Shripada.Code
         }
 
 
-
         public static List<String> getVisitDetails(String patientID, String visitStatus)
         {
             List<String> visitDetails = new List<string>();
@@ -121,6 +120,84 @@ namespace Shripada.Code
                     cmd.Parameters.Add(new SqlParameter("@patientID", patientID));
 
                     cmd.Parameters.Add(new SqlParameter("@visitStatus", visitStatus));
+                                      
+
+                    con.Open();
+
+                    SqlDataReader rdr = cmd.ExecuteReader();
+
+                    while (rdr.Read())
+                    {
+                        visitDetails.Add((String)rdr["patientID"]);
+                        DateTime DOA = (DateTime)rdr["dateOfAdmission"];
+                        visitDetails.Add(DOA.ToString("yyyy-MM-dd"));
+                        
+                        visitDetails.Add((String)rdr["timeOfAdmission"]);
+                        visitDetails.Add((String)rdr["broughtBy"]);
+                        visitDetails.Add((String)rdr["relation"]);
+                        visitDetails.Add((String)rdr["inchargeDoctor"]);
+                        decimal deposit = (decimal)rdr["deposit"];
+                        visitDetails.Add(deposit.ToString());
+                                               
+                        visitDetails.Add((String)rdr["medicalHistory"]);
+                        visitDetails.Add((String)rdr["diagnosis"]);
+                        visitDetails.Add((String)rdr["pulse"]);
+                        visitDetails.Add((String)rdr["bp"]);
+                        visitDetails.Add((String)rdr["temperature"]);
+                        visitDetails.Add((String)rdr["pWeight"]);
+                        visitDetails.Add((String)rdr["examCustom1"]);
+                        visitDetails.Add((String)rdr["examCustom2"]);
+                        visitDetails.Add((String)rdr["wardType"]);
+                        visitDetails.Add((String)rdr["courseInWard"]);
+                        visitDetails.Add((String)rdr["treatmentGiven"]);
+                        visitDetails.Add((String)rdr["treatmentAdvanced"]);
+                        
+                        decimal medicineBill = (decimal)rdr["medicineBill"];
+                        visitDetails.Add(medicineBill.ToString());
+                        decimal serviceBill = (decimal)rdr["serviceBill"];
+                        visitDetails.Add(serviceBill.ToString());
+                        decimal totalCharges = (decimal)rdr["totalCharges"];
+                        visitDetails.Add(totalCharges.ToString());
+                        decimal discounts = (decimal)rdr["discounts"];
+                        visitDetails.Add(discounts.ToString());
+                        decimal payable = (decimal)rdr["payable"];
+                        visitDetails.Add(payable.ToString());
+
+                        DateTime DODischarge = (DateTime)rdr["dateOfDischarge"];
+                        visitDetails.Add(DODischarge.ToString("yyyy-MM-dd"));
+
+                        visitDetails.Add((String)rdr["timeOfDischarge"]);
+                        visitDetails.Add((String)rdr["visitStatus"]);
+                        visitDetails.Add(Convert.ToString((int)rdr["srNo"]));
+                        visitDetails.Add(Convert.ToString((decimal)rdr["wardCharges"]));
+                    }
+
+                }
+            }
+            catch (Exception e)
+            {
+                System.Windows.Forms.MessageBox.Show(e.ToString());
+            }
+            return visitDetails;
+        }
+
+
+        public static List<String> getVisitDetailsForViewOnly(String patientID, String visitStatus, DateTime admissionDate, DateTime dischargeDate)
+        {
+            List<String> visitDetails = new List<string>();
+
+            try
+            {
+
+                using (SqlConnection con = new SqlConnection(utils.cons))
+                {
+                    SqlCommand cmd = new SqlCommand("select * from visitData where patientID = @patientID and visitStatus = @visitStatus and dateOfAdmission = @admissionDate and dateOfDischarge = @dischargeDate", con);
+
+                    cmd.Parameters.Add(new SqlParameter("@patientID", patientID));
+
+                    cmd.Parameters.Add(new SqlParameter("@visitStatus", visitStatus));
+                    cmd.Parameters.Add(new SqlParameter("@admissionDate", admissionDate));
+                    cmd.Parameters.Add(new SqlParameter("@dischargeDate", dischargeDate));
                    
 
                     con.Open();
@@ -183,13 +260,13 @@ namespace Shripada.Code
         }
 
 
-        public static void submitVisitExamDetails(String pulse, String bp, String temperature, String pWeight, String examCustom1, String examCustom2, string patientID)
+        public static void submitVisitExamDetails(String pulse, String bp, String temperature, String pWeight, String examCustom1, String examCustom2, int visitID)
         {
             try
             {
                 using (SqlConnection con = new SqlConnection(utils.cons))
                 {
-                    SqlCommand cmd = new SqlCommand("update visitData set pulse = @pulse, bp = @bp, temperature = @temperature, pWeight= @pWeight, examCustom1 = @examCustom1, examCustom2= @examCustom2 where patientId = @patientID", con);
+                    SqlCommand cmd = new SqlCommand("update visitData set pulse = @pulse, bp = @bp, temperature = @temperature, pWeight= @pWeight, examCustom1 = @examCustom1, examCustom2= @examCustom2 where srNo = @visitID", con);
 
                     cmd.Parameters.AddWithValue("@pulse", pulse);
                     cmd.Parameters.AddWithValue("@bp", bp);
@@ -198,7 +275,7 @@ namespace Shripada.Code
 
                     cmd.Parameters.AddWithValue("@examCustom1", examCustom1);
                     cmd.Parameters.AddWithValue("@examCustom2", examCustom2);
-                    cmd.Parameters.AddWithValue("@patientID", patientID);
+                    cmd.Parameters.AddWithValue("@visitID", visitID);
 
                     con.Open();
 
@@ -217,19 +294,19 @@ namespace Shripada.Code
 
         }
 
-        public static void submitVisitTreatmentDetails(String wardType, String treatmentAdvanced, String treatmentGiven, String courseInWard, string patientID)
+        public static void submitVisitTreatmentDetails(String wardType, String treatmentAdvanced, String treatmentGiven, String courseInWard, int visitID)
         {
             try
             {
                 using (SqlConnection con = new SqlConnection(utils.cons))
                 {
-                    SqlCommand cmd = new SqlCommand("update visitData set wardType = @wardType, courseInWard = @courseInWard, treatmentGiven = @treatmentGiven, treatmentAdvanced= @treatmentAdvanced where patientId = @patientID", con);
+                    SqlCommand cmd = new SqlCommand("update visitData set wardType = @wardType, courseInWard = @courseInWard, treatmentGiven = @treatmentGiven, treatmentAdvanced= @treatmentAdvanced where srNo = @visitID", con);
 
                     cmd.Parameters.AddWithValue("@wardType", wardType);
                     cmd.Parameters.AddWithValue("@treatmentAdvanced", treatmentAdvanced);
                     cmd.Parameters.AddWithValue("@treatmentGiven", treatmentGiven);
                     cmd.Parameters.AddWithValue("@courseInWard", courseInWard);
-                    cmd.Parameters.AddWithValue("@patientID", patientID);
+                    cmd.Parameters.AddWithValue("@visitID", visitID);
 
                     con.Open();
 
@@ -295,6 +372,38 @@ namespace Shripada.Code
                     if (i >= 1)
                     {
                         //System.Windows.MessageBox.Show("Details saved Successfully");
+
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                System.Windows.Forms.MessageBox.Show(e.ToString());
+            }
+
+        }
+
+        public static void completeVisit(decimal totalCharges, decimal discounts, decimal payable, int visitID)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(utils.cons))
+                {
+                    SqlCommand cmd = new SqlCommand("update visitData set totalCharges = @totalCharges, discounts = @discounts, payable= @payable, visitStatus = @visitStatus where srNo = @visitID", con);
+
+                    cmd.Parameters.AddWithValue("@totalCharges", Convert.ToDecimal(totalCharges));
+                    cmd.Parameters.AddWithValue("@discounts", Convert.ToDecimal(discounts));
+                    cmd.Parameters.AddWithValue("@payable", Convert.ToDecimal(payable));
+                    cmd.Parameters.AddWithValue("@visitStatus", "Complete");
+                    cmd.Parameters.AddWithValue("@visitID", visitID);
+                    
+
+                    con.Open();
+
+                    int i = cmd.ExecuteNonQuery();
+                    if (i >= 1)
+                    {
+                        System.Windows.MessageBox.Show("Visit Completed Successfully");
 
                     }
                 }

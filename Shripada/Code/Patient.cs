@@ -132,28 +132,35 @@ namespace Shripada.Code
             {
                 using (SqlConnection con = new SqlConnection(utils.cons))
                 {
+                    if (searchType.Equals("byID"))
+                    {
                     SqlCommand cmd = new SqlCommand("selectAllProcedure", con);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add(new SqlParameter("@tableName", "Patients"));
-                    if(searchType.Equals("byID"))
-                    {
+                    
                     cmd.Parameters.Add(new SqlParameter("@columnName", "patientID"));
                     cmd.Parameters.Add(new SqlParameter("@columnValue", searchValue));
-                    }
-
-                    else if(searchType.Equals("byName"))
-                    {                        
-                    cmd.Parameters.Add(new SqlParameter("@columnName", "patientName"));
-                    cmd.Parameters.Add(new SqlParameter("@columnValue", searchValue));
-
-                    }
-
                     con.Open();
-            
+
                     SqlDataAdapter sda = new SqlDataAdapter(cmd);
                     //dt = new DataTable("Patients");
                     sda.Fill(dt);
-                    //dataGridSearchPatient.ItemsSource = dt.DefaultView;
+                    
+                    }
+
+                    else if (searchType.Equals("byName"))
+                    {
+                        SqlCommand cmd = new SqlCommand("select * from Patients where patientName like '%' +@patientName+ '%' ", con);
+                        cmd.Parameters.Add(new SqlParameter("@patientName", searchValue));
+
+
+                        con.Open();
+
+                        SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                        //dt = new DataTable("Patients");
+                        sda.Fill(dt);
+                        //dataGridSearchPatient.ItemsSource = dt.DefaultView;
+                    }
 
                 }
 
@@ -275,6 +282,33 @@ namespace Shripada.Code
                 System.Windows.Forms.MessageBox.Show(e.ToString());
             }
             return dt;
+        }
+
+        public static void dischargePatient(String patientID)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(utils.cons))
+                {
+                    SqlCommand cmd = new SqlCommand("update Patients set currentStatus = @currentStatus where patientId = @patientID", con);
+
+                    cmd.Parameters.AddWithValue("@patientID", patientID);
+                    cmd.Parameters.AddWithValue("@currentStatus", "Discharged");
+
+                    con.Open();
+
+                    int i = cmd.ExecuteNonQuery();
+                    if (i >= 1)
+                    {
+                        //System.Windows.MessageBox.Show("Details updated Successfully");
+
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                System.Windows.Forms.MessageBox.Show(e.ToString());
+            }
         }
     }
 }

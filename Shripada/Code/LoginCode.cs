@@ -37,8 +37,7 @@ namespace Shripada.Code
                     {
                         result = true;
 
-                        Window w = new Dashboard();
-                        w.Show();                      
+                                              
                     }
                     else
                     {

@@ -25,6 +25,7 @@ namespace Shripada
     /// </summary>
     public partial class IPD_Patient : Window
     {
+        String searchPatientID;
         public IPD_Patient()
         {
             InitializeComponent();
@@ -180,11 +181,23 @@ namespace Shripada
 
         }
 
+        private void dataGrid1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            System.Windows.Controls.DataGrid dg = (System.Windows.Controls.DataGrid)sender;
+            DataRowView row_selected = dg.SelectedItem as DataRowView;
+            if (row_selected != null)
+            {
+                searchPatientID = row_selected["PatientID"].ToString();
+                
+
+            }
+        }
+
         public void viewDetails(object sender, RoutedEventArgs e)
         {
            // System.Windows.Forms.MessageBox.Show("I am coming soon!");
             String patientID = txtSearchById.Text;
-            List<String> patientDetails = Shripada.Code.Patient.getPatientDetails(patientID);
+            List<String> patientDetails = Shripada.Code.Patient.getPatientDetails(searchPatientID);
 
             dPatientID.Text = patientDetails.ElementAt(0).ToString();
             dtxtPatientName.Text = patientDetails.ElementAt(1);
@@ -300,12 +313,12 @@ namespace Shripada
             if (currentStatus.Equals("Admitted"))
             {
                 dbttnAddVisit.IsEnabled = false;
-                //dbttnCompleteVisit.IsEnabled = true;
+                dbttnCompleteVisit.IsEnabled = true;
             }
             else
             {
                 dbttnAddVisit.IsEnabled = true;
-                //dbttnCompleteVisit.IsEnabled = false;
+                dbttnCompleteVisit.IsEnabled = false;
             }
         }
 
@@ -338,7 +351,7 @@ namespace Shripada
         {
             Shripada.Code.Patient.addVisitNumber(dPatientID.Text);
             int visitID = Shripada.Code.Visit.addNewVisit(dPatientID.Text, dtxtPatientName.Text);
-            Shripada.Code.Wards.addWardDetails(visitID, txtPatientID.Text);
+            Shripada.Code.Wards.addWardDetails(visitID, dPatientID.Text);
             Window w = new IPD_View(dPatientID.Text, dtxtPatientName.Text);
             w.Show();
             
@@ -356,6 +369,8 @@ namespace Shripada
             w.Show();
 
         }
+
+        
 
     
 
