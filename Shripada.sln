@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shripada", "Shripada\Shripada.csproj", "{45FFCFE8-EDE5-4FCF-BB97-4F68B49CAE95}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "ShripadaSetup", "ShripadaSetup\ShripadaSetup.vdproj", "{E51072F6-D0D4-485D-92F3-E7AF0D538C6A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -13,6 +15,8 @@ Global
 		{45FFCFE8-EDE5-4FCF-BB97-4F68B49CAE95}.Debug|x86.Build.0 = Debug|x86
 		{45FFCFE8-EDE5-4FCF-BB97-4F68B49CAE95}.Release|x86.ActiveCfg = Release|x86
 		{45FFCFE8-EDE5-4FCF-BB97-4F68B49CAE95}.Release|x86.Build.0 = Release|x86
+		{E51072F6-D0D4-485D-92F3-E7AF0D538C6A}.Debug|x86.ActiveCfg = Debug
+		{E51072F6-D0D4-485D-92F3-E7AF0D538C6A}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

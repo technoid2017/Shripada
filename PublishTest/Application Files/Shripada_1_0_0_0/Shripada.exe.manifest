@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="Shripada.exe" version="1.0.0.0" publicKeyToken="d175223fe45eaec0" language="neutral" processorArchitecture="x86" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="Shripada" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
+    <commandLine file="Shripada.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the 
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward 
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.ReportViewer.Common" version="10.0.0.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" processorArchitecture="msil" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.ReportViewer.DataVisualization" version="10.0.0.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" processorArchitecture="msil" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.ReportViewer.ProcessingObjectModel" version="10.0.0.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" processorArchitecture="msil" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.ReportViewer.WinForms" version="10.0.0.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" processorArchitecture="msil" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Gallaxy Hospital.exe" size="1603584">
+      <assemblyIdentity name="Gallaxy Hospital" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>KbsVCq7UJHAiS1uEb0s00E0+1/A=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Shripada.exe" size="667136">
+      <assemblyIdentity name="Shripada" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>akSZ0SM0mGUAzjRKDlzKT68VGBw=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="Shripada.exe.config" size="556">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>wlo0gPOxEybeAPy7UXjKQ+K39y4=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=DESKTOP-8F5IS94\KALPESH" issuerKeyHash="7156b07e6d853d2325beb9dd89107652bbc76af5" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>OYJ/1RkIKGOmpYf8NnHUbs6LuMM=</DigestValue></Reference></SignedInfo><SignatureValue>cSc7R2WkbDwsf3RGadrz0jO9I6GBj70S/J/gfRZtuoqNVaNZmwBR0xQF0aRadLNHu9MrsuwWR7bop5wyBgBdBpQDHsgM9ykJweEtm2s+lAzh8jLa8zhH/O0PmPghNEwmS9dyBzk3A5Kyde1szip/zJkeE1//4epZItmksT4owkQ=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>ovBiaKrnQdf5i+CekNowL+Ef4P3JV7KcjMqiopDfQDyiJ8Rf7aNW975au1ZbYBYJoMssn6NPJEoS3Q3QmyMDbl80lleHfOEMbo06UzsjdT9jvU7ls/G75XEul+COEbEEhYhtiFWAzXOC+J9jG4bKry3PXd3G5LSaJhh45+MdT/s=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="c3b88bce6ed47136fc87a5a663280819d57f8239" Description="" Url=""><as:assemblyIdentity name="Shripada.exe" version="1.0.0.0" publicKeyToken="d175223fe45eaec0" language="neutral" processorArchitecture="x86" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=DESKTOP-8F5IS94\KALPESH</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>TJ39hKF5FJ8Fi2ZeNXMLnd/MrAk=</DigestValue></Reference></SignedInfo><SignatureValue>iOu56M9CetMSAEuwFVLy2Vh1jYuWNhAR4BUiFtX1RpUptfs8cwWj/hse6KuTyG+RUqfaLz8PhItt3apBZunM254FEJa9utYEo6eqLWErkr0TVMD+HSG+gVHjB4RGXd2hScRunbUHiv+BKtFpaC0B8Oj1q9hoc2kyY6wsrtj109M=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>ovBiaKrnQdf5i+CekNowL+Ef4P3JV7KcjMqiopDfQDyiJ8Rf7aNW975au1ZbYBYJoMssn6NPJEoS3Q3QmyMDbl80lleHfOEMbo06UzsjdT9jvU7ls/G75XEul+COEbEEhYhtiFWAzXOC+J9jG4bKry3PXd3G5LSaJhh45+MdT/s=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB9TCCAV6gAwIBAgIQYZh2PHdnH5JLlv2gJb/G+DANBgkqhkiG9w0BAQUFADA5MTcwNQYDVQQDHi4ARABFAFMASwBUAE8AUAAtADgARgA1AEkAUwA5ADQAXABLAEEATABQAEUAUwBIMB4XDTE3MTExNzE2NDgxMloXDTE4MTExNzIyNDgxMlowOTE3MDUGA1UEAx4uAEQARQBTAEsAVABPAFAALQA4AEYANQBJAFMAOQA0AFwASwBBAEwAUABFAFMASDCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAovBiaKrnQdf5i+CekNowL+Ef4P3JV7KcjMqiopDfQDyiJ8Rf7aNW975au1ZbYBYJoMssn6NPJEoS3Q3QmyMDbl80lleHfOEMbo06UzsjdT9jvU7ls/G75XEul+COEbEEhYhtiFWAzXOC+J9jG4bKry3PXd3G5LSaJhh45+MdT/sCAwEAATANBgkqhkiG9w0BAQUFAAOBgQAQwB8XCH6wZwWZU+guReWQLana2lx5J82JXU4CIHSRbPf5+VL+0XI9porjCDCUNLdDF6XwjWmKKg5yze0bfq0Oh7qHixlHmEt7e6GgpX3jcuYdbH70Vnvr5kjrp0Ra6F26XLbYc3rmYCrb6H9GkdGZAw9O+Yrkcy3I0ejD0hnaVw==</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

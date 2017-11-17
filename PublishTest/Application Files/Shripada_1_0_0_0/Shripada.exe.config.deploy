@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <configSections>
+  </configSections>
+  <connectionStrings>
+    <add name="GallaxyConnection" connectionString="Data Source = .;Initial Catalog = Shripada; Integrated Security = True"
+      providerName="System.Data.SqlClient " />
+    <add name="Shripada.Properties.Settings.ShripadaConnectionString"
+      connectionString="Data Source=localhost;Initial Catalog=Shripada;Integrated Security=True"
+      providerName="System.Data.SqlClient" />
+  </connectionStrings>
+
+</configuration>
