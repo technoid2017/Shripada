@@ -157,7 +157,7 @@
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="67*" />
-                            <ColumnDefinition Width="977*" />
+                            <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
                         <Label Content="Discharge Bill" FontFamily="Sitka Heading" FontSize="56" FontWeight="Bold" Foreground="#FF1D637C" Height="70" HorizontalAlignment="Center" Margin="261,7,354,789" Name="label38" Width="362" Grid.Column="1" />
                         <Rectangle HorizontalAlignment="Center" Margin="246,7,354,777" Name="rectangle6" Stroke="#FF23A0A0" Width="377" Grid.Column="1" />
@@ -193,10 +193,11 @@
                         <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Grid.Column="1" Height="40" HorizontalAlignment="Right" IsReadOnly="True" Margin="0,386,56,441" Name="txtDischargeWardCharges" Width="200" />
                         <Label Content="Ward Charges" FontSize="20" Height="40" HorizontalAlignment="Right" Margin="0,386,277,441" Name="label53" Width="178" Grid.Column="1" />
                         <Border BorderBrush="Silver" BorderThickness="1" Grid.ColumnSpan="2" Height="252" HorizontalAlignment="Left" Margin="45,351,0,0" Name="border5" VerticalAlignment="Top" Width="967"></Border>
-                        <Button Background="#FFD19638" Content="Print" FontSize="20" Height="40" Name="bttnDischargePrint" Width="100" Grid.Column="1" Margin="523,661,354,165" Click="bttnDischargePrint_Click" />
-                        <Border BorderBrush="Silver" BorderThickness="1" Height="100" Name="border6" Grid.Column="1" Margin="261,688,328,79" />
+                        <Button Background="#FFD19638" Content="Print" FontSize="20" Height="40" Name="bttnDischargePrint" Width="100" Grid.Column="1" Margin="523,661,0,165" Click="bttnDischargePrint_Click" HorizontalAlignment="Left" />
+                        <Border BorderBrush="Silver" BorderThickness="1" Height="100" Name="border6" Grid.Column="1" Margin="278,707,311,60" />
                         <TextBox Background="#FFCBD9D9" BorderBrush="#FF7F969D" Height="40" HorizontalAlignment="Right" Margin="0,228,57,0" Name="txtDischargeDateOfDischarge" VerticalAlignment="Top" Width="132" Grid.Column="1" Visibility="Hidden" />
                         <Border BorderBrush="Silver" BorderThickness="1" Name="borderDate" Width="967" Grid.ColumnSpan="2" Margin="45,209,32,506" />
+                        <Button Background="#FFD19638" Content="Discharge Card" FontSize="20" Height="40" HorizontalAlignment="Left" Margin="650,661,0,0" Name="bttnDischargeCard" VerticalAlignment="Top" Width="161" Grid.Column="1" Click="bttnDischargeCard_Click" />
                     </Grid>
                 </TabItem>
             </TabControl>

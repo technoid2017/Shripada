@@ -13,9 +13,9 @@
                     <Canvas HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Opacity="1" Visibility="Visible" Background="#FFCBD9D9">
                         <Rectangle Canvas.Left="260" Canvas.Top="19" Height="86" Name="rectangle4" Stroke="#FF23A0A0" Width="447" HorizontalAlignment="Center" />
                         <Label Canvas.Left="298" Canvas.Top="19" Content="Search Patient" FontFamily="Sitka Heading" FontSize="56" FontWeight="Bold" Foreground="#FF1D637C" Height="70" Name="label32" Width="385" HorizontalAlignment="Center" />
-                        <TextBox Canvas.Left="298" Canvas.Top="138" Height="40" Name="txtSearchById" Width="250" Background="#FFCBD9D9" Text="Enter Patient ID Here" FontSize="18" />
+                        <TextBox Canvas.Left="298" Canvas.Top="138" Height="40" Name="txtSearchById" Width="250" Background="#FFCBD9D9" Text="IPD NO" FontSize="18" />
                         <Button Canvas.Left="554" Canvas.Top="138" Height="40" Name="bbtnSearchByID" Width="49" Click="bbtnSearchByID_Click"></Button>
-                        <TextBox Background="#FFCBD9D9" Canvas.Left="260" Canvas.Top="245" Height="40" Name="txtSearchByName" Width="343" Text="Enter Patient Name Here" FontSize="18" />
+                        <TextBox Background="#FFCBD9D9" Canvas.Left="260" Canvas.Top="245" Height="40" Name="txtSearchByName" Width="343" Text="Name" FontSize="18" />
                         <Button Canvas.Left="609" Canvas.Top="245" Height="40" Name="bttnSearchByName" Width="49" Click="bttnSearchByName_Click"></Button>
                         <Label Canvas.Left="393" Canvas.Top="183" Content="OR" FontFamily="Sitka Heading" FontSize="52" FontWeight="Bold" Foreground="#FF1D637C" Height="57" Name="label1" Width="93" />
                         <Label Canvas.Left="318" Canvas.Top="296" Content="Search Result" FontFamily="Sitka Heading" FontSize="40" FontWeight="Bold" Foreground="#FF1D637C" Height="57" Name="label22" Width="285" />

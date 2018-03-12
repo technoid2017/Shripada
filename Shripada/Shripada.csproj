@@ -42,6 +42,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -111,10 +112,34 @@
     <Compile Include="DischargeBill.Designer.cs">
       <DependentUpon>DischargeBill.cs</DependentUpon>
     </Compile>
+    <Compile Include="DischargeBillDataNew.cs">
+      <DependentUpon>DischargeBillDataNew.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DischargeBillDataNew.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DischargeBillDataNew.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DischargeBillDataSet.cs">
+      <DependentUpon>DischargeBillDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="DischargeBillDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DischargeBillDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DischargeCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DischargeCard.Designer.cs">
+      <DependentUpon>DischargeCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DischargeCardDataset.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DischargeCardDataset.xsd</DependentUpon>
     </Compile>
     <Compile Include="MedicineBill.cs">
       <SubType>Form</SubType>
@@ -126,6 +151,21 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MedicineBillDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="NewDischargeBill.cs">
+      <DependentUpon>NewDischargeBill.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="NewDischargeBill.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NewDischargeBill.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="NewDischargeBillWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewDischargeBillWindow.Designer.cs">
+      <DependentUpon>NewDischargeBillWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Reminder.xaml.cs">
       <DependentUpon>Reminder.xaml</DependentUpon>
@@ -232,10 +272,18 @@
       <DependentUpon>DischargeBill.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DischargeBillReport.rdlc" />
+    <EmbeddedResource Include="DischargeCard.resx">
+      <DependentUpon>DischargeCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DischargeCardReportNew.rdlc" />
     <EmbeddedResource Include="MedicineBill.resx">
       <DependentUpon>MedicineBill.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MedicineBillReport.rdlc" />
+    <EmbeddedResource Include="NewDischargeBillReport.rdlc" />
+    <EmbeddedResource Include="NewDischargeBillWindow.resx">
+      <DependentUpon>NewDischargeBillWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -245,6 +293,17 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ServiceBillReport.rdlc" />
     <None Include="App.config" />
+    <None Include="DischargeBillDataNew.xsc">
+      <DependentUpon>DischargeBillDataNew.xsd</DependentUpon>
+    </None>
+    <None Include="DischargeBillDataNew.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DischargeBillDataNew.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DischargeBillDataNew.xss">
+      <DependentUpon>DischargeBillDataNew.xsd</DependentUpon>
+    </None>
     <None Include="DischargeBillDataSet.xsc">
       <DependentUpon>DischargeBillDataSet.xsd</DependentUpon>
     </None>
@@ -256,6 +315,17 @@
     <None Include="DischargeBillDataSet.xss">
       <DependentUpon>DischargeBillDataSet.xsd</DependentUpon>
     </None>
+    <None Include="DischargeCardDataset.xsc">
+      <DependentUpon>DischargeCardDataset.xsd</DependentUpon>
+    </None>
+    <None Include="DischargeCardDataset.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DischargeCardDataset.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DischargeCardDataset.xss">
+      <DependentUpon>DischargeCardDataset.xsd</DependentUpon>
+    </None>
     <None Include="MedicineBillDataSet.xsc">
       <DependentUpon>MedicineBillDataSet.xsd</DependentUpon>
     </None>
@@ -266,6 +336,17 @@
     </None>
     <None Include="MedicineBillDataSet.xss">
       <DependentUpon>MedicineBillDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="NewDischargeBill.xsc">
+      <DependentUpon>NewDischargeBill.xsd</DependentUpon>
+    </None>
+    <None Include="NewDischargeBill.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>NewDischargeBill.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="NewDischargeBill.xss">
+      <DependentUpon>NewDischargeBill.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -328,6 +409,9 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ShripadaHeader.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

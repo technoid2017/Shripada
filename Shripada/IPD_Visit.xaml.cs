@@ -825,8 +825,15 @@ namespace Shripada
 
         private void bttnDischargePrint_Click(object sender, RoutedEventArgs e)
         {
-            DischargeBill d = new DischargeBill(GvisitID);
+            NewDischargeBillWindow d = new NewDischargeBillWindow(GvisitID);
             d.Show();
+        }
+
+        private void bttnDischargeCard_Click(object sender, RoutedEventArgs e)
+        {
+            DischargeCard d = new DischargeCard(GvisitID);
+            d.Show();
+
         }
 
         

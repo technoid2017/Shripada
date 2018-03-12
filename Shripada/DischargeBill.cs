@@ -21,9 +21,10 @@ namespace Shripada
         private void DischargeBill_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'DischargeBillDataSet.DataTable1' table. You can move, or remove it, as needed.
-            this.DataTable1TableAdapter.Fill(this.DischargeBillDataSet.DataTable1, GvisitID);
-
+           // this.DataTable1TableAdapter.Fill(this.NewDischargeBill.DataTable1, GvisitID);
+            this.DataTable1TableAdapter.Fill(this.NewDischargeBill.DataTable1, GvisitID);
             this.reportViewer1.RefreshReport();
+            //this.reportViewer1.RefreshReport();
         }
 
         private void reportViewer1_Load(object sender, EventArgs e)
